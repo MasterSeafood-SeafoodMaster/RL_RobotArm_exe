@@ -11,7 +11,7 @@ class ArmEnv_3D:
         self.ylenList=[0, -2.25, 2.25, -2.25]
         self.angList = [0, 0, 0, 0]
         self.angDir = ["Z", "Y", "Y", "Y"]
-        self.target=[5, 5, 5]
+        self.target=[0, 0, sum(lList)]
         self.cord=[]
         self.lim = sum(self.lenList)
         self.vision=vision
@@ -72,11 +72,12 @@ class ArmEnv_3D:
 
                 dis1=np.linalg.norm(np_target - top1)
                 slope = (dis1-dis0)/d_theta
-                self.angList[i] += -slope*speed
+                self.angList[i] += max(min(-slope*speed, 5), -5)
                 self.angList[i] = min(max(self.angList[i], -90), 90)
             top=self.forward_kinematics(self.angList)
             dis=np.linalg.norm(np_target - top0)
             if dis<0.1:
+                #print("break")
                 break
             
 
@@ -90,14 +91,12 @@ class ArmEnv_3D:
 
     def moveto(self, new_target, num_points,re_int=True):
         line=self.generate_points(self.target, new_target, num_points)
+        print(line)
         ang_history=[]
         for l in line:
             r=self.angList.copy()
             self.target=l
             self.gradient_policy(500, 2)
-            for i in range(4):
-                d=self.angList[i]-r[i]
-                self.angList[i]=r[i]+min(5, max(-5, d))
 
             #self.updatePicture()
             if re_int: 
