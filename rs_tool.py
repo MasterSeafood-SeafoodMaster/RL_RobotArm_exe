@@ -6,6 +6,7 @@ import cv2
 class rs_Camera:
     def __init__(self):
         self.pipeline = rs.pipeline()
+        self.intrinsics=rs.intrinsics()
         config = rs.config()
 
         pipeline_wrapper = rs.pipeline_wrapper(self.pipeline)
@@ -61,6 +62,11 @@ class rs_Camera:
         #depth_image = cv2.resize(depth_image[:, 40:600], (640, 480))
 
         return color_image, depth_image
+
+    def getDepthPoint(depth_frame, x_depth_pixel, y_depth_pixel):
+        depth_intrinsic=self.intrinsics
+        depth = depth_frame.get_distance(int(x_depth_pixel), int(y_depth_pixel))
+
 
 if __name__ == '__main__':
     cap = rs_Camera()
