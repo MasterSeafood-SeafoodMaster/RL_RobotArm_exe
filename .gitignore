@@ -1,5 +1,6 @@
 .gitignore
 yolov8/datasets/
+yolov8/dataset/
 yolov8/runs/
 
 *__pycache__

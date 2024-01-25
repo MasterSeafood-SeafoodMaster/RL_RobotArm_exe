@@ -6,6 +6,8 @@ import cv2
 class rs_Camera:
     def __init__(self):
         self.pipeline = rs.pipeline()
+        self.intrinsics=rs.intrinsics()
+        
         config = rs.config()
 
         pipeline_wrapper = rs.pipeline_wrapper(self.pipeline)
@@ -31,6 +33,10 @@ class rs_Camera:
         #self.pipeline.start(config)
         # Start streaming
         self.profile = self.pipeline.start(config)
+        depth_stream=rs.video_stream_profile(self.profile.get_stream(rs.stream.depth))
+        self.intrinsics=depth_stream.get_intrinsics()
+        #print(self.intrinsics)
+
 
         # Getting the depth sensor's depth scale (see rs-align example for explanation)
         self.depth_sensor = self.profile.get_device().first_depth_sensor()
@@ -62,10 +68,23 @@ class rs_Camera:
 
         return color_image, depth_image
 
+    def to_cord(self, imgx, imgy, imgd):
+        fx=self.intrinsics.fx
+        fy=self.intrinsics.fy
+        
+        x=(imgx-320)*imgd/fx
+        z=(imgy-240)*imgd/fy
+        y=imgd
+
+        return [x, y, z]
+
 if __name__ == '__main__':
     cap = rs_Camera()
     while True:
         color_image, depth_image = cap.getframe()
+        #print(color_image.shape)
+        cord=cap.to_cord(320, 240, depth_image[240][320])
+        print(cord)
         depth_colormap = cv2.applyColorMap(cv2.convertScaleAbs(depth_image, alpha=0.03), cv2.COLORMAP_JET)
         img = np.hstack((color_image, depth_colormap))
         cv2.imshow("live", img)

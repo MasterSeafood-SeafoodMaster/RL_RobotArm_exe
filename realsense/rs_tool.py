@@ -73,7 +73,7 @@ class rs_Camera:
         fy=self.intrinsics.fy
         
         x=(imgx-320)*imgd/fx
-        z=(imgy-240)*imgd/fy
+        z=-(imgy-240)*imgd/fy
         y=imgd
 
         return [x, y, z]
