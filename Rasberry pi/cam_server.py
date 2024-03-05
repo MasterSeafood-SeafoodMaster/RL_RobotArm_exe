@@ -46,7 +46,7 @@ while True:
                 objs.append(mid)
                 depth_colormap=cv2.putText(depth_colormap, str(depth_image[mid[1]][mid[0]]), (int(b[0]), int(b[1])), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 255), 1, cv2.LINE_AA)
 
-            img=cv2.hconcat((gbd_image, depth_colormap))
+            img=cv2.hconcat((gbd_image, depth_colormap)) 
             if len(objs)>0:
                 deg = objs[0][0]-320
                 if deg<0:
