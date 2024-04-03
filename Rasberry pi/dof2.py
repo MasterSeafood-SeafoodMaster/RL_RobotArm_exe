@@ -3,7 +3,7 @@ import time
 from adafruit_servokit import ServoKit
 class Arm:
     def __init__(self):
-        self.pos=[0, 0, 7]
+        self.pos=[0, 1, 7]
         self.lastAva=self.pos.copy()
         self.kit = ServoKit(channels=16)
         self.kit.servo[0].set_pulse_width_range(500, 2500)
@@ -57,3 +57,18 @@ class Arm:
         else:
             self.pos=self.lastAva.copy()
             return [-1, -1, -1, -1]
+
+    def Adjustment(self, idx):
+        #for s in self.servos: s.angle=90
+        for i in range(0, 180, 1):
+            self.kit.servo[idx].angle=i
+            time.sleep(0.01)
+        time.sleep(2)
+        for i in range(180, 0, -1):
+            self.kit.servo[idx].angle=i
+            time.sleep(0.01)
+        time.sleep(2)
+
+if __name__=="__main__":
+    arm=Arm()
+    arm.Adjustment(3)

@@ -2,5 +2,6 @@
 yolov8/datasets/
 yolov8/dataset/
 yolov8/runs/
+chat_GPT/chatGPT_caller.py
 
 *__pycache__
