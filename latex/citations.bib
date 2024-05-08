@@ -1,903 +1,351 @@
 
-@article{welanderGenerativeAdversarialNetworks2018,
-	title = {Generative Adversarial Networks for Image-to-Image Translation on Multi-Contrast {MR} Images - A Comparison of {CycleGAN} and {UNIT}},
-	url = {http://arxiv.org/abs/1806.07777},
-	abstract = {In medical imaging, a general problem is that it is costly and time consuming to collect high quality data from healthy and diseased subjects. Generative adversarial networks ({GANs}) is a deep learning method that has been developed for synthesizing data. {GANs} can thereby be used to generate more realistic training data, to improve classification performance of machine learning algorithms. Another application of {GANs} is image-to-image translations, e.g. generating magnetic resonance ({MR}) images from computed tomography ({CT}) images, which can be used to obtain multimodal datasets from a single modality. Here, we evaluate two unsupervised {GAN} models ({CycleGAN} and {UNIT}) for image-to-image translation of T1- and T2-weighted {MR} images, by comparing generated synthetic {MR} images to ground truth images. We also evaluate two supervised models; a modification of {CycleGAN} and a pure generator model. A small perceptual study was also performed to evaluate how visually realistic the synthesized images are. It is shown that the implemented {GAN} models can synthesize visually realistic {MR} images (incorrectly labeled as real by a human). It is also shown that models producing more visually realistic synthetic images not necessarily have better quantitative error measurements, when compared to ground truth data. Code is available at https://github.com/simontomaskarlsson/{GAN}-{MRI}},
-	journaltitle = {{arXiv}:1806.07777 [cs]},
-	author = {Welander, Per and Karlsson, Simon and Eklund, Anders},
-	urldate = {2021-05-31},
-	date = {2018-06-20},
-	eprinttype = {arxiv},
-	eprint = {1806.07777},
-	keywords = {Computer Science - Computer Vision and Pattern Recognition},
-	file = {arXiv Fulltext PDF:C\:\\Users\\yochien\\Zotero\\storage\\EZYLEADH\\Welander 等。 - 2018 - Generative Adversarial Networks for Image-to-Image.pdf:application/pdf;arXiv.org Snapshot:C\:\\Users\\yochien\\Zotero\\storage\\CCTD8ENY\\1806.html:text/html},
+//~\cite{devlin2019bert}
+
+//CH1 INTRODUCTION
+//高效能運算技術(High Performance Computing, HPC)
+@misc{reed2022reinventing,
+      title={Reinventing High Performance Computing: Challenges and Opportunities}, 
+      author={Daniel Reed and Dennis Gannon and Jack Dongarra},
+      year={2022},
+      eprint={2203.02544},
+      archivePrefix={arXiv},
+      primaryClass={cs.DC}}
+//大型語言模型（Large Language Model, LLM）
+@misc{zhao2023survey,
+      title={A Survey of Large Language Models}, 
+      author={Wayne Xin Zhao and Kun Zhou and Junyi Li and Tianyi Tang and Xiaolei Wang and Yupeng Hou and Yingqian Min and Beichen Zhang and Junjie Zhang and Zican Dong and Yifan Du and Chen Yang and Yushuo Chen and Zhipeng Chen and Jinhao Jiang and Ruiyang Ren and Yifan Li and Xinyu Tang and Zikang Liu and Peiyu Liu and Jian-Yun Nie and Ji-Rong Wen},
+      year={2023},
+      eprint={2303.18223},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}}
+//Chat-GPT
+@article{Liu_2023,
+   title={Summary of ChatGPT-Related research and perspective towards the future of large language models},
+   volume={1},
+   ISSN={2950-1628},
+   url={http://dx.doi.org/10.1016/j.metrad.2023.100017},
+   DOI={10.1016/j.metrad.2023.100017},
+   number={2},
+   journal={Meta-Radiology},
+   publisher={Elsevier BV},
+   author={Liu, Yiheng and Han, Tianle and Ma, Siyuan and Zhang, Jiayue and Yang, Yuanyuan and Tian, Jiaming and He, Hao and Li, Antong and He, Mengshen and Liu, Zhengliang and Wu, Zihao and Zhao, Lin and Zhu, Dajiang and Li, Xiang and Qiang, Ning and Shen, Dingang and Liu, Tianming and Ge, Bao},
+   year={2023},
+   month=sep, pages={100017} }
+//LLAMA2
+@misc{touvron2023llama,
+      title={Llama 2: Open Foundation and Fine-Tuned Chat Models}, 
+      author={Hugo Touvron and Louis Martin and Kevin Stone and Peter Albert and Amjad Almahairi and Yasmine Babaei and Nikolay Bashlykov and Soumya Batra and Prajjwal Bhargava and Shruti Bhosale and Dan Bikel and Lukas Blecher and Cristian Canton Ferrer and Moya Chen and Guillem Cucurull and David Esiobu and Jude Fernandes and Jeremy Fu and Wenyin Fu and Brian Fuller and Cynthia Gao and Vedanuj Goswami and Naman Goyal and Anthony Hartshorn and Saghar Hosseini and Rui Hou and Hakan Inan and Marcin Kardas and Viktor Kerkez and Madian Khabsa and Isabel Kloumann and Artem Korenev and Punit Singh Koura and Marie-Anne Lachaux and Thibaut Lavril and Jenya Lee and Diana Liskovich and Yinghai Lu and Yuning Mao and Xavier Martinet and Todor Mihaylov and Pushkar Mishra and Igor Molybog and Yixin Nie and Andrew Poulton and Jeremy Reizenstein and Rashi Rungta and Kalyan Saladi and Alan Schelten and Ruan Silva and Eric Michael Smith and Ranjan Subramanian and Xiaoqing Ellen Tan and Binh Tang and Ross Taylor and Adina Williams and Jian Xiang Kuan and Puxin Xu and Zheng Yan and Iliyan Zarov and Yuchen Zhang and Angela Fan and Melanie Kambadur and Sharan Narang and Aurelien Rodriguez and Robert Stojnic and Sergey Edunov and Thomas Scialom},
+      year={2023},
+      eprint={2307.09288},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}}
+//gemini
+@misc{geminiteam2024gemini,
+      title={Gemini: A Family of Highly Capable Multimodal Models}, 
+      author={Gemini Team and Rohan Anil and Sebastian Borgeaud and Jean-Baptiste Alayrac and Jiahui Yu and Radu Soricut and Johan Schalkwyk and Andrew M. Dai and Anja Hauth and Katie Millican and David Silver and Melvin Johnson and Ioannis Antonoglou and Julian Schrittwieser and Amelia Glaese and Jilin Chen and Emily Pitler and Timothy Lillicrap and Angeliki Lazaridou and Orhan Firat and James Molloy and Michael Isard and Paul R. Barham and Tom Hennigan and Benjamin Lee and Fabio Viola and Malcolm Reynolds and Yuanzhong Xu and Ryan Doherty and Eli Collins and Clemens Meyer and Eliza Rutherford and Erica Moreira and Kareem Ayoub and Megha Goel and Jack Krawczyk and Cosmo Du and Ed Chi and Heng-Tze Cheng and Eric Ni and Purvi Shah and Patrick Kane and Betty Chan and Manaal Faruqui and Aliaksei Severyn and Hanzhao Lin and YaGuang Li and Yong Cheng and Abe Ittycheriah and Mahdis Mahdieh and Mia Chen and Pei Sun and Dustin Tran and Sumit Bagri and Balaji Lakshminarayanan and Jeremiah Liu and Andras Orban and Fabian Güra and Hao Zhou and Xinying Song and Aurelien Boffy and Harish Ganapathy and Steven Zheng and HyunJeong Choe and Ágoston Weisz and Tao Zhu and Yifeng Lu and Siddharth Gopal and Jarrod Kahn and Maciej Kula and Jeff Pitman and Rushin Shah and Emanuel Taropa and Majd Al Merey and Martin Baeuml and Zhifeng Chen and Laurent El Shafey and Yujing Zhang and Olcan Sercinoglu and George Tucker and Enrique Piqueras and Maxim Krikun and Iain Barr and Nikolay Savinov and Ivo Danihelka and Becca Roelofs and Anaïs White and Anders Andreassen and Tamara von Glehn and Lakshman Yagati and Mehran Kazemi and Lucas Gonzalez and Misha Khalman and Jakub Sygnowski and Alexandre Frechette and Charlotte Smith and Laura Culp and Lev Proleev and Yi Luan and Xi Chen and James Lottes and Nathan Schucher and Federico Lebron and Alban Rrustemi and Natalie Clay and Phil Crone and Tomas Kocisky and Jeffrey Zhao and Bartek Perz and Dian Yu and Heidi Howard and Adam Bloniarz and Jack W. Rae and Han Lu and Laurent Sifre and Marcello Maggioni and Fred Alcober and Dan Garrette and Megan Barnes and Shantanu Thakoor and Jacob Austin and Gabriel Barth-Maron and William Wong and Rishabh Joshi and Rahma Chaabouni and Deeni Fatiha and Arun Ahuja and Gaurav Singh Tomar and Evan Senter and Martin Chadwick and Ilya Kornakov and Nithya Attaluri and Iñaki Iturrate and Ruibo Liu and Yunxuan Li and Sarah Cogan and Jeremy Chen and Chao Jia and Chenjie Gu and Qiao Zhang and Jordan Grimstad and Ale Jakse Hartman and Xavier Garcia and Thanumalayan Sankaranarayana Pillai and Jacob Devlin and Michael Laskin and Diego de Las Casas and Dasha Valter and Connie Tao and Lorenzo Blanco and Adrià Puigdomènech Badia and David Reitter and Mianna Chen and Jenny Brennan and Clara Rivera and Sergey Brin and Shariq Iqbal and Gabriela Surita and Jane Labanowski and Abhi Rao and Stephanie Winkler and Emilio Parisotto and Yiming Gu and Kate Olszewska and Ravi Addanki and Antoine Miech and Annie Louis and Denis Teplyashin and Geoff Brown and Elliot Catt and Jan Balaguer and Jackie Xiang and Pidong Wang and Zoe Ashwood and Anton Briukhov and Albert Webson and Sanjay Ganapathy and Smit Sanghavi and Ajay Kannan and Ming-Wei Chang and Axel Stjerngren and Josip Djolonga and Yuting Sun and Ankur Bapna and Matthew Aitchison and Pedram Pejman and Henryk Michalewski and Tianhe Yu and Cindy Wang and Juliette Love and Junwhan Ahn and Dawn Bloxwich and Kehang Han and Peter Humphreys and Thibault Sellam and James Bradbury and Varun Godbole and Sina Samangooei and Bogdan Damoc and Alex Kaskasoli and Sébastien M. R. Arnold and Vijay Vasudevan and Shubham Agrawal and Jason Riesa and Dmitry Lepikhin and Richard Tanburn and Srivatsan Srinivasan and Hyeontaek Lim and Sarah Hodkinson and Pranav Shyam and Johan Ferret and Steven Hand and Ankush Garg and Tom Le Paine and Jian Li and Yujia Li and Minh Giang and Alexander Neitz and Zaheer Abbas and Sarah York and Machel Reid and Elizabeth Cole and Aakanksha Chowdhery and Dipanjan Das and Dominika Rogozińska and Vitaliy Nikolaev and Pablo Sprechmann and Zachary Nado and Lukas Zilka and Flavien Prost and Luheng He and Marianne Monteiro and Gaurav Mishra and Chris Welty and Josh Newlan and Dawei Jia and Miltiadis Allamanis and Clara Huiyi Hu and Raoul de Liedekerke and Justin Gilmer and Carl Saroufim and Shruti Rijhwani and Shaobo Hou and Disha Shrivastava and Anirudh Baddepudi and Alex Goldin and Adnan Ozturel and Albin Cassirer and Yunhan Xu and Daniel Sohn and Devendra Sachan and Reinald Kim Amplayo and Craig Swanson and Dessie Petrova and Shashi Narayan and Arthur Guez and Siddhartha Brahma and Jessica Landon and Miteyan Patel and Ruizhe Zhao and Kevin Villela and Luyu Wang and Wenhao Jia and Matthew Rahtz and Mai Giménez and Legg Yeung and James Keeling and Petko Georgiev and Diana Mincu and Boxi Wu and Salem Haykal and Rachel Saputro and Kiran Vodrahalli and James Qin and Zeynep Cankara and Abhanshu Sharma and Nick Fernando and Will Hawkins and Behnam Neyshabur and Solomon Kim and Adrian Hutter and Priyanka Agrawal and Alex Castro-Ros and George van den Driessche and Tao Wang and Fan Yang and Shuo-yiin Chang and Paul Komarek and Ross McIlroy and Mario Lučić and Guodong Zhang and Wael Farhan and Michael Sharman and Paul Natsev and Paul Michel and Yamini Bansal and Siyuan Qiao and Kris Cao and Siamak Shakeri and Christina Butterfield and Justin Chung and Paul Kishan Rubenstein and Shivani Agrawal and Arthur Mensch and Kedar Soparkar and Karel Lenc and Timothy Chung and Aedan Pope and Loren Maggiore and Jackie Kay and Priya Jhakra and Shibo Wang and Joshua Maynez and Mary Phuong and Taylor Tobin and Andrea Tacchetti and Maja Trebacz and Kevin Robinson and Yash Katariya and Sebastian Riedel and Paige Bailey and Kefan Xiao and Nimesh Ghelani and Lora Aroyo and Ambrose Slone and Neil Houlsby and Xuehan Xiong and Zhen Yang and Elena Gribovskaya and Jonas Adler and Mateo Wirth and Lisa Lee and Music Li and Thais Kagohara and Jay Pavagadhi and Sophie Bridgers and Anna Bortsova and Sanjay Ghemawat and Zafarali Ahmed and Tianqi Liu and Richard Powell and Vijay Bolina and Mariko Iinuma and Polina Zablotskaia and James Besley and Da-Woon Chung and Timothy Dozat and Ramona Comanescu and Xiance Si and Jeremy Greer and Guolong Su and Martin Polacek and Raphaël Lopez Kaufman and Simon Tokumine and Hexiang Hu and Elena Buchatskaya and Yingjie Miao and Mohamed Elhawaty and Aditya Siddhant and Nenad Tomasev and Jinwei Xing and Christina Greer and Helen Miller and Shereen Ashraf and Aurko Roy and Zizhao Zhang and Ada Ma and Angelos Filos and Milos Besta and Rory Blevins and Ted Klimenko and Chih-Kuan Yeh and Soravit Changpinyo and Jiaqi Mu and Oscar Chang and Mantas Pajarskas and Carrie Muir and Vered Cohen and Charline Le Lan and Krishna Haridasan and Amit Marathe and Steven Hansen and Sholto Douglas and Rajkumar Samuel and Mingqiu Wang and Sophia Austin and Chang Lan and Jiepu Jiang and Justin Chiu and Jaime Alonso Lorenzo and Lars Lowe Sjösund and Sébastien Cevey and Zach Gleicher and Thi Avrahami and Anudhyan Boral and Hansa Srinivasan and Vittorio Selo and Rhys May and Konstantinos Aisopos and Léonard Hussenot and Livio Baldini Soares and Kate Baumli and Michael B. Chang and Adrià Recasens and Ben Caine and Alexander Pritzel and Filip Pavetic and Fabio Pardo and Anita Gergely and Justin Frye and Vinay Ramasesh and Dan Horgan and Kartikeya Badola and Nora Kassner and Subhrajit Roy and Ethan Dyer and Víctor Campos Campos and Alex Tomala and Yunhao Tang and Dalia El Badawy and Elspeth White and Basil Mustafa and Oran Lang and Abhishek Jindal and Sharad Vikram and Zhitao Gong and Sergi Caelles and Ross Hemsley and Gregory Thornton and Fangxiaoyu Feng and Wojciech Stokowiec and Ce Zheng and Phoebe Thacker and Çağlar Ünlü and Zhishuai Zhang and Mohammad Saleh and James Svensson and Max Bileschi and Piyush Patil and Ankesh Anand and Roman Ring and Katerina Tsihlas and Arpi Vezer and Marco Selvi and Toby Shevlane and Mikel Rodriguez and Tom Kwiatkowski and Samira Daruki and Keran Rong and Allan Dafoe and Nicholas FitzGerald and Keren Gu-Lemberg and Mina Khan and Lisa Anne Hendricks and Marie Pellat and Vladimir Feinberg and James Cobon-Kerr and Tara Sainath and Maribeth Rauh and Sayed Hadi Hashemi and Richard Ives and Yana Hasson and Eric Noland and Yuan Cao and Nathan Byrd and Le Hou and Qingze Wang and Thibault Sottiaux and Michela Paganini and Jean-Baptiste Lespiau and Alexandre Moufarek and Samer Hassan and Kaushik Shivakumar and Joost van Amersfoort and Amol Mandhane and Pratik Joshi and Anirudh Goyal and Matthew Tung and Andrew Brock and Hannah Sheahan and Vedant Misra and Cheng Li and Nemanja Rakićević and Mostafa Dehghani and Fangyu Liu and Sid Mittal and Junhyuk Oh and Seb Noury and Eren Sezener and Fantine Huot and Matthew Lamm and Nicola De Cao and Charlie Chen and Sidharth Mudgal and Romina Stella and Kevin Brooks and Gautam Vasudevan and Chenxi Liu and Mainak Chain and Nivedita Melinkeri and Aaron Cohen and Venus Wang and Kristie Seymore and Sergey Zubkov and Rahul Goel and Summer Yue and Sai Krishnakumaran and Brian Albert and Nate Hurley and Motoki Sano and Anhad Mohananey and Jonah Joughin and Egor Filonov and Tomasz Kępa and Yomna Eldawy and Jiawern Lim and Rahul Rishi and Shirin Badiezadegan and Taylor Bos and Jerry Chang and Sanil Jain and Sri Gayatri Sundara Padmanabhan and Subha Puttagunta and Kalpesh Krishna and Leslie Baker and Norbert Kalb and Vamsi Bedapudi and Adam Kurzrok and Shuntong Lei and Anthony Yu and Oren Litvin and Xiang Zhou and Zhichun Wu and Sam Sobell and Andrea Siciliano and Alan Papir and Robby Neale and Jonas Bragagnolo and Tej Toor and Tina Chen and Valentin Anklin and Feiran Wang and Richie Feng and Milad Gholami and Kevin Ling and Lijuan Liu and Jules Walter and Hamid Moghaddam and Arun Kishore and Jakub Adamek and Tyler Mercado and Jonathan Mallinson and Siddhinita Wandekar and Stephen Cagle and Eran Ofek and Guillermo Garrido and Clemens Lombriser and Maksim Mukha and Botu Sun and Hafeezul Rahman Mohammad and Josip Matak and Yadi Qian and Vikas Peswani and Pawel Janus and Quan Yuan and Leif Schelin and Oana David and Ankur Garg and Yifan He and Oleksii Duzhyi and Anton Älgmyr and Timothée Lottaz and Qi Li and Vikas Yadav and Luyao Xu and Alex Chinien and Rakesh Shivanna and Aleksandr Chuklin and Josie Li and Carrie Spadine and Travis Wolfe and Kareem Mohamed and Subhabrata Das and Zihang Dai and Kyle He and Daniel von Dincklage and Shyam Upadhyay and Akanksha Maurya and Luyan Chi and Sebastian Krause and Khalid Salama and Pam G Rabinovitch and Pavan Kumar Reddy M and Aarush Selvan and Mikhail Dektiarev and Golnaz Ghiasi and Erdem Guven and Himanshu Gupta and Boyi Liu and Deepak Sharma and Idan Heimlich Shtacher and Shachi Paul and Oscar Akerlund and François-Xavier Aubet and Terry Huang and Chen Zhu and Eric Zhu and Elico Teixeira and Matthew Fritze and Francesco Bertolini and Liana-Eleonora Marinescu and Martin Bölle and Dominik Paulus and Khyatti Gupta and Tejasi Latkar and Max Chang and Jason Sanders and Roopa Wilson and Xuewei Wu and Yi-Xuan Tan and Lam Nguyen Thiet and Tulsee Doshi and Sid Lall and Swaroop Mishra and Wanming Chen and Thang Luong and Seth Benjamin and Jasmine Lee and Ewa Andrejczuk and Dominik Rabiej and Vipul Ranjan and Krzysztof Styrc and Pengcheng Yin and Jon Simon and Malcolm Rose Harriott and Mudit Bansal and Alexei Robsky and Geoff Bacon and David Greene and Daniil Mirylenka and Chen Zhou and Obaid Sarvana and Abhimanyu Goyal and Samuel Andermatt and Patrick Siegler and Ben Horn and Assaf Israel and Francesco Pongetti and Chih-Wei "Louis" Chen and Marco Selvatici and Pedro Silva and Kathie Wang and Jackson Tolins and Kelvin Guu and Roey Yogev and Xiaochen Cai and Alessandro Agostini and Maulik Shah and Hung Nguyen and Noah Ó Donnaile and Sébastien Pereira and Linda Friso and Adam Stambler and Adam Kurzrok and Chenkai Kuang and Yan Romanikhin and Mark Geller and ZJ Yan and Kane Jang and Cheng-Chun Lee and Wojciech Fica and Eric Malmi and Qijun Tan and Dan Banica and Daniel Balle and Ryan Pham and Yanping Huang and Diana Avram and Hongzhi Shi and Jasjot Singh and Chris Hidey and Niharika Ahuja and Pranab Saxena and Dan Dooley and Srividya Pranavi Potharaju and Eileen O'Neill and Anand Gokulchandran and Ryan Foley and Kai Zhao and Mike Dusenberry and Yuan Liu and Pulkit Mehta and Ragha Kotikalapudi and Chalence Safranek-Shrader and Andrew Goodman and Joshua Kessinger and Eran Globen and Prateek Kolhar and Chris Gorgolewski and Ali Ibrahim and Yang Song and Ali Eichenbaum and Thomas Brovelli and Sahitya Potluri and Preethi Lahoti and Cip Baetu and Ali Ghorbani and Charles Chen and Andy Crawford and Shalini Pal and Mukund Sridhar and Petru Gurita and Asier Mujika and Igor Petrovski and Pierre-Louis Cedoz and Chenmei Li and Shiyuan Chen and Niccolò Dal Santo and Siddharth Goyal and Jitesh Punjabi and Karthik Kappaganthu and Chester Kwak and Pallavi LV and Sarmishta Velury and Himadri Choudhury and Jamie Hall and Premal Shah and Ricardo Figueira and Matt Thomas and Minjie Lu and Ting Zhou and Chintu Kumar and Thomas Jurdi and Sharat Chikkerur and Yenai Ma and Adams Yu and Soo Kwak and Victor Ähdel and Sujeevan Rajayogam and Travis Choma and Fei Liu and Aditya Barua and Colin Ji and Ji Ho Park and Vincent Hellendoorn and Alex Bailey and Taylan Bilal and Huanjie Zhou and Mehrdad Khatir and Charles Sutton and Wojciech Rzadkowski and Fiona Macintosh and Konstantin Shagin and Paul Medina and Chen Liang and Jinjing Zhou and Pararth Shah and Yingying Bi and Attila Dankovics and Shipra Banga and Sabine Lehmann and Marissa Bredesen and Zifan Lin and John Eric Hoffmann and Jonathan Lai and Raynald Chung and Kai Yang and Nihal Balani and Arthur Bražinskas and Andrei Sozanschi and Matthew Hayes and Héctor Fernández Alcalde and Peter Makarov and Will Chen and Antonio Stella and Liselotte Snijders and Michael Mandl and Ante Kärrman and Paweł Nowak and Xinyi Wu and Alex Dyck and Krishnan Vaidyanathan and Raghavender R and Jessica Mallet and Mitch Rudominer and Eric Johnston and Sushil Mittal and Akhil Udathu and Janara Christensen and Vishal Verma and Zach Irving and Andreas Santucci and Gamaleldin Elsayed and Elnaz Davoodi and Marin Georgiev and Ian Tenney and Nan Hua and Geoffrey Cideron and Edouard Leurent and Mahmoud Alnahlawi and Ionut Georgescu and Nan Wei and Ivy Zheng and Dylan Scandinaro and Heinrich Jiang and Jasper Snoek and Mukund Sundararajan and Xuezhi Wang and Zack Ontiveros and Itay Karo and Jeremy Cole and Vinu Rajashekhar and Lara Tumeh and Eyal Ben-David and Rishub Jain and Jonathan Uesato and Romina Datta and Oskar Bunyan and Shimu Wu and John Zhang and Piotr Stanczyk and Ye Zhang and David Steiner and Subhajit Naskar and Michael Azzam and Matthew Johnson and Adam Paszke and Chung-Cheng Chiu and Jaume Sanchez Elias and Afroz Mohiuddin and Faizan Muhammad and Jin Miao and Andrew Lee and Nino Vieillard and Jane Park and Jiageng Zhang and Jeff Stanway and Drew Garmon and Abhijit Karmarkar and Zhe Dong and Jong Lee and Aviral Kumar and Luowei Zhou and Jonathan Evens and William Isaac and Geoffrey Irving and Edward Loper and Michael Fink and Isha Arkatkar and Nanxin Chen and Izhak Shafran and Ivan Petrychenko and Zhe Chen and Johnson Jia and Anselm Levskaya and Zhenkai Zhu and Peter Grabowski and Yu Mao and Alberto Magni and Kaisheng Yao and Javier Snaider and Norman Casagrande and Evan Palmer and Paul Suganthan and Alfonso Castaño and Irene Giannoumis and Wooyeol Kim and Mikołaj Rybiński and Ashwin Sreevatsa and Jennifer Prendki and David Soergel and Adrian Goedeckemeyer and Willi Gierke and Mohsen Jafari and Meenu Gaba and Jeremy Wiesner and Diana Gage Wright and Yawen Wei and Harsha Vashisht and Yana Kulizhskaya and Jay Hoover and Maigo Le and Lu Li and Chimezie Iwuanyanwu and Lu Liu and Kevin Ramirez and Andrey Khorlin and Albert Cui and Tian LIN and Marcus Wu and Ricardo Aguilar and Keith Pallo and Abhishek Chakladar and Ginger Perng and Elena Allica Abellan and Mingyang Zhang and Ishita Dasgupta and Nate Kushman and Ivo Penchev and Alena Repina and Xihui Wu and Tom van der Weide and Priya Ponnapalli and Caroline Kaplan and Jiri Simsa and Shuangfeng Li and Olivier Dousse and Fan Yang and Jeff Piper and Nathan Ie and Rama Pasumarthi and Nathan Lintz and Anitha Vijayakumar and Daniel Andor and Pedro Valenzuela and Minnie Lui and Cosmin Paduraru and Daiyi Peng and Katherine Lee and Shuyuan Zhang and Somer Greene and Duc Dung Nguyen and Paula Kurylowicz and Cassidy Hardin and Lucas Dixon and Lili Janzer and Kiam Choo and Ziqiang Feng and Biao Zhang and Achintya Singhal and Dayou Du and Dan McKinnon and Natasha Antropova and Tolga Bolukbasi and Orgad Keller and David Reid and Daniel Finchelstein and Maria Abi Raad and Remi Crocker and Peter Hawkins and Robert Dadashi and Colin Gaffney and Ken Franko and Anna Bulanova and Rémi Leblond and Shirley Chung and Harry Askham and Luis C. Cobo and Kelvin Xu and Felix Fischer and Jun Xu and Christina Sorokin and Chris Alberti and Chu-Cheng Lin and Colin Evans and Alek Dimitriev and Hannah Forbes and Dylan Banarse and Zora Tung and Mark Omernick and Colton Bishop and Rachel Sterneck and Rohan Jain and Jiawei Xia and Ehsan Amid and Francesco Piccinno and Xingyu Wang and Praseem Banzal and Daniel J. Mankowitz and Alex Polozov and Victoria Krakovna and Sasha Brown and MohammadHossein Bateni and Dennis Duan and Vlad Firoiu and Meghana Thotakuri and Tom Natan and Matthieu Geist and Ser tan Girgin and Hui Li and Jiayu Ye and Ofir Roval and Reiko Tojo and Michael Kwong and James Lee-Thorp and Christopher Yew and Danila Sinopalnikov and Sabela Ramos and John Mellor and Abhishek Sharma and Kathy Wu and David Miller and Nicolas Sonnerat and Denis Vnukov and Rory Greig and Jennifer Beattie and Emily Caveness and Libin Bai and Julian Eisenschlos and Alex Korchemniy and Tomy Tsai and Mimi Jasarevic and Weize Kong and Phuong Dao and Zeyu Zheng and Frederick Liu and Fan Yang and Rui Zhu and Tian Huey Teh and Jason Sanmiya and Evgeny Gladchenko and Nejc Trdin and Daniel Toyama and Evan Rosen and Sasan Tavakkol and Linting Xue and Chen Elkind and Oliver Woodman and John Carpenter and George Papamakarios and Rupert Kemp and Sushant Kafle and Tanya Grunina and Rishika Sinha and Alice Talbert and Diane Wu and Denese Owusu-Afriyie and Cosmo Du and Chloe Thornton and Jordi Pont-Tuset and Pradyumna Narayana and Jing Li and Saaber Fatehi and John Wieting and Omar Ajmeri and Benigno Uria and Yeongil Ko and Laura Knight and Amélie Héliou and Ning Niu and Shane Gu and Chenxi Pang and Yeqing Li and Nir Levine and Ariel Stolovich and Rebeca Santamaria-Fernandez and Sonam Goenka and Wenny Yustalim and Robin Strudel and Ali Elqursh and Charlie Deck and Hyo Lee and Zonglin Li and Kyle Levin and Raphael Hoffmann and Dan Holtmann-Rice and Olivier Bachem and Sho Arora and Christy Koh and Soheil Hassas Yeganeh and Siim Põder and Mukarram Tariq and Yanhua Sun and Lucian Ionita and Mojtaba Seyedhosseini and Pouya Tafti and Zhiyu Liu and Anmol Gulati and Jasmine Liu and Xinyu Ye and Bart Chrzaszcz and Lily Wang and Nikhil Sethi and Tianrun Li and Ben Brown and Shreya Singh and Wei Fan and Aaron Parisi and Joe Stanton and Vinod Koverkathu and Christopher A. Choquette-Choo and Yunjie Li and TJ Lu and Abe Ittycheriah and Prakash Shroff and Mani Varadarajan and Sanaz Bahargam and Rob Willoughby and David Gaddy and Guillaume Desjardins and Marco Cornero and Brona Robenek and Bhavishya Mittal and Ben Albrecht and Ashish Shenoy and Fedor Moiseev and Henrik Jacobsson and Alireza Ghaffarkhah and Morgane Rivière and Alanna Walton and Clément Crepy and Alicia Parrish and Zongwei Zhou and Clement Farabet and Carey Radebaugh and Praveen Srinivasan and Claudia van der Salm and Andreas Fidjeland and Salvatore Scellato and Eri Latorre-Chimoto and Hanna Klimczak-Plucińska and David Bridson and Dario de Cesare and Tom Hudson and Piermaria Mendolicchio and Lexi Walker and Alex Morris and Matthew Mauger and Alexey Guseynov and Alison Reid and Seth Odoom and Lucia Loher and Victor Cotruta and Madhavi Yenugula and Dominik Grewe and Anastasia Petrushkina and Tom Duerig and Antonio Sanchez and Steve Yadlowsky and Amy Shen and Amir Globerson and Lynette Webb and Sahil Dua and Dong Li and Surya Bhupatiraju and Dan Hurt and Haroon Qureshi and Ananth Agarwal and Tomer Shani and Matan Eyal and Anuj Khare and Shreyas Rammohan Belle and Lei Wang and Chetan Tekur and Mihir Sanjay Kale and Jinliang Wei and Ruoxin Sang and Brennan Saeta and Tyler Liechty and Yi Sun and Yao Zhao and Stephan Lee and Pandu Nayak and Doug Fritz and Manish Reddy Vuyyuru and John Aslanides and Nidhi Vyas and Martin Wicke and Xiao Ma and Evgenii Eltyshev and Nina Martin and Hardie Cate and James Manyika and Keyvan Amiri and Yelin Kim and Xi Xiong and Kai Kang and Florian Luisier and Nilesh Tripuraneni and David Madras and Mandy Guo and Austin Waters and Oliver Wang and Joshua Ainslie and Jason Baldridge and Han Zhang and Garima Pruthi and Jakob Bauer and Feng Yang and Riham Mansour and Jason Gelman and Yang Xu and George Polovets and Ji Liu and Honglong Cai and Warren Chen and XiangHai Sheng and Emily Xue and Sherjil Ozair and Christof Angermueller and Xiaowei Li and Anoop Sinha and Weiren Wang and Julia Wiesinger and Emmanouil Koukoumidis and Yuan Tian and Anand Iyer and Madhu Gurumurthy and Mark Goldenson and Parashar Shah and MK Blake and Hongkun Yu and Anthony Urbanowicz and Jennimaria Palomaki and Chrisantha Fernando and Ken Durden and Harsh Mehta and Nikola Momchev and Elahe Rahimtoroghi and Maria Georgaki and Amit Raul and Sebastian Ruder and Morgan Redshaw and Jinhyuk Lee and Denny Zhou and Komal Jalan and Dinghua Li and Blake Hechtman and Parker Schuh and Milad Nasr and Kieran Milan and Vladimir Mikulik and Juliana Franco and Tim Green and Nam Nguyen and Joe Kelley and Aroma Mahendru and Andrea Hu and Joshua Howland and Ben Vargas and Jeffrey Hui and Kshitij Bansal and Vikram Rao and Rakesh Ghiya and Emma Wang and Ke Ye and Jean Michel Sarr and Melanie Moranski Preston and Madeleine Elish and Steve Li and Aakash Kaku and Jigar Gupta and Ice Pasupat and Da-Cheng Juan and Milan Someswar and Tejvi M. and Xinyun Chen and Aida Amini and Alex Fabrikant and Eric Chu and Xuanyi Dong and Amruta Muthal and Senaka Buthpitiya and Sarthak Jauhari and Nan Hua and Urvashi Khandelwal and Ayal Hitron and Jie Ren and Larissa Rinaldi and Shahar Drath and Avigail Dabush and Nan-Jiang Jiang and Harshal Godhia and Uli Sachs and Anthony Chen and Yicheng Fan and Hagai Taitelbaum and Hila Noga and Zhuyun Dai and James Wang and Chen Liang and Jenny Hamer and Chun-Sung Ferng and Chenel Elkind and Aviel Atias and Paulina Lee and Vít Listík and Mathias Carlen and Jan van de Kerkhof and Marcin Pikus and Krunoslav Zaher and Paul Müller and Sasha Zykova and Richard Stefanec and Vitaly Gatsko and Christoph Hirnschall and Ashwin Sethi and Xingyu Federico Xu and Chetan Ahuja and Beth Tsai and Anca Stefanoiu and Bo Feng and Keshav Dhandhania and Manish Katyal and Akshay Gupta and Atharva Parulekar and Divya Pitta and Jing Zhao and Vivaan Bhatia and Yashodha Bhavnani and Omar Alhadlaq and Xiaolin Li and Peter Danenberg and Dennis Tu and Alex Pine and Vera Filippova and Abhipso Ghosh and Ben Limonchik and Bhargava Urala and Chaitanya Krishna Lanka and Derik Clive and Yi Sun and Edward Li and Hao Wu and Kevin Hongtongsak and Ianna Li and Kalind Thakkar and Kuanysh Omarov and Kushal Majmundar and Michael Alverson and Michael Kucharski and Mohak Patel and Mudit Jain and Maksim Zabelin and Paolo Pelagatti and Rohan Kohli and Saurabh Kumar and Joseph Kim and Swetha Sankar and Vineet Shah and Lakshmi Ramachandruni and Xiangkai Zeng and Ben Bariach and Laura Weidinger and Amar Subramanya and Sissie Hsiao and Demis Hassabis and Koray Kavukcuoglu and Adam Sadovsky and Quoc Le and Trevor Strohman and Yonghui Wu and Slav Petrov and Jeffrey Dean and Oriol Vinyals},
+      year={2024},
+      eprint={2312.11805},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}}
+//自動程式碼生成
+@INPROCEEDINGS{10196869,
+  author={Feng, Yunhe and Vanam, Sreecharan and Cherukupally, Manasa and Zheng, Weijian and Qiu, Meikang and Chen, Haihua},
+  booktitle={2023 IEEE 47th Annual Computers, Software, and Applications Conference (COMPSAC)}, 
+  title={Investigating Code Generation Performance of ChatGPT with Crowdsourcing Social Data}, 
+  year={2023},
+  volume={},
+  number={},
+  pages={876-885},
+  keywords={Codes;Social networking (online);Debugging;Chatbots;Software;Task analysis;Interviews;ChatGPT;Coding Generation;Software Engineering;Large Language Models (LLMs);Generative Models;Social Media},
+  doi={10.1109/COMPSAC57700.2023.00117}}
+
+//CH2 BACKGROUNR
+//在自然語言處理（Natural Language Processing, NLP）
+@article{chowdhary2020natural,
+  title={Natural language processing},
+  author={Chowdhary, KR1442 and Chowdhary, KR},
+  journal={Fundamentals of artificial intelligence},
+  pages={603--649},
+  year={2020},
+  publisher={Springer}}
+//神經語言模型（Neural Language Model, NLM)
+@inproceedings{kim2016character,
+  title={Character-aware neural language models},
+  author={Kim, Yoon and Jernite, Yacine and Sontag, David and Rush, Alexander},
+  booktitle={Proceedings of the AAAI conference on artificial intelligence},
+  volume={30},
+  number={1},
+  year={2016}}
+//變換器模型 (Transformer Model)
+@inproceedings{wolf-etal-2020-transformers,
+    title = "Transformers: State-of-the-Art Natural Language Processing",
+    author = "Wolf, Thomas  and
+      Debut, Lysandre  and
+      Sanh, Victor  and
+      Chaumond, Julien  and
+      Delangue, Clement  and
+      Moi, Anthony  and
+      Cistac, Pierric  and
+      Rault, Tim  and
+      Louf, Remi  and
+      Funtowicz, Morgan  and
+      Davison, Joe  and
+      Shleifer, Sam  and
+      von Platen, Patrick  and
+      Ma, Clara  and
+      Jernite, Yacine  and
+      Plu, Julien  and
+      Xu, Canwen  and
+      Le Scao, Teven  and
+      Gugger, Sylvain  and
+      Drame, Mariama  and
+      Lhoest, Quentin  and
+      Rush, Alexander",
+    editor = "Liu, Qun  and
+      Schlangen, David",
+    booktitle = "Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing: System Demonstrations",
+    month = oct,
+    year = "2020",
+    address = "Online",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2020.emnlp-demos.6",
+    doi = "10.18653/v1/2020.emnlp-demos.6",
+    pages = "38--45",
+    abstract = "Recent progress in natural language processing has been driven by advances in both model architecture and model pretraining. Transformer architectures have facilitated building higher-capacity models and pretraining has made it possible to effectively utilize this capacity for a wide variety of tasks. Transformers is an open-source library with the goal of opening up these advances to the wider machine learning community. The library consists of carefully engineered state-of-the art Transformer architectures under a unified API. Backing this library is a curated collection of pretrained models made by and available for the community. Transformers is designed to be extensible by researchers, simple for practitioners, and fast and robust in industrial deployments. The library is available at \url{https://github.com/huggingface/transformers}.",}
+//BERT（Bidirectional Encoder Representations from Transformers）
+@misc{devlin2019bert,
+      title={BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding}, 
+      author={Jacob Devlin and Ming-Wei Chang and Kenton Lee and Kristina Toutanova},
+      year={2019},
+      eprint={1810.04805},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}}
+//LMM自動駕駛
+@misc{cui2023survey,
+      title={A Survey on Multimodal Large Language Models for Autonomous Driving}, 
+      author={Can Cui and Yunsheng Ma and Xu Cao and Wenqian Ye and Yang Zhou and Kaizhao Liang and Jintai Chen and Juanwu Lu and Zichong Yang and Kuei-Da Liao and Tianren Gao and Erlong Li and Kun Tang and Zhipeng Cao and Tong Zhou and Ao Liu and Xinrui Yan and Shuqi Mei and Jianguo Cao and Ziran Wang and Chao Zheng},
+      year={2023},
+      eprint={2311.12320},
+      archivePrefix={arXiv},
+      primaryClass={cs.AI}}
+//圖片風格轉換
+@misc{cai2023benchlmm,
+      title={BenchLMM: Benchmarking Cross-style Visual Capability of Large Multimodal Models}, 
+      author={Rizhao Cai and Zirui Song and Dayan Guan and Zhenhao Chen and Xing Luo and Chenyu Yi and Alex Kot},
+      year={2023},
+      eprint={2312.02896},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}}
+
+//人工智慧物聯網（Artificial Intelligence of Things, AIOT）
+@ARTICLE{9264235,
+  author={Zhang, Jing and Tao, Dacheng},
+  journal={IEEE Internet of Things Journal}, 
+  title={Empowering Things With Intelligence: A Survey of the Progress, Challenges, and Opportunities in Artificial Intelligence of Things}, 
+  year={2021},
+  volume={8},
+  number={10},
+  pages={7789-7817},
+  keywords={Internet of Things;Sensors;Edge computing;Deep learning;Computer architecture;Cloud computing;Artificial intelligence;3-D;aged care;artificial intelligence (AI);biometric recognition;causal reasoning;cloud/fog/edge computing;deep learning;human–machine interaction;Internet of Things (IoT);machine translation (MT);privacy;security;sensors;smart agriculture;smart city;smart grids;speech recognition},
+  doi={10.1109/JIOT.2020.3039359}}
+//工業4.0(Industry 4.0)
+@ARTICLE{9695219,
+  author={Ahmed, Imran and Jeon, Gwanggil and Piccialli, Francesco},
+  journal={IEEE Transactions on Industrial Informatics}, 
+  title={From Artificial Intelligence to Explainable Artificial Intelligence in Industry 4.0: A Survey on What, How, and Where}, 
+  year={2022},
+  volume={18},
+  number={8},
+  pages={5031-5042},
+  keywords={Fourth Industrial Revolution;Artificial intelligence;Industries;Hidden Markov models;Manufacturing;Service robots;Robots;Artificial intelligence (AI);cloud computing;cyber-physical system;explainable artificial intelligence (XAI);Industry 4.0;Internet of Things (IoT)},
+  doi={10.1109/TII.2022.3146552}}
+//無人搬運車(Automated Guided Vehicle, AGV)
+@INPROCEEDINGS{10021117,
+  author={Cupek, Rafał and Lin, Jerry Chun-Wei and Syu, J. H.},
+  booktitle={2022 IEEE International Conference on Big Data (Big Data)}, 
+  title={Automated Guided Vehicles Challenges for Artificial Intelligence}, 
+  year={2022},
+  volume={},
+  number={},
+  pages={6281-6289},
+  keywords={Industries;Production systems;Remotely guided vehicles;Navigation;Big Data;Artificial intelligence;Autonomous vehicles;Artificial Intelligence (AI);Automated Guided Vehicles (AGV);Smart Manufacturing;Internal Logistics;Explainable AI (XAI)},
+  doi={10.1109/BigData55660.2022.10021117}}
+//醫療保健
+@INPROCEEDINGS{8893884,
+  author={Le Nguyen, Tran and Do, Thi Thu Ha},
+  booktitle={2019 Portland International Conference on Management of Engineering and Technology (PICMET)}, 
+  title={Artificial Intelligence in Healthcare: A New Technology Benefit for Both Patients and Doctors}, 
+  year={2019},
+  volume={},
+  number={},
+  pages={1-15},
+  keywords={Medical services;Deep learning;Oncology;Google;Blockchain},
+  doi={10.23919/PICMET.2019.8893884}}
+//電腦輔助設計（Computer Aided Design, CAD）
+@book{sarcar2008computer,
+  title={Computer aided design and manufacturing},
+  author={Sarcar, MMM and Rao, K Mallikarjuna and Narayan, K Lalit},
+  year={2008},
+  publisher={PHI Learning Pvt. Ltd.}}
+//電腦輔助製造（Computer-Aided Manufacturing, CAM）
+@book{elanchezhian2007computer,
+  title={Computer aided manufacturing},
+  author={Elanchezhian, C and Sundar, G Shanmuga},
+  year={2007},
+  publisher={Firewall Media}}
+//電腦數值控制加工（Computer Numerical Control, CNC）
+@book{thyer2014computer,
+  title={Computer numerical control of machine tools},
+  author={Thyer, GE},
+  year={2014},
+  publisher={Elsevier}}
+//快速成形技術（Rapid Prototyping, RP）
+@article{PHAM19981257,
+  title = {A comparison of rapid prototyping technologies},
+  journal = {International Journal of Machine Tools and Manufacture},
+  volume = {38},
+  number = {10},
+  pages = {1257-1287},
+  year = {1998},
+  issn = {0890-6955},
+  doi = {https://doi.org/10.1016/S0890-6955(97)00137-5},
+  url = {https://www.sciencedirect.com/science/article/pii/S0890695597001375},
+  author = {D.T Pham and R.S Gault},
+  keywords = {Rapid prototyping, Stereolithography, Selective laser sintering, LOM, 3D printing, Fused deposition modelling},
+  abstract = {Until recently, prototypes had to be constructed by skilled model makers from 2D engineering drawings. This is a time-consuming and expensive process. With the advent of new layer manufacturing and CAD/CAM technologies, prototypes may now be rapidly produced from 3D computer models. There are many different rapid prototyping (RP) technologies available. This paper presents an overview of the current technologies and comments on their strengths and weaknesses. Data are given for common process parameters such as layer thickness, system accuracy and speed of operation. A taxonomy is also suggested, along with a preliminary guide to process selection based on the end use of the prototype.}}
+//積層製造技術（Additive Manufacturing, AM）
+@article{wong2012review,
+  title={A review of additive manufacturing},
+  author={Wong, Kaufui V and Hernandez, Aldo},
+  journal={International scholarly research notices},
+  volume={2012},
+  year={2012},
+  publisher={Hindawi}}
+//3D列印(3D Printing)
+@article{shahrubudin2019overview,
+  title={An overview on 3D printing technology: Technological, materials, and applications},
+  author={Shahrubudin, Nurhalida and Lee, Te Chuan and Ramlan, RJPM},
+  journal={Procedia Manufacturing},
+  volume={35},
+  pages={1286--1296},
+  year={2019},
+  publisher={Elsevier}}
+//立體快速成形（Stereolithography, SLA）
+@incollection{schmidleithner2018stereolithography,
+  title={Stereolithography},
+  author={Schmidleithner, Christina and Kalaskar, Deepak M},
+  year={2018},
+  publisher={IntechOpen}}
+//3D列印的房屋
+@article{hager20163d,
+  title={3D printing of buildings and building components as the future of sustainable construction?},
+  author={Hager, Izabela and Golonka, Anna and Putanowicz, Roman},
+  journal={Procedia Engineering},
+  volume={151},
+  pages={292--299},
+  year={2016},
+  publisher={Elsevier}}
+//3D列印的機翼
+@article{moon2014application,
+  title={Application of 3D printing technology for designing light-weight unmanned aerial vehicle wing structures},
+  author={Moon, Seung Ki and Tan, Yu En and Hwang, Jihong and Yoon, Yong-Jin},
+  journal={International Journal of Precision Engineering and Manufacturing-Green Technology},
+  volume={1},
+  pages={223--228},
+  year={2014},
+  publisher={Springer}}
+//3D列印的汽車
+@inproceedings{chinthavali20163d,
+  title={3D printing technology for automotive applications},
+  author={Chinthavali, Madhu},
+  booktitle={2016 International Symposium on 3D Power Electronics Integration and Manufacturing (3D-PEIM)},
+  pages={1--13},
+  year={2016},
+  organization={IEEE}}
+//3D列印的血管
+@article{papaioannou20193d,
+  title={3D bioprinting methods and techniques: applications on artificial blood vessel fabrication},
+  author={Papaioannou, Theodore G and Manolesou, Danae and Dimakakos, Evangelos and Tsoucalas, Gregory and Vavuranakis, Manolis and Tousoulis, Dimitrios},
+  journal={Acta Cardiologica Sinica},
+  volume={35},
+  number={3},
+  pages={284},
+  year={2019},
+  publisher={Taiwan Society of Cardiology}}
+//3D列印的食品
+@article{liu20173d,
+  title={3D printing: Printing precision and application in food sector},
+  author={Liu, Zhenbin and Zhang, Min and Bhandari, Bhesh and Wang, Yuchuan},
+  journal={Trends in Food Science \& Technology},
+  volume={69},
+  pages={83--94},
+  year={2017},
+  publisher={Elsevier}}
+
+//copilote 可用性
+@inproceedings{vaithilingam2022expectation,
+  title={Expectation vs. experience: Evaluating the usability of code generation tools powered by large language models},
+  author={Vaithilingam, Priyan and Zhang, Tianyi and Glassman, Elena L},
+  booktitle={Chi conference on human factors in computing systems extended abstracts},
+  pages={1--7},
+  year={2022}
 }
 
-@inproceedings{songNoncontrastCTLiver2020,
-	location = {Cham},
-	title = {Non-contrast {CT} Liver Segmentation Using {CycleGAN} Data Augmentation from Contrast Enhanced {CT}},
-	isbn = {978-3-030-61166-8},
-	doi = {10.1007/978-3-030-61166-8_13},
-	series = {Lecture Notes in Computer Science},
-	abstract = {Non-contrast {CT} is often preferred in clinical screening while segmentation of such {CT} data is more challenging due to the low contrast in tissue boundaries and scarce supervised training data than contrast-enhanced {CT} ({CTce}) segmentation. To alleviate manual labelling work of radiologists, we generate training samples for 3D U-Net segmentation network by transforming the existing {CTce} liver segmentation dataset to the non-contrast {CT} styled volumes with {CycleGAN}. We validated the performance of {CycleGAN} in both unsupervised and hybrid supervised training strategy. The results show that using {CycleGAN} in unsupervised segmentation can achieve higher mean Dice coefficients than fully supervised manner in liver segmentation. The hybrid training of generated samples and the target task samples can improve the generalization ability of segmentation.},
-	pages = {122--129},
-	booktitle = {Interpretable and Annotation-Efficient Learning for Medical Image Computing},
-	publisher = {Springer International Publishing},
-	author = {Song, Chongchong and He, Baochun and Chen, Hongyu and Jia, Shuangfu and Chen, Xiaoxia and Jia, Fucang},
-	editor = {Cardoso, Jaime and Van Nguyen, Hien and Heller, Nicholas and Henriques Abreu, Pedro and Isgum, Ivana and Silva, Wilson and Cruz, Ricardo and Pereira Amorim, Jose and Patel, Vishal and Roysam, Badri and Zhou, Kevin and Jiang, Steve and Le, Ngan and Luu, Khoa and Sznitman, Raphael and Cheplygina, Veronika and Mateus, Diana and Trucco, Emanuele and Abbasi, Samaneh},
-	date = {2020},
-	langid = {english},
-	keywords = {3D U-Net, {CycleGAN}, Data augmentation, Liver segmentation, Non-contrast {CT}},
-	file = {Springer Full Text PDF:C\:\\Users\\yochien\\Zotero\\storage\\HWIUFGAQ\\Song 等。 - 2020 - Non-contrast CT Liver Segmentation Using CycleGAN .pdf:application/pdf},
+//ChatGPT for Robotics
+@misc{vemprala2023chatgpt,
+  title={ChatGPT for Robotics: Design Principles and Model Abilities}, 
+  author={Sai Vemprala and Rogerio Bonatti and Arthur Bucker and Ashish Kapoor},
+  year={2023},
+  eprint={2306.17582},
+  archivePrefix={arXiv},
+  primaryClass={cs.AI}}
+
+//Code as Policies
+@INPROCEEDINGS{10160591,
+  author={Liang, Jacky and Huang, Wenlong and Xia, Fei and Xu, Peng and Hausman, Karol and Ichter, Brian and Florence, Pete and Zeng, Andy},
+  booktitle={2023 IEEE International Conference on Robotics and Automation (ICRA)}, 
+  title={Code as Policies: Language Model Programs for Embodied Control}, 
+  year={2023},
+  volume={},
+  number={},
+  pages={9493-9500},
+  keywords={Feedback loop;Codes;Natural languages;Process control;Detectors;Libraries;Impedance},
+  doi={10.1109/ICRA48891.2023.10160591}}
+
+
+
+//順/逆向
+@book{kucuk2006robot,
+  title={Robot kinematics: Forward and inverse kinematics},
+  author={Kucuk, Serdar and Bingul, Zafer},
+  year={2006},
+  publisher={INTECH Open Access Publisher London, UK}
 }
 
-@article{tuladharAutomaticSegmentationStroke2020,
-	title = {Automatic Segmentation of Stroke Lesions in Non-Contrast Computed Tomography Datasets With Convolutional Neural Networks},
-	volume = {8},
-	issn = {2169-3536},
-	doi = {10.1109/ACCESS.2020.2995632},
-	abstract = {Non-contrast computed tomography ({NCCT}) is commonly used for volumetric follow-up assessment of ischemic strokes. However, manual lesion segmentation is time-consuming and subject to high inter-observer variability. The aim of this study was to develop and establish a baseline convolutional neural network ({CNN}) model for automatic {NCCT} lesion segmentation. A total of 252 multi-center clinical {NCCT} datasets, acquired from 22 centers, and corresponding manual segmentations were used to train (204 datasets) and validate (48 datasets) a 3D multi-scale {CNN} model for lesion segmentation. Post-processing methods were implemented to improve the {CNN}-based lesion segmentations. The final {CNN} model and post-processing method was evaluated using 39 out-of-distribution holdout test datasets, acquired at seven centers that did not contribute to the training or validation datasets. Each test image was segmented by two or three neuroradiologists. The Dice similarity coefficient ({DSC}) and predicted lesion volumes were used to evaluate the segmentations. The {CNN} model achieved a mean {DSC} score of 0.47 on the validation {NCCT} datasets. Post-processing significantly improved the {DSC} to 0.50 (P {\textless}; 0.01). On the holdout test set, the {CNN} model achieved a mean {DSC} score of 0.42, which was also significantly improved to 0.45 (P {\textless}; 0.05) by post-processing. Importantly, the automatically segmented lesion volumes were not significantly different from the lesion volumes determined by the expert observers (P {\textgreater}0.05) and showed excellent agreement with manual lesion segmentation volumes (intraclass correlation coefficient, {ICC} = 0.88). The proposed {CNN} model can automatically and reliably segment ischemic stroke lesions in clinical {NCCT} datasets. Post-processing techniques can further improve accuracy. As the model was trained and evaluated on datasets from multiple centers, it is broadly applicable and is publicly available.},
-	pages = {94871--94879},
-	journaltitle = {{IEEE} Access},
-	author = {Tuladhar, Anup and Schimert, Serena and Rajashekar, Deepthi and Kniep, Helge C. and Fiehler, Jens and Forkert, Nils D.},
-	date = {2020},
-	note = {Conference Name: {IEEE} Access},
-	keywords = {Artificial neural networks, brain, Computational modeling, computed tomography, Computed tomography, computer-assisted image analysis, convolutional neural networks, deep learning, Image segmentation, Lesions, machine learning, Manuals, Observers, stroke, Training},
-	file = {IEEE Xplore Abstract Record:C\:\\Users\\yochien\\Zotero\\storage\\L63QMHRM\\9096283.html:text/html;IEEE Xplore Full Text PDF:C\:\\Users\\yochien\\Zotero\\storage\\4TWRBFUN\\Tuladhar 等。 - 2020 - Automatic Segmentation of Stroke Lesions in Non-Co.pdf:application/pdf},
+//Policy-Gradient
+@article{dauce2010inverse,
+  title={Inverse Kinematics On-line Learning: a Kernel-Based Policy-Gradient approach},
+  author={Dauc{\'e}, Emmanuel and Dutech, Alain},
+  year={2010}
 }
 
-@article{porterHippocampusSegmentationNoncontrast2020,
-	title = {Hippocampus segmentation on noncontrast {CT} using deep learning},
-	volume = {47},
-	issn = {2473-4209},
-	doi = {10.1002/mp.14098},
-	abstract = {{PURPOSE}: Accurate segmentation of the hippocampus for hippocampal avoidance whole-brain radiotherapy currently requires high-resolution magnetic resonance imaging ({MRI}) in addition to neuroanatomic expertise for manual segmentation. Removing the need for {MR} images to identify the hippocampus would reduce planning complexity, the need for a treatment planning {MR} imaging session, potential uncertainties associated with {MRI}-computed tomography ({CT}) image registration, and cost. Three-dimensional (3D) deep convolutional network models have the potential to automate hippocampal segmentation. In this study, we investigate the accuracy and reliability of hippocampal segmentation by automated deep learning models from {CT} alone and compare the accuracy to experts using {MRI} fusion.
-{METHODS}: Retrospectively, 390 Gamma Knife patients with high-resolution {CT} and {MR} images were collected. Following the {RTOG} 0933 guidelines, images were rigidly fused, and a neuroanatomic expert contoured the hippocampus on the {MR}, then transferred the contours to {CT}. Using a calculated cranial centroid, the image volumes were cropped to 200 × 200 × 35 voxels, which were used to train four models, including our proposed Attention-Gated 3D {ResNet} ({AG}-3D {ResNet}). These models were then compared with results from a nested tenfold validation. From the predicted test set volumes, we calculated the 100\% Hausdorff distance ({HD}). Acceptability was assessed using the {RTOG} 0933 protocol criteria, and contours were considered passing with {HD} ≤ 7 mm.
-{RESULTS}: The bilateral hippocampus passing rate across all 90 models trained in the nested cross-fold validation was 80.2\% for {AG}-3D {ResNet}, which performs with a comparable pass rate (P = 0.3345) to physicians during centralized review for the {RTOG} 0933 Phase {II} clinical trial.
-{CONCLUSIONS}: Our proposed {AG}-3D {ResNet}'s segmentation of the hippocampus from noncontrast {CT} images alone are comparable to those obtained by participating physicians from the {RTOG} 0933 Phase {II} clinical trial.},
-	pages = {2950--2961},
-	number = {7},
-	journaltitle = {Medical Physics},
-	shortjournal = {Med Phys},
-	author = {Porter, Evan and Fuentes, Patricia and Siddiqui, Zaid and Thompson, Andrew and Levitin, Ronald and Solis, David and Myziuk, Nick and Guerrero, Thomas},
-	date = {2020-07},
-	pmid = {32065401},
-	keywords = {deep learning, attention gating, {CT}, Deep Learning, hippocampus, Hippocampus, Humans, Image Processing, Computer-Assisted, Magnetic Resonance Imaging, Reproducibility of Results, {ResNet}, Retrospective Studies, segmentation, Tomography, X-Ray Computed, U-Net, whole-brain radiotherapy},
+//NN-based
+@article{almusawi2016new,
+  title={A new artificial neural network approach in solving inverse kinematics of robotic arm (denso vp6242)},
+  author={Almusawi, Ahmed RJ and D{\"u}lger, L Canan and Kapucu, Sadettin},
+  journal={Computational intelligence and neuroscience},
+  volume={2016},
+  year={2016},
+  publisher={Hindawi Limited}
 }
 
-@article{shahzadAutomaticSegmentationQuantification2017,
-	title = {Automatic segmentation and quantification of the cardiac structures from non-contrast-enhanced cardiac {CT} scans},
-	volume = {62},
-	issn = {1361-6560},
-	doi = {10.1088/1361-6560/aa63cb},
-	abstract = {Early structural changes to the heart, including the chambers and the coronary arteries, provide important information on pre-clinical heart disease like cardiac failure. Currently, contrast-enhanced cardiac computed tomography angiography ({CCTA}) is the preferred modality for the visualization of the cardiac chambers and the coronaries. In clinical practice not every patient undergoes a {CCTA} scan; many patients receive only a non-contrast-enhanced calcium scoring {CT} scan ({CTCS}), which has less radiation dose and does not require the administration of contrast agent. Quantifying cardiac structures in such images is challenging, as they lack the contrast present in {CCTA} scans. Such quantification would however be relevant, as it enables population based studies with only a {CTCS} scan. The purpose of this work is therefore to investigate the feasibility of automatic segmentation and quantification of cardiac structures viz whole heart, left atrium, left ventricle, right atrium, right ventricle and aortic root from {CTCS} scans. A fully automatic multi-atlas-based segmentation approach is used to segment the cardiac structures. Results show that the segmentation overlap between the automatic method and that of the reference standard have a Dice similarity coefficient of 0.91 on average for the cardiac chambers. The mean surface-to-surface distance error over all the cardiac structures is [Formula: see text] mm. The automatically obtained cardiac chamber volumes using the {CTCS} scans have an excellent correlation when compared to the volumes in corresponding {CCTA} scans, a Pearson correlation coefficient (R) of 0.95 is obtained. Our fully automatic method enables large-scale assessment of cardiac structures on non-contrast-enhanced {CT} scans.},
-	pages = {3798--3813},
-	number = {9},
-	journaltitle = {Physics in Medicine and Biology},
-	shortjournal = {Phys Med Biol},
-	author = {Shahzad, Rahil and Bos, Daniel and Budde, Ricardo P. J. and Pellikaan, Karlijn and Niessen, Wiro J. and van der Lugt, Aad and van Walsum, Theo},
-	date = {2017-05-07},
-	pmid = {28248196},
-	keywords = {Humans, Adult, Aged, Computed Tomography Angiography, Coronary Angiography, Male, Middle Aged},
-}
-
-@article{avila-montesSegmentationThoracicAorta2013,
-	title = {Segmentation of the Thoracic Aorta in Noncontrast Cardiac {CT} Images},
-	volume = {17},
-	issn = {2168-2208},
-	doi = {10.1109/JBHI.2013.2269292},
-	abstract = {Studies have shown that aortic calcification is associated with cardiovascular disease. In this study, a method for localization, centerline extraction, and segmentation of the thoracic aorta in noncontrast cardiac-computed tomography ({CT}) images, toward the detection of aortic calcification, is presented. The localization of the right coronary artery ostium slice is formulated as a regression problem whose input variables are obtained from simple intensity features computed from a pyramid representation of the slice. The localization, centerline extraction, and segmentation of the aorta are formulated as optimal path detection problems. Dynamic programming is applied in the Hough space for localizing key center points in the aorta which guide the centerline tracing using a fast marching-based minimal path extraction framework. The input volume is then resampled into a stack of 2-D cross-sectional planes orthogonal to the obtained centerline. Dynamic programming is again applied for the segmentation of the aorta in each slice of the resampled volume. The obtained segmentation is finally mapped back to its original volume space. The performance of the proposed method was assessed on cardiac noncontrast {CT} scans and promising results were obtained.},
-	pages = {936--949},
-	number = {5},
-	journaltitle = {{IEEE} Journal of Biomedical and Health Informatics},
-	author = {Avila-Montes, Olga C. and Kurkure, Uday and Nakazato, Ryo and Berman, Daniel S. and Dey, Damini and Kakadiaris, Ioannis A.},
-	date = {2013-09},
-	note = {Conference Name: {IEEE} Journal of Biomedical and Health Informatics},
-	keywords = {Computed tomography, Image segmentation, Aorta, Cardiology, image segmentation, Medical image processing, noncontrast computed tomography, regression, slice localization},
-	file = {IEEE Xplore Full Text PDF:C\:\\Users\\yochien\\Zotero\\storage\\NHKVQFUA\\Avila-Montes 等。 - 2013 - Segmentation of the Thoracic Aorta in Noncontrast .pdf:application/pdf;IEEE Xplore Abstract Record:C\:\\Users\\yochien\\Zotero\\storage\\BPQRCWPZ\\6542633.html:text/html},
-}
-
-@incollection{ellisTrialingUNetTraining2021,
-	title = {Trialing U-Net Training Modifications for Segmenting Gliomas Using Open Source Deep Learning Framework},
-	isbn = {978-3-030-72086-5},
-	abstract = {Automatic brain segmentation has the potential to save time and resources for researchers and clinicians. We aimed to improve upon previously proposed methods by implementing the U-Net model and trialing various modifications to the training and inference strategies. The trials were performed and tested on the Multimodal Brain Tumor Segmentation dataset that provides {MR} images of brain tumors along with manual segmentations for hundreds of subjects. The U-Net models were trained on a training set of {MR} images from 369 subjects and then tested against a validation set of images from 125 subjects. The proposed modifications included predicting the labeled region contours, permutations of the input data via rotation and reflection, grouping labels together, as well as creating an ensemble of models. The ensemble of models provided the best results compared to any of the other methods, but the other modifications did not demonstrate improvement. Future work will look at reducing the level of the training augmentation so that the models are better able to generalize to the validation set. Overall, our open source deep learning framework allowed us to quickly implement and test multiple U-Net training modifications. The code for this project is available at https://github.com/ellisdg/3DUnetCNN.},
-	pages = {40--49},
-	author = {Ellis, David and Aizenberg, Michele},
-	date = {2021-03-26},
-	doi = {10.1007/978-3-030-72087-2_4},
-	file = {Full Text PDF:C\:\\Users\\yochien\\Zotero\\storage\\2JND5A54\\Ellis 與 Aizenberg - 2021 - Trialing U-Net Training Modifications for Segmenti.pdf:application/pdf},
-}
-
-@article{yushkevichUserGuided3DActive2006,
-	title = {User-Guided 3D Active Contour Segmentation of Anatomical Structures: Significantly Improved Efficiency and Reliability},
-	volume = {31},
-	pages = {1116--1128},
-	number = {3},
-	journaltitle = {Neuroimage},
-	author = {Yushkevich, Paul A. and Piven, Joseph and Cody Hazlett, Heather and Gimpel Smith, Rachel and Ho, Sean and Gee, James C. and Gerig, Guido},
-	date = {2006},
-}
-
-@inproceedings{isolaImagetoImageTranslationConditional2017,
-	title = {Image-to-Image Translation with Conditional Adversarial Networks},
-	booktitle = {Computer Vision and Pattern Recognition ({CVPR}), 2017 {IEEE} Conference on},
-	author = {Isola, Phillip and Zhu, Jun-Yan and Zhou, Tinghui and Efros, Alexei A},
-	date = {2017},
-}
-
-@online{weishengfulibutongjichu108NianGuoRenSiYinTongJiJieGuo2020,
-	title = {108年國人死因統計結果},
-	rights = {衛生福利部統計處},
-	url = {https://www.mohw.gov.tw/cp-16-54482-1.html},
-	abstract = {一、受人口高齡化影響，108年死亡率上升1.4\%，標準化死亡率下降1.6\%{\textless}/},
-	titleaddon = {衛生福利部統計處},
-	type = {文字},
-	author = {衛生福利部統計處},
-	urldate = {2021-06-02},
-	date = {2020-06-16},
-	note = {Publisher: 衛生福利部統計處},
-	file = {Snapshot:C\:\\Users\\yochien\\Zotero\\storage\\RG5AY5KW\\cp-16-54482-1.html:text/html},
-}
-
-@online{weishengfulibutongjichuSiYinTongJi2017,
-	title = {死因統計},
-	rights = {衛生福利部統計處},
-	url = {https://dep.mohw.gov.tw/DOS/np-1776-113.html},
-	abstract = {死因統計},
-	titleaddon = {衛生福利部統計處},
-	type = {文字},
-	author = {衛生福利部統計處},
-	urldate = {2021-06-02},
-	date = {2017-01-24},
-	note = {Publisher: 衛生福利部統計處},
-	file = {Snapshot:C\:\\Users\\yochien\\Zotero\\storage\\XYIJI2FT\\np-1776-113.html:text/html},
-}
-
-@online{weishengfulibuguominjiankangshuRenShiGuanXinBing2016,
-	title = {認識冠心病},
-	rights = {衛生福利部國民健康署},
-	url = {https://www.hpa.gov.tw/Pages/Detail.aspx?nodeid=632&pid=1188},
-	abstract = {\&nbsp;
-認識冠心病
-
-從心說起：
-正常心臟是一個強壯的、中空的肌肉組織，約拳頭般大。位於胸腔內胸骨之後。負責輸送血液至全身。一般健康的人每天心跳約十萬次，要打出8000公升以上的血液，流經全身各處，而且每天廿四小時不眠不休的，為維持人體正常運作而努力。為了維持這樣長年不休的劇烈運動，心},
-	titleaddon = {衛生福利部國民健康署},
-	type = {text/html},
-	author = {衛生福利部國民健康署},
-	urldate = {2021-06-02},
-	date = {2016-12-31},
-	langid = {pinyin},
-	note = {Archive Location: 涵蓋範圍
-Publisher: 衛生福利部國民健康署},
-	file = {Snapshot:C\:\\Users\\yochien\\Zotero\\storage\\N7YQ8E5R\\Detail.html:text/html},
-}
-
-@article{klimontDeepLearningCerebral2020,
-	title = {Deep learning for cerebral angiography segmentation from non-contrast computed tomography},
-	volume = {15},
-	issn = {1932-6203},
-	doi = {10.1371/journal.pone.0237092},
-	abstract = {Cerebral computed tomography angiography is a widely available imaging technique that helps in the diagnosis of vascular pathologies. Contrast administration is needed to accurately assess the arteries. On non-contrast computed tomography, arteries are hardly distinguishable from the brain tissue, therefore, radiologists do not consider this imaging modality appropriate for the evaluation of vascular pathologies. There are known contraindications to administering iodinated contrast media, and in these cases, the patient has to undergo another examination to visualize cerebral arteries, such as magnetic resonance angiography. Deep learning for image segmentation has proven to perform well on medical data for a variety of tasks. The aim of this research was to apply deep learning methods to segment cerebral arteries on non-contrast computed tomography scans and consequently, generate angiographies without the need for contrast administration. The dataset for this research included 131 patients who underwent brain non-contrast computed tomography directly followed by computed tomography with contrast administration. Then, the segmentations of arteries were generated and aligned with non-contrast computed tomography scans. A deep learning model based on the U-net architecture was trained to perform the segmentation of blood vessels on non-contrast computed tomography. An evaluation was performed on separate test data, as well as using cross-validation, reaching Dice coefficients of 0.638 and 0.673, respectively. This study proves that deep learning methods can be leveraged to quickly solve problems that are difficult and time-consuming for a human observer, therefore providing physicians with additional information on the patient. To encourage the further development of similar tools, all code used for this research is publicly available.},
-	pages = {e0237092},
-	number = {7},
-	journaltitle = {{PloS} One},
-	shortjournal = {{PLoS} One},
-	author = {Klimont, Michał and Oronowicz-Jaśkowiak, Agnieszka and Flieger, Mateusz and Rzeszutek, Jacek and Juszkat, Robert and Jończyk-Potoczna, Katarzyna},
-	date = {2020},
-	pmid = {32735633},
-	pmcid = {PMC7394424},
-	keywords = {Deep Learning, Humans, Image Processing, Computer-Assisted, Retrospective Studies, Computed Tomography Angiography, Male, Brain, Cerebral Angiography, Contrast Media, Female},
-	file = {全文:C\:\\Users\\yochien\\Zotero\\storage\\U2YILZDS\\Klimont 等。 - 2020 - Deep learning for cerebral angiography segmentatio.pdf:application/pdf},
-}
-
-@inreference{XSheXianJiSuanJiDuanCengChengXiang2021,
-	title = {X射线计算机断层成像},
-	rights = {Creative Commons Attribution-{ShareAlike} License},
-	url = {https://zh.wikipedia.org/w/index.php?title=X%E5%B0%84%E7%BA%BF%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%96%AD%E5%B1%82%E6%88%90%E5%83%8F&oldid=65446763},
-	abstract = {電腦斷層掃描（Computed Tomography，簡稱{CT}），是一種影像診斷學的檢查。這一技術曾被稱為電腦軸向斷層掃描（Computed Axial Tomography）。它使用從不同角度進行的許多X射線測量值的計算機處理組合來生成特定掃描區域的橫截面（斷層）圖像（虛擬「切片」） 物體，使用戶無需切割即可看到物體內部。1979年諾貝爾生理學或醫學獎因「計算機輔助層析成像技術的發展」而共同授予南非裔美國物理學家阿蘭·科馬克(Allan M. Cormack)和英國電氣工程師高弗雷·豪斯費爾德(Godfrey N. Hounsfield)。
-X射線電腦斷層掃描（X-Ray Computed Tomography，簡稱X-{CT}）是一種利用數位幾何處理後重建的三維放射線醫學影像。該技術主要通過單一軸面的X射線旋轉照射人體，由於不同的組織對X射線的吸收能力（或稱阻射率）不同，可以用電腦的三維技術重建出斷層面影像。經由窗口技術處理，可以得到相應組織的斷層影像。將斷層影像層層堆疊，即可形成立體影像。},
-	booktitle = {維基百科，自由的百科全書},
-	urldate = {2021-06-02},
-	date = {2021-05-02},
-	langid = {pinyin},
-	note = {Page Version {ID}: 65446763},
-	file = {Snapshot:C\:\\Users\\yochien\\Zotero\\storage\\DL22MLKT\\index.html:text/html},
-}
-
-@article{seeramComputedTomographyTechnical2018,
-	title = {Computed Tomography: A Technical Review},
-	volume = {89},
-	issn = {1943-5657},
-	shorttitle = {Computed Tomography},
-	abstract = {Computed tomography ({CT}) is a technical and complex diagnostic imaging modality. Radiologic technologists must understand the technology well enough to optimize dose and image quality and provide excellent patient care. This article reviews essential physical principles and technical aspects of {CT}, including physics related to radiation attenuation and {CT} numbers along with general technical concepts. In addition, the article reviews multislice {CT} technology.},
-	pages = {279CT--302CT},
-	number = {3},
-	journaltitle = {Radiologic Technology},
-	shortjournal = {Radiol Technol},
-	author = {Seeram, Euclid},
-	date = {2018-01},
-	pmid = {29298954},
-	keywords = {Humans, Tomography, X-Ray Computed, Imaging, Three-Dimensional, Physics, Radiation Dosage, Radiation Protection, Radiographic Image Interpretation, Computer-Assisted},
-}
-
-@article{huynhUpdatedGuidelinesIntravenous2020,
-	title = {Updated guidelines for intravenous contrast use for {CT} and {MRI}},
-	volume = {27},
-	issn = {1438-1435},
-	doi = {10.1007/s10140-020-01751-y},
-	abstract = {Intravenous ({IV}) contrast material is used extensively for {CT} and {MRI} scans done in emergency departments ({ED}). Its use is essential to make many critical diagnoses in {ED} patients. While adverse reactions can occur, newer research has added to our knowledge of {IV} contrast media tolerance and safety leading to improved and more liberal guidelines for intravenous contrast use. The updated information described in this review article indicates how intravenous contrast can be used safely in more patients, more expeditiously and with fewer precautions than with prior guidelines. This review article explains the basis for the new recommendations for intravenous contrast material use and describes indicated precautions and preparations to avoid adverse reactions for iodinated agents used for {CT} and gadolinium agents for {MRI}.},
-	pages = {115--126},
-	number = {2},
-	journaltitle = {Emergency Radiology},
-	shortjournal = {Emerg Radiol},
-	author = {Huynh, Kevin and Baghdanian, Arthur H. and Baghdanian, Armonde A. and Sun, Derek S. and Kolli, K. Pallav and Zagoria, Ronald J.},
-	date = {2020-04},
-	pmid = {31925592},
-	keywords = {{CT}, Humans, Magnetic Resonance Imaging, Tomography, X-Ray Computed, Contrast Media, Contrast material, Drug Hypersensitivity, Emergency radiology, Emergency Service, Hospital, Gadolinium, Injections, Intravenous, {MRI}, Practice Guidelines as Topic, Risk Factors, Safety Management},
-}
-
-@article{minaeeImageSegmentationUsing2021,
-	title = {Image Segmentation Using Deep Learning: A Survey},
-	issn = {1939-3539},
-	doi = {10.1109/TPAMI.2021.3059968},
-	shorttitle = {Image Segmentation Using Deep Learning},
-	abstract = {Image segmentation is a key task in computer vision and image processing with important applications such as scene understanding, medical image analysis, robotic perception, video surveillance, augmented reality, and image compression, among others, and numerous segmentation algorithms are found in the literature. Against this backdrop, the broad success of Deep Learning ({DL}) has prompted the development of new image segmentation approaches leveraging {DL} models. We provide a comprehensive review of this recent literature, covering the spectrum of pioneering efforts in semantic and instance segmentation, including convolutional pixel-labeling networks, encoder-decoder architectures, multiscale and pyramid-based approaches, recurrent networks, visual attention models, and generative models in adversarial settings. We investigate the relationships, strengths, and challenges of these {DL}-based segmentation models, examine the widely used datasets, compare performances, and discuss promising research directions.},
-	pages = {1--1},
-	journaltitle = {{IEEE} Transactions on Pattern Analysis and Machine Intelligence},
-	author = {Minaee, Shervin and Boykov, Yuri Y. and Porikli, Fatih and Plaza, Antonio J and Kehtarnavaz, Nasser and Terzopoulos, Demetri},
-	date = {2021},
-	note = {Conference Name: {IEEE} Transactions on Pattern Analysis and Machine Intelligence},
-	keywords = {Computational modeling, convolutional neural networks, deep learning, Image segmentation, Deep learning, Computer architecture, encoder-decoder models, Generative adversarial networks, generative models, instance segmentation, Logic gates, medical image segmentation, panoptic segmentation, recurrent models, semantic segmentation, Semantics},
-	file = {IEEE Xplore Abstract Record:C\:\\Users\\yochien\\Zotero\\storage\\89MBK2KT\\9356353.html:text/html;送出的版本:C\:\\Users\\yochien\\Zotero\\storage\\DC98AWXY\\Minaee 等。 - 2021 - Image Segmentation Using Deep Learning A Survey.pdf:application/pdf},
-}
-
-@article{litjensSurveyDeepLearning2017,
-	title = {A survey on deep learning in medical image analysis},
-	volume = {42},
-	issn = {1361-8415},
-	url = {https://www.sciencedirect.com/science/article/pii/S1361841517301135},
-	doi = {10.1016/j.media.2017.07.005},
-	abstract = {Deep learning algorithms, in particular convolutional networks, have rapidly become a methodology of choice for analyzing medical images. This paper reviews the major deep learning concepts pertinent to medical image analysis and summarizes over 300 contributions to the field, most of which appeared in the last year. We survey the use of deep learning for image classification, object detection, segmentation, registration, and other tasks. Concise overviews are provided of studies per application area: neuro, retinal, pulmonary, digital pathology, breast, cardiac, abdominal, musculoskeletal. We end with a summary of the current state-of-the-art, a critical discussion of open challenges and directions for future research.},
-	pages = {60--88},
-	journaltitle = {Medical Image Analysis},
-	shortjournal = {Medical Image Analysis},
-	author = {Litjens, Geert and Kooi, Thijs and Bejnordi, Babak Ehteshami and Setio, Arnaud Arindra Adiyoso and Ciompi, Francesco and Ghafoorian, Mohsen and van der Laak, Jeroen A. W. M. and van Ginneken, Bram and Sánchez, Clara I.},
-	urldate = {2021-06-02},
-	date = {2017-12-01},
-	langid = {english},
-	keywords = {Deep learning, Convolutional neural networks, Medical imaging, Survey},
-	file = {ScienceDirect Snapshot:C\:\\Users\\yochien\\Zotero\\storage\\UFGYJ5DI\\S1361841517301135.html:text/html;送出的版本:C\:\\Users\\yochien\\Zotero\\storage\\94Y7QNWM\\Litjens 等。 - 2017 - A survey on deep learning in medical image analysi.pdf:application/pdf},
-}
-
-@article{chenDeepLearningCardiac2020,
-	title = {Deep Learning for Cardiac Image Segmentation: A Review},
-	volume = {7},
-	issn = {2297-055X},
-	url = {https://www.frontiersin.org/articles/10.3389/fcvm.2020.00025/full},
-	doi = {10.3389/fcvm.2020.00025},
-	shorttitle = {Deep Learning for Cardiac Image Segmentation},
-	abstract = {Deep learning has become the most widely used approach for cardiac image segmentation in recent years. In this paper, we provide a review of over 100 cardiac image segmentation papers using deep learning, which covers common imaging modalities including magnetic resonance imaging ({MRI}), computed tomography ({CT}), and ultrasound and major anatomical structures of interest (ventricles, atria and vessels). In addition, a summary of publicly available cardiac image datasets and code repositories are included to provide a base for encouraging reproducible research. Finally, we discuss the challenges and limitations with current deep learning-based approaches (scarcity of labels, model generalizability across different domains, interpretability) and suggest potential directions for future research.},
-	journaltitle = {Frontiers in Cardiovascular Medicine},
-	shortjournal = {Front. Cardiovasc. Med.},
-	author = {Chen, Chen and Qin, Chen and Qiu, Huaqi and Tarroni, Giacomo and Duan, Jinming and Bai, Wenjia and Rueckert, Daniel},
-	urldate = {2021-06-02},
-	date = {2020},
-	note = {Publisher: Frontiers},
-	keywords = {deep learning, {CT}, {MRI}, artificial intelligence, Cardiac Image Analysis, Cardiac image segmentation, neural networks, ultrasound},
-	file = {Full Text PDF:C\:\\Users\\yochien\\Zotero\\storage\\GJZ3RU38\\Chen 等。 - 2020 - Deep Learning for Cardiac Image Segmentation A Re.pdf:application/pdf},
-}
-
-@inproceedings{huangCoronaryArterySegmentation2018,
-	title = {Coronary Artery Segmentation by Deep Learning Neural Networks on Computed Tomographic Coronary Angiographic Images},
-	doi = {10.1109/EMBC.2018.8512328},
-	abstract = {Coronary artery lumen delineation, to localize and grade stenosis, is an important but tedious and challenging task for coronary heart disease evaluation. Deep learning has recently been successful applied to many applications, including medical imaging. However for small imaged objects such as coronary arteries and their segmentation, it remains a challenge. This paper investigates coronary artery lumen segmentation using 3D U-net convolutional neural networks, and tests its utility with multiple datasets on two settings. We adapted the computed tomography coronary angiography ({CTCA}) volumes into small patches for the networks and tuned the kernels, layers and the batch size for machine learning. Our experiment involves additional efforts to select and test various data transform, so as to reduce the problem of overfitting. Compared with traditional normalization of data, we showed that subject-specific normalization of dataset was superior to patch based normalization. The results also showed that the proposed deep learning approach outperformed other methods, evaluated by the Dice coefficients.},
-	eventtitle = {2018 40th Annual International Conference of the {IEEE} Engineering in Medicine and Biology Society ({EMBC})},
-	pages = {608--611},
-	booktitle = {2018 40th Annual International Conference of the {IEEE} Engineering in Medicine and Biology Society ({EMBC})},
-	author = {Huang, Weimin and Huang, Lu and Lin, Zhiping and Huang, Su and Chi, Yanling and Zhou, Jiayin and Zhang, Junmei and Tan, Ru-San and Zhong, Liang},
-	date = {2018-07},
-	note = {{ISSN}: 1558-4615},
-	keywords = {Image segmentation, Training, Arteries, Testing, Three-dimensional displays, Two dimensional displays},
-	file = {IEEE Xplore Full Text PDF:C\:\\Users\\yochien\\Zotero\\storage\\TLJXAJNA\\Huang 等。 - 2018 - Coronary Artery Segmentation by Deep Learning Neur.pdf:application/pdf},
-}
-
-@inreference{CoronaryCTCalcium2021,
-	title = {Coronary {CT} calcium scan},
-	rights = {Creative Commons Attribution-{ShareAlike} License},
-	url = {https://en.wikipedia.org/w/index.php?title=Coronary_CT_calcium_scan&oldid=1016880505},
-	abstract = {A coronary {CT} calcium scan is a computed tomography ({CT}) scan of the heart for the assessment of severity of coronary artery disease. Specifically, it looks for calcium deposits in the coronary arteries that can narrow arteries and increase the risk of heart attack. This severity can be presented as Agatston score or coronary artery calcium ({CAC}) score. The {CAC} score is an independent marker of risk for cardiac events, cardiac mortality, and all-cause mortality. In addition, it provides additional prognostic information to other cardiovascular risk markers. A typical coronary {CT} calcium scan is done without the use of radiocontrast, but it can possibly be done from contrast-enhanced images as well, such as in coronary {CT} angiography.},
-	booktitle = {Wikipedia},
-	urldate = {2021-06-02},
-	date = {2021-04-09},
-	langid = {english},
-	note = {Page Version {ID}: 1016880505},
-	file = {Snapshot:C\:\\Users\\yochien\\Zotero\\storage\\L9KMWTMX\\index.html:text/html},
-}
-
-@article{blahaCoronaryArteryCalcium2017,
-	title = {Coronary Artery Calcium Scoring: Is It Time for a Change in Methodology?},
-	volume = {10},
-	issn = {1936-878X},
-	url = {https://www.sciencedirect.com/science/article/pii/S1936878X17305041},
-	doi = {10.1016/j.jcmg.2017.05.007},
-	shorttitle = {Coronary Artery Calcium Scoring},
-	abstract = {Quantification of coronary artery calcium ({CAC}) has been shown to be reliable, reproducible, and predictive of cardiovascular risk. Formal {CAC} scoring was introduced in 1990, with early scoring algorithms notable for their simplicity and elegance. Yet, with little evidence available on how to best build a score, and without a conceptual model guiding score development, these scores were, to a large degree, arbitrary. In this review, we describe the traditional approaches for clinical {CAC} scoring, noting their strengths, weaknesses, and limitations. We then discuss a conceptual model for developing an improved {CAC} score, reviewing the evidence supporting approaches most likely to lead to meaningful score improvement (for example, accounting for {CAC} density and regional distribution). After discussing the potential implementation of an improved score in clinical practice, we follow with a discussion of the future of {CAC} scoring, asking the central question: do we really need a new {CAC} score?},
-	pages = {923--937},
-	number = {8},
-	journaltitle = {{JACC}: Cardiovascular Imaging},
-	shortjournal = {{JACC}: Cardiovascular Imaging},
-	author = {Blaha, Michael J. and Mortensen, Martin Bødtker and Kianoush, Sina and Tota-Maharaj, Rajesh and Cainzos-Achirica, Miguel},
-	urldate = {2021-06-02},
-	date = {2017-08-01},
-	langid = {english},
-	keywords = {cardiac {CT}, cardiovascular disease, coronary artery calcium, prediction, risk, score},
-	file = {ScienceDirect Full Text PDF:C\:\\Users\\yochien\\Zotero\\storage\\A9P7RYFK\\Blaha 等。 - 2017 - Coronary Artery Calcium Scoring Is It Time for a .pdf:application/pdf},
-}
-
-@article{leiMedicalImageSegmentation2020,
-	title = {Medical Image Segmentation Using Deep Learning: A Survey},
-	url = {http://arxiv.org/abs/2009.13120},
-	shorttitle = {Medical Image Segmentation Using Deep Learning},
-	abstract = {Deep learning has been widely used for medical image segmentation and a large number of papers has been presented recording the success of deep learning in the field. In this paper, we present a comprehensive thematic survey on medical image segmentation using deep learning techniques. This paper makes two original contributions. Firstly, compared to traditional surveys that directly divide literatures of deep learning on medical image segmentation into many groups and introduce literatures in detail for each group, we classify currently popular literatures according to a multi-level structure from coarse to fine. Secondly, this paper focuses on supervised and weakly supervised learning approaches, without including unsupervised approaches since they have been introduced in many old surveys and they are not popular currently. For supervised learning approaches, we analyze literatures in three aspects: the selection of backbone networks, the design of network blocks, and the improvement of loss functions. For weakly supervised learning approaches, we investigate literature according to data augmentation, transfer learning, and interactive segmentation, separately. Compared to existing surveys, this survey classifies the literatures very differently from before and is more convenient for readers to understand the relevant rationale and will guide them to think of appropriate improvements in medical image segmentation based on deep learning approaches.},
-	journaltitle = {{arXiv}:2009.13120 [cs, eess]},
-	author = {Lei, Tao and Wang, Risheng and Wan, Yong and Zhang, Bingtao and Meng, Hongying and Nandi, Asoke K.},
-	urldate = {2021-06-02},
-	date = {2020-12-16},
-	eprinttype = {arxiv},
-	eprint = {2009.13120},
-	keywords = {Computer Science - Computer Vision and Pattern Recognition, Electrical Engineering and Systems Science - Image and Video Processing},
-	file = {arXiv Fulltext PDF:C\:\\Users\\yochien\\Zotero\\storage\\TJUWEEB3\\Lei 等。 - 2020 - Medical Image Segmentation Using Deep Learning A .pdf:application/pdf;arXiv.org Snapshot:C\:\\Users\\yochien\\Zotero\\storage\\G2CRMTZQ\\2009.html:text/html},
-}
-
-@incollection{ronnebergerUNetConvolutionalNetworks2015,
-	location = {Cham},
-	title = {U-Net: Convolutional Networks for Biomedical Image Segmentation},
-	volume = {9351},
-	isbn = {978-3-319-24573-7 978-3-319-24574-4},
-	url = {http://link.springer.com/10.1007/978-3-319-24574-4_28},
-	shorttitle = {U-Net},
-	pages = {234--241},
-	booktitle = {Medical Image Computing and Computer-Assisted Intervention – {MICCAI} 2015},
-	publisher = {Springer International Publishing},
-	author = {Ronneberger, Olaf and Fischer, Philipp and Brox, Thomas},
-	editor = {Navab, Nassir and Hornegger, Joachim and Wells, William M. and Frangi, Alejandro F.},
-	urldate = {2021-07-01},
-	date = {2015},
-	langid = {english},
-	doi = {10.1007/978-3-319-24574-4_28},
-	note = {Series Title: Lecture Notes in Computer Science},
-	file = {送出的版本:C\:\\Users\\yochien\\Zotero\\storage\\8GPK9U2Z\\Ronneberger 等。 - 2015 - U-Net Convolutional Networks for Biomedical Image.pdf:application/pdf},
-}
-
-@online{HounsfieldScaleOverview,
-	title = {Hounsfield Scale - an overview {\textbar} {ScienceDirect} Topics},
-	url = {https://www.sciencedirect.com/topics/medicine-and-dentistry/hounsfield-scale},
-	urldate = {2021-07-01},
-	file = {Hounsfield Scale - an overview | ScienceDirect Topics:C\:\\Users\\yochien\\Zotero\\storage\\A28SAWAV\\hounsfield-scale.html:text/html},
-}
-
-@article{patelHounsfieldUnitsComputed2009,
-	title = {Hounsfield units on computed tomography predict calcium stone subtype composition},
-	volume = {83},
-	issn = {1423-0399},
-	doi = {10.1159/000230020},
-	abstract = {{INTRODUCTION}: Hounsfield unit ({HU}) determination of urinary stones on noncontrast computed tomography ({NCCT}) has been shown to predict stone composition. However, no in vivo studies have attempted to radiographically separate the various calcium stone compositions. We investigate the efficacy of {HU} measurement on {NCCT} to determine if it can differentiate the various calcium stone subtypes.
-{PATIENTS} {AND} {METHODS}: Of the 684 patients who had undergone ureteroscopy at our institution from 1/2003 to 10/2007, 100 were identified with a documented {NCCT}, a chemical stone analysis and a stone size {\textgreater}5 mm but {\textless}2 cm.
-{RESULTS}: Stone compositions were categorized as 100-80\% calcium oxalate monohydrate ({CaOMH}) (n = 24), {\textless}80-60\% {CaOMH} (n = 21), {\textless}60-50\% {CaOMH} (n = 11) calcium oxalate dihydrate ({CaODH}) (n = 16), apatite (n = 9), brushite (n = 4), cystine (n = 2) and uric acid (n = 13). Mean {HU} were 879 +/- 230, 769 +/- 295, 717 +/- 304, and 517 +/- 203 for the 100-80\% {CaOMH}, {\textless}80-60\% {CaOMH}, {\textless}60-50\% {CaOMH} and {CaODH} groups, respectively. The average {HU} for the apatite, brushite, cystine and uric acid groups were 844 +/- 346, 1,123 +/- 254, 550 +/- 74 and 338 +/- 145, respectively. The {CaOMH} groups together had a significantly higher {HU} than the {CaODH} group (p {\textless} 0.05) and a significantly lower {HU} than the brushite group (p {\textless} 0.05).
-{CONCLUSIONS}: {HU} measurement of urinary stones on {NCCT} may be used to separate some calcium stone subtypes, specifically {CaOMH} and {CaODH}. This information may be useful in counseling patients on treatment options for patients requiring intervention.},
-	pages = {175--180},
-	number = {2},
-	journaltitle = {Urologia Internationalis},
-	shortjournal = {Urol Int},
-	author = {Patel, Sutchin R. and Haleblian, George and Zabbo, August and Pareek, Gyan},
-	date = {2009},
-	pmid = {19752613},
-	keywords = {Humans, Retrospective Studies, Tomography, X-Ray Computed, Calcium, Predictive Value of Tests, Urinary Calculi},
-}
-
-@article{patelHounsfieldUnitsComputed2009a,
-	title = {Hounsfield Units on Computed Tomography Predict Calcium Stone Subtype Composition},
-	volume = {83},
-	issn = {0042-1138, 1423-0399},
-	url = {https://www.karger.com/Article/FullText/230020},
-	doi = {10.1159/000230020},
-	abstract = {\textit{Introduction:} Hounsfield unit ({HU}) determination of urinary stones on noncontrast computed tomography ({NCCT}) has been shown to predict stone composition. However, no in vivo studies have attempted to radiographically separate the various calcium stone compositions. We investigate the efficacy of {HU} measurement on {NCCT} to determine if it can differentiate the various calcium stone subtypes. \textit{Patients and Methods:} Of the 684 patients who had undergone ureteroscopy at our institution from 1/2003 to 10/2007, 100 were identified with a documented {NCCT}, a chemical stone analysis and a stone size {\textgreater}5 mm but {\textless}2 cm. \textit{Results:} Stone compositions were categorized as 100–80\% calcium oxalate monohydrate ({CaOMH}) (n = 24), {\textless}80–60\% {CaOMH} (n = 21), {\textless}60–50\% {CaOMH} (n = 11) calcium oxalate dihydrate ({CaODH}) (n = 16), apatite (n = 9), brushite (n = 4), cystine (n = 2) and uric acid (n = 13). Mean {HU} were 879 ± 230, 769 ± 295, 717 ± 304, and 517 ± 203 for the 100–80\% {CaOMH}, {\textless}80–60\% {CaOMH}, {\textless}60–50\% {CaOMH} and {CaODH} groups, respectively. The average {HU} for the apatite, brushite, cystine and uric acid groups were 844 ± 346, 1,123 ± 254, 550 ± 74 and 338 ± 145, respectively. The {CaOMH} groups together had a significantly higher {HU} than the {CaODH} group (p {\textless} 0.05) and a significantly lower {HU} than the brushite group (p {\textless} 0.05). \textit{Conclusions:} {HU} measurement of urinary stones on {NCCT} may be used to separate some calcium stone subtypes, specifically {CaOMH} and {CaODH}. This information may be useful in counseling patients on treatment options for patients requiring intervention.},
-	pages = {175--180},
-	number = {2},
-	journaltitle = {Urologia Internationalis},
-	shortjournal = {{UIN}},
-	author = {Patel, Sutchin R. and Haleblian, George and Zabbo, August and Pareek, Gyan},
-	urldate = {2021-07-01},
-	date = {2009},
-	pmid = {19752613},
-	note = {Publisher: Karger Publishers},
-	file = {Full Text PDF:C\:\\Users\\yochien\\Zotero\\storage\\J4X6QEX6\\Patel 等。 - 2009 - Hounsfield Units on Computed Tomography Predict Ca.pdf:application/pdf},
-}
-
-@online{GuanZhuangDongMoDianNaoDuanCengZaoYingComputedTomography,
-	title = {冠狀動脈電腦斷層造影(Computed tomography coronary angiography, {CTCA})},
-	url = {https://smallcollation.blogspot.com/2013/11/computed-tomography-coronary.html},
-	abstract = {各類基礎醫學、英文、德文、日文、俄文、法律、遊戲相關資訊
-Basic medicine,English,German,Japanese,Russian,law,{PC} games},
-	urldate = {2021-07-01},
-	file = {Snapshot:C\:\\Users\\yochien\\Zotero\\storage\\UIG5CYTE\\computed-tomography-coronary.html:text/html},
-}
-
-@online{theslicercommunity3DSlicerImage,
-	title = {3D Slicer image computing platform},
-	url = {https://slicer.org/},
-	abstract = {3D Slicer is a free, open source and multi-platform software package widely used for medical, biomedical, and related imaging research.},
-	titleaddon = {3D Slicer},
-	author = {{The Slicer Community}},
-	urldate = {2021-07-02},
-	file = {Snapshot:C\:\\Users\\yochien\\Zotero\\storage\\TBZEMHGU\\www.slicer.org.html:text/html},
-}
-
-@incollection{kikinis3DSlicerPlatform2014,
-	location = {New York, {NY}},
-	title = {3D Slicer: A Platform for Subject-Specific Image Analysis, Visualization, and Clinical Support},
-	isbn = {978-1-4614-7657-3},
-	url = {https://doi.org/10.1007/978-1-4614-7657-3_19},
-	shorttitle = {3D Slicer},
-	abstract = {3D Slicer is an open-source platform for the analysis and display of information derived from medical imaging and similar data sets. Such advanced software environments are in daily use by researchers and clinicians and in many nonmedical applications. 3D Slicer is unique through serving clinical users, multidisciplinary clinical research terms, and software architects within a single technology structure and user community. Functions such as interactive visualization, image registration, and model-based analysis are now being complemented by more advanced capabilities, most notably in neurological imaging and intervention. These functions, originally limited to offline use by technical factors, are integral to large scale, rapidly developing research studies, and they are being increasingly integrated into the management and delivery of care. This activity has been led by a community of basic, applied, and clinical scientists and engineers, from both academic and commercial perspectives. 3D Slicer, a free open-source software package, is based in this community; 3D Slicer provides a set of interactive tools and a stable platform that can quickly incorporate new analysis techniques and evolve to serve more sophisticated real-time applications while remaining compatible with the latest hardware and software generations of host computer systems.},
-	pages = {277--289},
-	booktitle = {Intraoperative Imaging and Image-Guided Therapy},
-	publisher = {Springer},
-	author = {Kikinis, Ron and Pieper, Steve D. and Vosburgh, Kirby G.},
-	editor = {Jolesz, Ferenc A.},
-	urldate = {2021-07-02},
-	date = {2014},
-	langid = {english},
-	doi = {10.1007/978-1-4614-7657-3_19},
-	keywords = {Diffusion Magnetic Resonance Imaging, Iterative Close Point, Source Code Repository, Volume Rendering},
-	file = {Springer Full Text PDF:C\:\\Users\\yochien\\Zotero\\storage\\4BYDCSVC\\Kikinis 等。 - 2014 - 3D Slicer A Platform for Subject-Specific Image A.pdf:application/pdf},
-}
-
-@article{kapurIncreasingImpactMedical2016,
-	title = {Increasing the impact of medical image computing using community-based open-access hackathons: The {NA}-{MIC} and 3D Slicer experience},
-	volume = {33},
-	issn = {1361-8415},
-	url = {https://www.sciencedirect.com/science/article/pii/S1361841516301128},
-	doi = {10.1016/j.media.2016.06.035},
-	series = {20th anniversary of the Medical Image Analysis journal ({MedIA})},
-	shorttitle = {Increasing the impact of medical image computing using community-based open-access hackathons},
-	abstract = {The National Alliance for Medical Image Computing ({NA}-{MIC}) was launched in 2004 with the goal of investigating and developing an open source software infrastructure for the extraction of information and knowledge from medical images using computational methods. Several leading research and engineering groups participated in this effort that was funded by the {US} National Institutes of Health through a variety of infrastructure grants. This effort transformed 3D Slicer from an internal, Boston-based, academic research software application into a professionally maintained, robust, open source platform with an international leadership and developer and user communities. Critical improvements to the widely used underlying open source libraries and tools—{VTK}, {ITK}, {CMake}, {CDash}, {DCMTK}—were an additional consequence of this effort. This project has contributed to close to a thousand peer-reviewed publications and a growing portfolio of {US} and international funded efforts expanding the use of these tools in new medical computing applications every year. In this editorial, we discuss what we believe are gaps in the way medical image computing is pursued today; how a well-executed research platform can enable discovery, innovation and reproducible science (“Open Science”); and how our quest to build such a software platform has evolved into a productive and rewarding social engineering exercise in building an open-access community with a shared vision.},
-	pages = {176--180},
-	journaltitle = {Medical Image Analysis},
-	shortjournal = {Medical Image Analysis},
-	author = {Kapur, Tina and Pieper, Steve and Fedorov, Andriy and Fillion-Robin, J-C and Halle, Michael and O'Donnell, Lauren and Lasso, Andras and Ungi, Tamas and Pinter, Csaba and Finet, Julien and Pujol, Sonia and Jagadeesan, Jayender and Tokuda, Junichi and Norton, Isaiah and Estepar, Raul San Jose and Gering, David and Aerts, Hugo J. W. L. and Jakab, Marianna and Hata, Nobuhiko and Ibanez, Luiz and Blezek, Daniel and Miller, Jim and Aylward, Stephen and Grimson, W. Eric L and Fichtinger, Gabor and Wells, William M and Lorensen, William E. and Schroeder, Will and Kikinis, Ron},
-	urldate = {2021-07-02},
-	date = {2016-10-01},
-	langid = {english},
-	keywords = {3D Slicer, Hackathon, Medical image computing, {NA}-{MIC}, Open access, Open science, Open source, Project week, Reproducible research},
-	file = {ScienceDirect Full Text PDF:C\:\\Users\\yochien\\Zotero\\storage\\KP6JGMQF\\Kapur 等。 - 2016 - Increasing the impact of medical image computing u.pdf:application/pdf;ScienceDirect Snapshot:C\:\\Users\\yochien\\Zotero\\storage\\Q2KA2DEH\\S1361841516301128.html:text/html},
-}
-
-@article{fedorov3DSlicerImage2012,
-	title = {3D Slicer as an Image Computing Platform for the Quantitative Imaging Network},
-	volume = {30},
-	issn = {0730-725X},
-	url = {https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3466397/},
-	doi = {10.1016/j.mri.2012.05.001},
-	abstract = {Quantitative analysis has tremendous but mostly unrealized potential in healthcare to support objective and accurate interpretation of the clinical imaging. In 2008, the National Cancer Institute began building the Quantitative Imaging Network ({QIN}) initiative with the goal of advancing quantitative imaging in the context of personalized therapy and evaluation of treatment response. Computerized analysis is an important component contributing to reproducibility and efficiency of the quantitative imaging techniques. The success of quantitative imaging is contingent on robust analysis methods and software tools to bring these methods from bench to bedside., 3D Slicer is a free open source software application for medical image computing. As a clinical research tool, 3D Slicer is similar to a radiology workstation that supports versatile visualizations but also provides advanced functionality such as automated segmentation and registration for a variety of application domains. Unlike a typical radiology workstation, 3D Slicer is free and is not tied to specific hardware. As a programming platform, 3D Slicer facilitates translation and evaluation of the new quantitative methods by allowing the biomedical researcher to focus on the implementation of the algorithm, and providing abstractions for the common tasks of data communication, visualization and user interface development. Compared to other tools that provide aspects of this functionality, 3D Slicer is fully open source and can be readily extended and redistributed. In addition, 3D Slicer is designed to facilitate the development of new functionality in the form of 3D Slicer extensions., In this paper, we present an overview of 3D Slicer as a platform for prototyping, development and evaluation of image analysis tools for clinical research applications. To illustrate the utility of the platform in the scope of {QIN}, we discuss several use cases of 3D Slicer by the existing {QIN} teams, and we elaborate on the future directions that can further facilitate development and validation of imaging biomarkers using 3D Slicer.},
-	pages = {1323--1341},
-	number = {9},
-	journaltitle = {Magnetic resonance imaging},
-	shortjournal = {Magn Reson Imaging},
-	author = {Fedorov, Andriy and Beichel, Reinhard and Kalpathy-Cramer, Jayashree and Finet, Julien and Fillion-Robin, Jean-Christophe and Pujol, Sonia and Bauer, Christian and Jennings, Dominique and Fennessy, Fiona and Sonka, Milan and Buatti, John and Aylward, Stephen and Miller, James V. and Pieper, Steve and Kikinis, Ron},
-	urldate = {2021-07-02},
-	date = {2012-11},
-	pmid = {22770690},
-	pmcid = {PMC3466397},
-	file = {PubMed Central Full Text PDF:C\:\\Users\\yochien\\Zotero\\storage\\XZSA6NPN\\Fedorov 等。 - 2012 - 3D Slicer as an Image Computing Platform for the Q.pdf:application/pdf},
-}
-
-@inproceedings{geringIntegratedVisualizationSystem1999,
-	location = {Berlin, Heidelberg},
-	title = {An Integrated Visualization System for Surgical Planning and Guidance Using Image Fusion and Interventional Imaging},
-	isbn = {978-3-540-48232-1},
-	doi = {10.1007/10704282_88},
-	series = {Lecture Notes in Computer Science},
-	abstract = {We present a software package which uniquely integrates several facets of image-guided medicine into a single portable, extendable environment. It provides capabilities for automatic registration, semi-automatic segmentation, 3D surface model generation, 3D visualization, and quantitative analysis of various medical scans. We describe its system architecture, wide range of applications, and novel integration with an interventional Magnetic Resonance ({MR}) scanner to augment intra-operative imaging with pre-operative data. Analysis previously reserved for pre-operative data can now be applied to exploring the anatomical changes as the surgery progresses. Surgical instruments are tracked and used to drive the location of reformatted slices. Real-time scans are visualized as slices in the same 3D view along with the pre-operative slices and surface models. The system has been applied in over 20 neurosurgical cases at Brigham and Women’s Hospital, and continues to be routinely used for 1-3 cases per week.},
-	pages = {809--819},
-	booktitle = {Medical Image Computing and Computer-Assisted Intervention – {MICCAI}’99},
-	publisher = {Springer},
-	author = {Gering, David T. and Nabavi, Arya and Kikinis, Ron and Grimson, W. Eric L. and Hata, Noby and Everett, Peter and Jolesz, Ferenc and Wells, William M.},
-	editor = {Taylor, Chris and Colchester, Alain},
-	date = {1999},
-	langid = {english},
-	keywords = {Automatic Registration, Brain Shift, Eloquent Cortex, Surgical Guidance, Surgical Planning},
-	file = {Springer Full Text PDF:C\:\\Users\\yochien\\Zotero\\storage\\8GV6TUKI\\Gering 等。 - 1999 - An Integrated Visualization System for Surgical Pl.pdf:application/pdf},
-}
-
-@article{geringIntegratedVisualizationSystem2001,
-	title = {An integrated visualization system for surgical planning and guidance using image fusion and an open {MR}},
-	volume = {13},
-	issn = {1053-1807},
-	doi = {10.1002/jmri.1139},
-	abstract = {A surgical guidance and visualization system is presented, which uniquely integrates capabilities for data analysis and on-line interventional guidance into the setting of interventional {MRI}. Various pre-operative scans (T1- and T2-weighted {MRI}, {MR} angiography, and functional {MRI} ({fMRI})) are fused and automatically aligned with the operating field of the interventional {MR} system. Both pre-surgical and intra-operative data may be segmented to generate three-dimensional surface models of key anatomical and functional structures. Models are combined in a three-dimensional scene along with reformatted slices that are driven by a tracked surgical device. Thus, pre-operative data augments interventional imaging to expedite tissue characterization and precise localization and targeting. As the surgery progresses, and anatomical changes subsequently reduce the relevance of pre-operative data, interventional data is refreshed for software navigation in true real time. The system has been applied in 45 neurosurgical cases and found to have beneficial utility for planning and guidance. J. Magn. Reson. Imaging 2001;13:967-975.},
-	pages = {967--975},
-	number = {6},
-	journaltitle = {Journal of magnetic resonance imaging: {JMRI}},
-	shortjournal = {J Magn Reson Imaging},
-	author = {Gering, D. T. and Nabavi, A. and Kikinis, R. and Hata, N. and O'Donnell, L. J. and Grimson, W. E. and Jolesz, F. A. and Black, P. M. and Wells, W. M.},
-	date = {2001-06},
-	pmid = {11382961},
-	keywords = {Humans, Image Processing, Computer-Assisted, Magnetic Resonance Imaging, Adult, Aged, Male, Middle Aged, Female, Imaging, Three-Dimensional, Adolescent, Brain Neoplasms, Child, Child, Preschool, Computer Simulation, Magnetic Resonance Angiography, Patient Care Planning, Software, Stereotaxic Techniques},
-	file = {全文:C\:\\Users\\yochien\\Zotero\\storage\\3RE6JBXC\\Gering 等。 - 2001 - An integrated visualization system for surgical pl.pdf:application/pdf},
-}
-
-@inproceedings{pieperNAMICKitITK2006,
-	title = {The {NA}-{MIC} Kit: {ITK}, {VTK}, pipelines, grids and 3D slicer as an open platform for the medical image computing community},
-	doi = {10.1109/ISBI.2006.1625012},
-	shorttitle = {The {NA}-{MIC} Kit},
-	abstract = {Medical image computing researchers often face the problem of moving promising new algorithms from the proof of concept stage into a form compatible with clinical use. Algorithm developers lack the time and resources to engineer their code for robustness and compatibility, while end-users are anxious to try new techniques but require well designed and tested user interfaces to make practical use of them. The {NA}-{MIC} Kit is a collection of software and methodology specifically designed to address these problems and facilitate the rapid advancement of the field},
-	eventtitle = {3rd {IEEE} International Symposium on Biomedical Imaging: Nano to Macro, 2006.},
-	pages = {698--701},
-	booktitle = {3rd {IEEE} International Symposium on Biomedical Imaging: Nano to Macro, 2006.},
-	author = {Pieper, S. and Lorensen, B. and Schroeder, W. and Kikinis, R.},
-	date = {2006-04},
-	note = {{ISSN}: 1945-8452},
-	keywords = {Testing, Algorithm design and analysis, Biomedical engineering, Biomedical imaging, Design engineering, Design methodology, Grid computing, Pipelines, Robustness, User interfaces},
-}
-
-@article{rasuliMetforminContrastMedia1998,
-	title = {Metformin and contrast media: where is the conflict?},
-	volume = {49},
-	issn = {0846-5371},
-	shorttitle = {Metformin and contrast media},
-	abstract = {Intravascular administration of iodinated contrast media to patients who are receiving metformin, an oral antidiabetic agent, can result in lactic acidosis. However, this rare complication occurs only if the contrast medium causes renal failure, and the patient continues to take metformin in the presence of renal failure. Because metformin is excreted primarily by the kidneys, continued intake of metformin after the onset of renal failure results in a toxic accumulation of this drug and subsequent lactic acidosis. To avoid this complication, metformin must be withheld after the administration of the contrast agent for 48 hours, during which the contrast-induced renal failure becomes clinically apparent. If renal function is normal at 48 hours, the metformin can be restarted. There is no scientific justification for withholding metformin for 48 hours before administration of the contrast medium, as currently recommended in the package insert. The authors review the pharmacology of metformin and present a departmental policy for managing patients with diabetes who receive metformin and who require intravascular administration of iodinated contrast media.},
-	pages = {161--166},
-	number = {3},
-	journaltitle = {Canadian Association of Radiologists Journal = Journal l'Association Canadienne Des Radiologistes},
-	shortjournal = {Can Assoc Radiol J},
-	author = {Rasuli, P. and Hammond, D. I.},
-	date = {1998-06},
-	pmid = {9640281},
-	keywords = {Humans, Contrast Media, Acidosis, Lactic, Contraindications, Diabetes Mellitus, Type 2, Drug Interactions, Hypoglycemic Agents, Metformin, Renal Insufficiency},
-}
-
-@online{murphyWindowingCTRadiology,
-	title = {Windowing ({CT}) {\textbar} Radiology Reference Article {\textbar} Radiopaedia.org},
-	url = {https://radiopaedia.org/articles/windowing-ct?lang=us},
-	abstract = {Windowing, also known as grey-level mapping, contrast stretching, histogram modification or contrast enhancement is the process in which the {CT} image greyscale component of an image is manipulated via the {CT} numbers; doing this will change the ap...},
-	titleaddon = {Radiopaedia},
-	author = {Murphy, Andrew},
-	urldate = {2021-07-04},
-	langid = {american},
-	file = {Snapshot:C\:\\Users\\yochien\\Zotero\\storage\\L8QHRS5E\\windowing-ct.html:text/html},
-}
-
-@online{greenwayHounsfieldUnitRadiology,
-	title = {Hounsfield unit {\textbar} Radiology Reference Article {\textbar} Radiopaedia.org},
-	url = {https://radiopaedia.org/articles/hounsfield-unit},
-	abstract = {Hounsfield units ({HU}) are a dimensionless unit universally used in computed tomography ({CT}) scanning to express {CT} numbers in a standardized and convenient form. Hounsfield units are obtained from a linear transformation of the measured attenuati...},
-	titleaddon = {Radiopaedia},
-	author = {Greenway, Kyle},
-	urldate = {2021-07-04},
-	langid = {american},
-	file = {Snapshot:C\:\\Users\\yochien\\Zotero\\storage\\MJWRNW3K\\hounsfield-unit.html:text/html},
-}
-
-@incollection{levCTAngiographyCT2002,
-	location = {San Diego},
-	title = {{CT} Angiography and {CT} Perfusion Imaging},
-	isbn = {978-0-12-693019-1},
-	url = {https://www.sciencedirect.com/science/article/pii/B9780126930191500198},
-	pages = {427--484},
-	booktitle = {Brain Mapping: The Methods (Second Edition)},
-	publisher = {Academic Press},
-	author = {Lev, M. H. and Gonzalez, R. G.},
-	editor = {Toga, Arthur W. and Mazziotta, John C.},
-	urldate = {2021-07-04},
-	date = {2002-01-01},
-	langid = {english},
-	doi = {10.1016/B978-012693019-1/50019-8},
-	file = {ScienceDirect Full Text PDF:C\:\\Users\\yochien\\Zotero\\storage\\MHMR3DJA\\Lev 與 Gonzalez - 2002 - 17 - CT Angiography and CT Perfusion Imaging.pdf:application/pdf;ScienceDirect Snapshot:C\:\\Users\\yochien\\Zotero\\storage\\N6KH8J2Y\\B9780126930191500198.html:text/html},
-}
-
-@online{nadrljanskiComputedTomographyRadiology,
-	title = {Computed tomography {\textbar} Radiology Reference Article {\textbar} Radiopaedia.org},
-	url = {https://radiopaedia.org/articles/computed-tomography},
-	abstract = {Computed tomography ({CT}) scanning, also known as, especially in the older literature and textbooks, computerized axial tomography ({CAT}) scanning, is a diagnostic imaging procedure that uses x-rays to build cross-sectional images ("slices") of the...},
-	titleaddon = {Radiopaedia},
-	author = {Nadrljanski, Mirjan M.},
-	urldate = {2021-07-05},
-	langid = {american},
-	file = {Snapshot:C\:\\Users\\yochien\\Zotero\\storage\\H767V3K9\\computed-tomography.html:text/html},
-}
-
-@article{mckavanaghEssentialsCardiacComputerized2015,
-	title = {The Essentials of Cardiac Computerized Tomography},
-	volume = {4},
-	issn = {2193-8261},
-	url = {https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4675750/},
-	doi = {10.1007/s40119-015-0052-0},
-	abstract = {Cardiac computerized tomography ({CT}) has evolved from a research tool to an important diagnostic investigation in cardiology, and is now recommended in European, {US}, and {UK} guidelines. This review is designed to give the reader an overview of the current state of cardiac {CT}. The role of cardiac {CT} is multifaceted, and includes risk stratification, disease detection, coronary plaque quantification, defining congenital heart disease, planning for structural intervention, and, more recently, assessment of ischemia. This paper addresses basic principles as well as newer evidence.},
-	pages = {117--129},
-	number = {2},
-	journaltitle = {Cardiology and Therapy},
-	shortjournal = {Cardiol Ther},
-	author = {{McKavanagh}, Peter and Walls, Gerard and {McCune}, Claire and Malloy, Jonathon and Harbinson, Mark T. and Ball, Peter A. and Donnelly, Patrick M.},
-	urldate = {2021-07-05},
-	date = {2015-12},
-	pmid = {26536882},
-	pmcid = {PMC4675750},
-	file = {PubMed Central Full Text PDF:C\:\\Users\\yochien\\Zotero\\storage\\YGKXGGE7\\McKavanagh 等。 - 2015 - The Essentials of Cardiac Computerized Tomography.pdf:application/pdf},
-}
-
-@article{andreucciUpdateRenalToxicity2017,
-	title = {Update on the renal toxicity of iodinated contrast drugs used in clinical medicine},
-	volume = {9},
-	issn = {1179-1365},
-	doi = {10.2147/DHPS.S122207},
-	abstract = {An important side effect of diagnostic contrast drugs is contrast-induced acute kidney injury ({CI}-{AKI}; a sudden decrease in renal function) occurring 48-72 hours after injection of a contrast drug that cannot be attributed to other causes. Its existence has recently been challenged, because of some retrospective studies in which the incidence of {AKI} was not different between subjects who received a contrast drug and those who did not, even using propensity score matching to prevent selection bias. For some authors, only patients with estimated glomerular filtration rate {\textless}30 {mL}/min/1.73 m2 are at significant risk of {CI}-{AKI}. Most agree that when renal function is normal, there is no {CI}-{AKI} risk. Many experimental studies, however, are in favor of the existence of {CI}-{AKI}. Contrast drugs have been shown to cause the following changes: renal vasoconstriction, resulting in a rise in intrarenal resistance (decrease in renal blood flow and glomerular filtration rate and medullary hypoxia); epithelial vacuolization and dilatation and necrosis of proximal tubules; potentiation of angiotensin {II} effects, reducing nitric oxide ({NO}) and causing direct constriction of descending vasa recta, leading to formation of reactive oxygen species in isolated descending vasa recta of rats microperfused with a solution of iodixanol; increasing active sodium reabsorption in the thick ascending limbs of Henle's loop (increasing O2 demand and consequently medullary hypoxia); direct cytotoxic effects on endothelial and tubular epithelial cells (decrease in release of {NO} in vasa recta); and reducing cell survival, due to decreased activation of Akt and {ERK}1/2, kinases involved in cell survival/proliferation. Prevention is mainly based on extracellular volume expansion, statins, and N-acetylcysteine; conflicting results have been obtained with nebivolol, furosemide, calcium-channel blockers, theophylline, and hemodialysis.},
-	pages = {25--37},
-	journaltitle = {Drug, Healthcare and Patient Safety},
-	shortjournal = {Drug Healthc Patient Saf},
-	author = {Andreucci, Michele and Faga, Teresa and Serra, Raffaele and De Sarro, Giovambattista and Michael, Ashour},
-	date = {2017},
-	pmid = {28579836},
-	pmcid = {PMC5447694},
-	keywords = {acute kidney injury, {AKI}, {ARF}, contrast media, intracellular signaling, renal failure},
-	file = {全文:C\:\\Users\\yochien\\Zotero\\storage\\CC4MLS2D\\Andreucci 等。 - 2017 - Update on the renal toxicity of iodinated contrast.pdf:application/pdf},
-}
-
-@online{saljoughianIntravenousRadiocontrastMedia2012,
-	title = {Intravenous Radiocontrast Media: A Review of Allergic Reactions},
-	url = {https://www.uspharmacist.com/article/intravenous-radiocontrast-media-a-review-of-allergic-reactions},
-	shorttitle = {Intravenous Radiocontrast Media},
-	author = {Saljoughian, Manouchehr},
-	urldate = {2021-07-06},
-	date = {2012-05-22},
-	langid = {english},
-	file = {Snapshot:C\:\\Users\\yochien\\Zotero\\storage\\V9NALBET\\intravenous-radiocontrast-media-a-review-of-allergic-reactions.html:text/html},
-}
-
-@inproceedings{jiangTumorAwareAdversarialDomain2018,
-	location = {Cham},
-	title = {Tumor-Aware, Adversarial Domain Adaptation from {CT} to {MRI} for Lung Cancer Segmentation},
-	isbn = {978-3-030-00934-2},
-	doi = {10.1007/978-3-030-00934-2_86},
-	series = {Lecture Notes in Computer Science},
-	abstract = {We present an adversarial domain adaptation based deep learning approach for automatic tumor segmentation from T2-weighted {MRI}. Our approach is composed of two steps: (i) a tumor-aware unsupervised cross-domain adaptation ({CT} to {MRI}), followed by (ii) semi-supervised tumor segmentation using Unet trained with synthesized and limited number of original {MRIs}. We introduced a novel target specific loss, called tumor-aware loss, for unsupervised cross-domain adaptation that helps to preserve tumors on synthesized {MRIs} produced from {CT} images. In comparison, state-of-the art adversarial networks trained without our tumor-aware loss produced {MRIs} with ill-preserved or missing tumors. All networks were trained using labeled {CT} images from 377 patients with non-small cell lung cancer obtained from the Cancer Imaging Archive and unlabeled T2w {MRIs} from a completely unrelated cohort of 6 patients with pre-treatment and 36 on-treatment scans. Next, we combined 6 labeled pre-treatment {MRI} scans with the synthesized {MRIs} to boost tumor segmentation accuracy through semi-supervised learning. Semi-supervised training of cycle-{GAN} produced a segmentation accuracy of 0.66 computed using Dice Score Coefficient ({DSC}). Our method trained with only synthesized {MRIs} produced an accuracy of 0.74 while the same method trained in semi-supervised setting produced the best accuracy of 0.80 on test. Our results show that tumor-aware adversarial domain adaptation helps to achieve reasonably accurate cancer segmentation from limited {MRI} data by leveraging large {CT} datasets.},
-	pages = {777--785},
-	booktitle = {Medical Image Computing and Computer Assisted Intervention – {MICCAI} 2018},
-	publisher = {Springer International Publishing},
-	author = {Jiang, Jue and Hu, Yu-Chi and Tyagi, Neelam and Zhang, Pengpeng and Rimner, Andreas and Mageras, Gig S. and Deasy, Joseph O. and Veeraraghavan, Harini},
-	editor = {Frangi, Alejandro F. and Schnabel, Julia A. and Davatzikos, Christos and Alberola-López, Carlos and Fichtinger, Gabor},
-	date = {2018},
-	langid = {english},
-	file = {Springer Full Text PDF:C\:\\Users\\yochien\\Zotero\\storage\\MJ56F73Y\\Jiang 等。 - 2018 - Tumor-Aware, Adversarial Domain Adaptation from CT.pdf:application/pdf},
-}
-
-@inproceedings{kanitsarCPRCurvedPlanar2002,
-	title = {{CPR} - curved planar reformation},
-	doi = {10.1109/VISUAL.2002.1183754},
-	abstract = {Visualization of tubular structures such as blood vessels is an important topic in medical imaging. One way to display tubular structures for diagnostic purposes is to generate longitudinal cross-sections in order to show their lumen, wall, and surrounding tissue in a curved plane. This process is called curved planar reformation ({CPR}). We present three different methods to generate {CPR} images. A tube-phantom was scanned with computed tomography ({CT}) to illustrate the properties of the different {CPR} methods. Furthermore we introduce enhancements to these methods: thick-{CPR}, rotating-{CPR} and multi-path-{CPR}.},
-	eventtitle = {{IEEE} Visualization, 2002. {VIS} 2002.},
-	pages = {37--44},
-	booktitle = {{IEEE} Visualization, 2002. {VIS} 2002.},
-	author = {Kanitsar, A. and Fleischmann, D. and Wegenkittl, R. and Felkel, P. and Groller, E.},
-	date = {2002-10},
-	keywords = {Computed tomography, Biomedical imaging, Blood vessels, Chromium, Computer displays, Computer graphics, Data visualization, Image generation, Magnetic resonance imaging, Radiology},
-	file = {IEEE Xplore Full Text PDF:C\:\\Users\\yochien\\Zotero\\storage\\I2BCLUWB\\Kanitsar 等。 - 2002 - CPR - curved planar reformation.pdf:application/pdf},
-}
-
-@inproceedings{chenCoronaryArterySegmentation2019,
-	title = {Coronary artery Segmentation in Cardiac {CT} Angiography Using 3D Multi-Channel U-net},
-	url = {https://openreview.net/forum?id=r1g1GbCV54},
-	abstract = {Vessel stenosis is a major risk factor in cardiovascular diseases ({CVD}). To analyze the degree of vessel stenosis for supporting the treatment management, extraction of coronary artery area from...},
-	eventtitle = {International Conference on Medical Imaging with Deep Learning -- Extended Abstract Track},
-	author = {Chen, Yo-Chuan and Lin, Yi-Chen and Wang, Ching-Ping and Lee, Chia-Yen and Wang, Tzung-Dau and Lee, Wen-Jeng and Chen, Chung-Ming},
-	urldate = {2021-08-13},
-	date = {2019-04-17},
-	langid = {english},
-	file = {Full Text PDF:C\:\\Users\\yochien\\Zotero\\storage\\Y4DL5BBD\\Chen 等。 - 2019 - Coronary artery Segmentation in Cardiac CT Angiogr.pdf:application/pdf;Snapshot:C\:\\Users\\yochien\\Zotero\\storage\\8XQEHSGN\\forum.html:text/html},
-}
-
-@inproceedings{cicek3DUNetLearning2016,
-	location = {Cham},
-	title = {3D U-Net: Learning Dense Volumetric Segmentation from Sparse Annotation},
-	isbn = {978-3-319-46723-8},
-	doi = {10.1007/978-3-319-46723-8_49},
-	series = {Lecture Notes in Computer Science},
-	shorttitle = {3D U-Net},
-	abstract = {This paper introduces a network for volumetric segmentation that learns from sparsely annotated volumetric images. We outline two attractive use cases of this method: (1) In a semi-automated setup, the user annotates some slices in the volume to be segmented. The network learns from these sparse annotations and provides a dense 3D segmentation. (2) In a fully-automated setup, we assume that a representative, sparsely annotated training set exists. Trained on this data set, the network densely segments new volumetric images. The proposed network extends the previous u-net architecture from Ronneberger et al. by replacing all 2D operations with their 3D counterparts. The implementation performs on-the-fly elastic deformations for efficient data augmentation during training. It is trained end-to-end from scratch, i.e., no pre-trained network is required. We test the performance of the proposed method on a complex, highly variable 3D structure, the Xenopus kidney, and achieve good results for both use cases.},
-	pages = {424--432},
-	booktitle = {Medical Image Computing and Computer-Assisted Intervention – {MICCAI} 2016},
-	publisher = {Springer International Publishing},
-	author = {Çiçek, Özgün and Abdulkadir, Ahmed and Lienkamp, Soeren S. and Brox, Thomas and Ronneberger, Olaf},
-	editor = {Ourselin, Sebastien and Joskowicz, Leo and Sabuncu, Mert R. and Unal, Gozde and Wells, William},
-	date = {2016},
-	langid = {english},
-	keywords = {Convolutional neural networks, 3D, Biomedical volumetric image segmentation, Fully-automated, Semi-automated, Sparse annotation, Xenopus kidney},
-	file = {Springer Full Text PDF:C\:\\Users\\yochien\\Zotero\\storage\\Q56UDFRQ\\Çiçek 等。 - 2016 - 3D U-Net Learning Dense Volumetric Segmentation f.pdf:application/pdf},
-}
-
-@inproceedings{zhuUnpairedImagetoImageTranslation2017,
-	title = {Unpaired Image-to-Image Translation Using Cycle-Consistent Adversarial Networks},
-	doi = {10.1109/ICCV.2017.244},
-	abstract = {Image-to-image translation is a class of vision and graphics problems where the goal is to learn the mapping between an input image and an output image using a training set of aligned image pairs. However, for many tasks, paired training data will not be available. We present an approach for learning to translate an image from a source domain X to a target domain Y in the absence of paired examples. Our goal is to learn a mapping G : X → Y such that the distribution of images from G(X) is indistinguishable from the distribution Y using an adversarial loss. Because this mapping is highly under-constrained, we couple it with an inverse mapping F : Y → X and introduce a cycle consistency loss to push F(G(X)) ≈ X (and vice versa). Qualitative results are presented on several tasks where paired training data does not exist, including collection style transfer, object transfiguration, season transfer, photo enhancement, etc. Quantitative comparisons against several prior methods demonstrate the superiority of our approach.},
-	eventtitle = {2017 {IEEE} International Conference on Computer Vision ({ICCV})},
-	pages = {2242--2251},
-	booktitle = {2017 {IEEE} International Conference on Computer Vision ({ICCV})},
-	author = {Zhu, Jun-Yan and Park, Taesung and Isola, Phillip and Efros, Alexei A.},
-	date = {2017-10},
-	note = {{ISSN}: 2380-7504},
-	keywords = {Training, Semantics, Extraterrestrial measurements, Graphics, Painting, Training data},
-	file = {IEEE Xplore Abstract Record:C\:\\Users\\yochien\\Zotero\\storage\\RZP3XK77\\8237506.html:text/html;送出的版本:C\:\\Users\\yochien\\Zotero\\storage\\WGSFGMEF\\Zhu 等。 - 2017 - Unpaired Image-to-Image Translation Using Cycle-Co.pdf:application/pdf},
-}
-
-@article{kjerlandSegmentationCoronaryArteries2017a,
-	title = {Segmentation of Coronary Arteries from {CT}-scans of the heart using Deep Learning},
-	url = {https://ntnuopen.ntnu.no/ntnu-xmlui/handle/11250/2456361},
-	abstract = {Image segmentation is an important tool in several fields. One is medical image computing where the images are divided into regions based on tissue type and organ, which can further be used for visualization and diagnosis. Due to the large amount of data produced by modern imaging modalities such as {CT} and {MRI}, the process of manual or semi-automatic segmentation is time consuming, tedious and introduces bias by clinical experts. Recent advances in the field of deep learning has given rise to several fully automatic methods for robust segmentation on a large variety of segmentation tasks. In this thesis the use of a 3D convolutional neural network architecture is used on three different segmentation tasks is explored. These tasks are coronary artery segmentation, brain tumor segmentation and digital rock segmentation. 
-
-Coronary artery disease is the leading cause of death in Europe. Diagnosis of the disease is today done by invasive methods, but research on using computational fluid dynamics to model the blood flow based on non-invasive imaging show great promise. In this thesis a method for fully automatic segmentation of the coronary arteries based on deep learning is proposed, implemented and evaluated on a dataset provided by St. Olavs Hospital. The dataset contains manual segmentations performed by a clinical expert. The proposed method uses two neural networks trained on aorta segmentation and coronary segmentation respectively and is able to segment the complete coronary artery tree in some test images, but fails to segment all branches in the rest of the images.  
-
-For the brain tumor segmentation task a network is trained and evaluated on a dataset provided by the Norwegian National Advisory Unit for Ultrasound and Image Guided Therapy ({USIGT}). The results show that the deep learning method is able to produce good segmentations fully automatically. These segmentations do however inlcude some spurious responses.
-
-Digital Rocks technology is based on using high resolution 3D microscopy imaging to create models describing reservoir rock. A network was trained and evaluated on a digital rock dataset provided by {FEI}. The results show that the network is able to produce good segmentations fully automatically.},
-	author = {Kjerland, Øyvind},
-	urldate = {2021-08-14},
-	date = {2017},
-	note = {Accepted: 2017-09-22T14:00:45Z
-Publisher: {NTNU}},
-	file = {Snapshot:C\:\\Users\\yochien\\Zotero\\storage\\39Q2YDP5\\2456361.html:text/html;Full Text PDF:C\:\\Users\\yochien\\Zotero\\storage\\TYILDHVY\\Kjerland - 2017 - Segmentation of Coronary Arteries from CT-scans of.pdf:application/pdf},
-}
-
-@incollection{ogobuiroAnatomyThoraxHeart2021,
-	location = {Treasure Island ({FL})},
-	title = {Anatomy, Thorax, Heart Coronary Arteries},
-	rights = {Copyright © 2021, {StatPearls} Publishing {LLC}.},
-	url = {http://www.ncbi.nlm.nih.gov/books/NBK534790/},
-	abstract = {The coronary arteries run along the coronary sulcus of the myocardium of the heart. Their main function is to supply blood to the heart. This is a crucial function for myocardial function and subsequently homeostasis of the body. The arrangement of coronary arteries varies among people significantly.},
-	booktitle = {{StatPearls}},
-	publisher = {{StatPearls} Publishing},
-	author = {Ogobuiro, Ifeanyichukwu and Wehrle, Chase J. and Tuma, Faiz},
-	urldate = {2021-08-22},
-	date = {2021},
-	pmid = {30521211},
-	file = {Printable HTML:C\:\\Users\\yochien\\Zotero\\storage\\7RXMJGQI\\NBK534790.html:text/html},
-}
-
-@book{ogobuiroAnatomyThoraxHeart2021a,
-	title = {Anatomy, Thorax, Heart Coronary Arteries},
-	url = {https://www.ncbi.nlm.nih.gov/books/NBK534790/},
-	abstract = {The coronary arteries run along the coronary sulcus of the myocardium of the heart. Their main function is to supply blood to the heart. This is a crucial function for myocardial function and subsequently homeostasis of the body. The arrangement of coronary arteries varies among people significantly.},
-	publisher = {{StatPearls} Publishing},
-	author = {Ogobuiro, Ifeanyichukwu and Wehrle, Chase J. and Tuma, Faiz},
-	urldate = {2021-08-22},
-	date = {2021-07-28},
-	langid = {pinyin},
-	pmid = {30521211},
-	note = {Publication Title: {StatPearls} [Internet]},
-	file = {Snapshot:C\:\\Users\\yochien\\Zotero\\storage\\VPEVZIRE\\NBK534790.html:text/html},
-}
-
-@online{AtherosclerosisAmericanHeart,
-	title = {Atherosclerosis {\textbar} American Heart Association},
-	url = {https://www.heart.org/en/health-topics/cholesterol/about-cholesterol/atherosclerosis},
-	urldate = {2021-08-22},
-	file = {Atherosclerosis | American Heart Association:C\:\\Users\\yochien\\Zotero\\storage\\6Z2P73MK\\atherosclerosis.html:text/html},
-}
-
-@online{AtherosclerosisNHLBINIH,
-	title = {Atherosclerosis {\textbar} {NHLBI}, {NIH}},
-	url = {https://www.nhlbi.nih.gov/health-topics/atherosclerosis},
-	urldate = {2021-08-22},
-	file = {Atherosclerosis | NHLBI, NIH:C\:\\Users\\yochien\\Zotero\\storage\\65BMI9W9\\atherosclerosis.html:text/html},
-}
-
-@book{rehmanPhysiologyCoronaryCirculation2021,
-	title = {Physiology, Coronary Circulation},
-	url = {https://www.ncbi.nlm.nih.gov/books/NBK482413/},
-	abstract = {The heart is highly metabolically active and boasts the highest oxygen consumption by mass of any organ. This demand for oxygen is met by the coronary circulation, which is responsible for delivering blood to the myocardium and represents approximately 5\% of cardiac output.[1] Adequate blood flow through the coronary vessels is critical to avoid ischemia and maintain the integrity of the myocardial tissue.},
-	publisher = {{StatPearls} Publishing},
-	author = {Rehman, Saad and Khan, Amir and Rehman, Afzal},
-	urldate = {2021-08-22},
-	date = {2021-05-09},
-	pmid = {29494020},
-	note = {Publication Title: {StatPearls} [Internet]},
-	file = {Snapshot:C\:\\Users\\yochien\\Zotero\\storage\\FUNFKW2E\\NBK482413.html:text/html},
-}
-
-@book{ojhaMyocardialInfarction2021,
-	title = {Myocardial Infarction},
-	url = {https://www.ncbi.nlm.nih.gov/books/NBK537076/},
-	abstract = {Myocardial infarction ({MI}), colloquially known as “heart attack,” is caused by decreased or complete cessation of blood flow to a portion of the myocardium. Myocardial infarction may be “silent” and go undetected, or it could be a catastrophic event leading to hemodynamic deterioration and sudden death.[1] Most myocardial infarctions are due to underlying coronary artery disease, the leading cause of death in the United States. With coronary artery occlusion, the myocardium is deprived of oxygen. Prolonged deprivation of oxygen supply to the myocardium can lead to myocardial cell death and necrosis.[2] Patients can present with chest discomfort or pressure that can radiate to the neck, jaw, shoulder, or arm. In addition to the history and physical exam, myocardial ischemia may be associated with {ECG} changes and elevated biochemical markers such as cardiac troponins.[3][4]},
-	publisher = {{StatPearls} Publishing},
-	author = {Ojha, Niranjan and Dhamoon, Amit S.},
-	urldate = {2021-08-22},
-	date = {2021-08-11},
-	langid = {english},
-	pmid = {30725761},
-	note = {Publication Title: {StatPearls} [Internet]},
-	file = {Snapshot:C\:\\Users\\yochien\\Zotero\\storage\\72RADQ3Z\\NBK537076.html:text/html},
-}
-
-@article{singh3DDeepLearning2020,
-	title = {3D Deep Learning on Medical Images: A Review},
-	volume = {20},
-	issn = {1424-8220},
-	url = {https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7570704/},
-	doi = {10.3390/s20185097},
-	shorttitle = {3D Deep Learning on Medical Images},
-	abstract = {The rapid advancements in machine learning, graphics processing technologies and the availability of medical imaging data have led to a rapid increase in the use of deep learning models in the medical domain. This was exacerbated by the rapid advancements in convolutional neural network ({CNN}) based architectures, which were adopted by the medical imaging community to assist clinicians in disease diagnosis. Since the grand success of {AlexNet} in 2012, {CNNs} have been increasingly used in medical image analysis to improve the efficiency of human clinicians. In recent years, three-dimensional (3D) {CNNs} have been employed for the analysis of medical images. In this paper, we trace the history of how the 3D {CNN} was developed from its machine learning roots, we provide a brief mathematical description of 3D {CNN} and provide the preprocessing steps required for medical images before feeding them to 3D {CNNs}. We review the significant research in the field of 3D medical imaging analysis using 3D {CNNs} (and its variants) in different medical areas such as classification, segmentation, detection and localization. We conclude by discussing the challenges associated with the use of 3D {CNNs} in the medical imaging domain (and the use of deep learning models in general) and possible future trends in the field.},
-	pages = {5097},
-	number = {18},
-	journaltitle = {Sensors (Basel, Switzerland)},
-	shortjournal = {Sensors (Basel)},
-	author = {Singh, Satya P. and Wang, Lipo and Gupta, Sukrit and Goli, Haveesh and Padmanabhan, Parasuraman and Gulyás, Balázs},
-	urldate = {2021-08-22},
-	date = {2020-09-07},
-	pmid = {32906819},
-	pmcid = {PMC7570704},
-	file = {PubMed Central Full Text PDF:C\:\\Users\\yochien\\Zotero\\storage\\AMLZKBJH\\Singh 等。 - 2020 - 3D Deep Learning on Medical Images A Review.pdf:application/pdf},
-}
-
-@inproceedings{moeskopsDeepLearningMultitask2016,
-	location = {Cham},
-	title = {Deep Learning for Multi-task Medical Image Segmentation in Multiple Modalities},
-	isbn = {978-3-319-46723-8},
-	doi = {10.1007/978-3-319-46723-8_55},
-	series = {Lecture Notes in Computer Science},
-	abstract = {Automatic segmentation of medical images is an important task for many clinical applications. In practice, a wide range of anatomical structures are visualised using different imaging modalities. In this paper, we investigate whether a single convolutional neural network ({CNN}) can be trained to perform different segmentation tasks.A single {CNN} is trained to segment six tissues in {MR} brain images, the pectoral muscle in {MR} breast images, and the coronary arteries in cardiac {CTA}. The {CNN} therefore learns to identify the imaging modality, the visualised anatomical structures, and the tissue classes.For each of the three tasks (brain {MRI}, breast {MRI} and cardiac {CTA}), this combined training procedure resulted in a segmentation performance equivalent to that of a {CNN} trained specifically for that task, demonstrating the high capacity of {CNN} architectures. Hence, a single system could be used in clinical practice to automatically perform diverse segmentation tasks without task-specific training.},
-	pages = {478--486},
-	booktitle = {Medical Image Computing and Computer-Assisted Intervention – {MICCAI} 2016},
-	publisher = {Springer International Publishing},
-	author = {Moeskops, Pim and Wolterink, Jelmer M. and van der Velden, Bas H. M. and Gilhuijs, Kenneth G. A. and Leiner, Tim and Viergever, Max A. and Išgum, Ivana},
-	editor = {Ourselin, Sebastien and Joskowicz, Leo and Sabuncu, Mert R. and Unal, Gozde and Wells, William},
-	date = {2016},
-	langid = {english},
-	keywords = {Brain {MRI}, Breast {MRI}, Cardiac {CTA}, Convolutional neural networks, Deep learning, Medical image segmentation},
-	file = {Springer Full Text PDF:C\:\\Users\\yochien\\Zotero\\storage\\PATXNCI9\\Moeskops 等。 - 2016 - Deep Learning for Multi-task Medical Image Segment.pdf:application/pdf},
-}
-
-@article{porterHippocampusSegmentationNoncontrast2020a,
-	title = {Hippocampus segmentation on noncontrast {CT} using deep learning},
-	volume = {47},
-	issn = {2473-4209},
-	doi = {10.1002/mp.14098},
-	abstract = {{PURPOSE}: Accurate segmentation of the hippocampus for hippocampal avoidance whole-brain radiotherapy currently requires high-resolution magnetic resonance imaging ({MRI}) in addition to neuroanatomic expertise for manual segmentation. Removing the need for {MR} images to identify the hippocampus would reduce planning complexity, the need for a treatment planning {MR} imaging session, potential uncertainties associated with {MRI}-computed tomography ({CT}) image registration, and cost. Three-dimensional (3D) deep convolutional network models have the potential to automate hippocampal segmentation. In this study, we investigate the accuracy and reliability of hippocampal segmentation by automated deep learning models from {CT} alone and compare the accuracy to experts using {MRI} fusion.
-{METHODS}: Retrospectively, 390 Gamma Knife patients with high-resolution {CT} and {MR} images were collected. Following the {RTOG} 0933 guidelines, images were rigidly fused, and a neuroanatomic expert contoured the hippocampus on the {MR}, then transferred the contours to {CT}. Using a calculated cranial centroid, the image volumes were cropped to 200 × 200 × 35 voxels, which were used to train four models, including our proposed Attention-Gated 3D {ResNet} ({AG}-3D {ResNet}). These models were then compared with results from a nested tenfold validation. From the predicted test set volumes, we calculated the 100\% Hausdorff distance ({HD}). Acceptability was assessed using the {RTOG} 0933 protocol criteria, and contours were considered passing with {HD} ≤ 7 mm.
-{RESULTS}: The bilateral hippocampus passing rate across all 90 models trained in the nested cross-fold validation was 80.2\% for {AG}-3D {ResNet}, which performs with a comparable pass rate (P = 0.3345) to physicians during centralized review for the {RTOG} 0933 Phase {II} clinical trial.
-{CONCLUSIONS}: Our proposed {AG}-3D {ResNet}'s segmentation of the hippocampus from noncontrast {CT} images alone are comparable to those obtained by participating physicians from the {RTOG} 0933 Phase {II} clinical trial.},
-	pages = {2950--2961},
-	number = {7},
-	journaltitle = {Medical Physics},
-	shortjournal = {Med Phys},
-	author = {Porter, Evan and Fuentes, Patricia and Siddiqui, Zaid and Thompson, Andrew and Levitin, Ronald and Solis, David and Myziuk, Nick and Guerrero, Thomas},
-	date = {2020-07},
-	pmid = {32065401},
-	keywords = {attention gating, {CT}, deep learning, Deep Learning, hippocampus, Hippocampus, Humans, Image Processing, Computer-Assisted, Magnetic Resonance Imaging, Reproducibility of Results, {ResNet}, Retrospective Studies, segmentation, Tomography, X-Ray Computed, U-Net, whole-brain radiotherapy},
-}
-
-@article{patelIntracerebralHaemorrhageSegmentation2019,
-	title = {Intracerebral Haemorrhage Segmentation in Non-Contrast {CT}},
-	volume = {9},
-	rights = {2019 The Author(s)},
-	issn = {2045-2322},
-	url = {https://www.nature.com/articles/s41598-019-54491-6},
-	doi = {10.1038/s41598-019-54491-6},
-	abstract = {A 3-dimensional (3D) convolutional neural network is presented for the segmentation and quantification of spontaneous intracerebral haemorrhage ({ICH}) in non-contrast computed tomography ({NCCT}). The method utilises a combination of contextual information on multiple scales for fast and fully automatic dense predictions. To handle a large class imbalance present in the data, a weight map is introduced during training. The method was evaluated on two datasets of 25 and 50 patients respectively. The reference standard consisted of manual annotations for each {ICH} in the dataset. Quantitative analysis showed a median Dice similarity coefficient of 0.91 [0.87–0.94] and 0.90 [0.85–0.92] for the two test datasets in comparison to the reference standards. Evaluation of a separate dataset of 5 patients for the assessment of the observer variability produced a mean Dice similarity coefficient of 0.95 ± 0.02 for the inter-observer variability and 0.97 ± 0.01 for the intra-observer variability. The average prediction time for an entire volume was 104 ± 15 seconds. The results demonstrate that the method is accurate and approaches the performance of expert manual annotation.},
-	pages = {17858},
-	number = {1},
-	journaltitle = {Scientific Reports},
-	shortjournal = {Sci Rep},
-	author = {Patel, Ajay and Schreuder, Floris H. B. M. and Klijn, Catharina J. M. and Prokop, Mathias and Ginneken, Bram van and Marquering, Henk A. and Roos, Yvo B. W. E. M. and Baharoglu, M. Irem and Meijer, Frederick J. A. and Manniesing, Rashindra},
-	urldate = {2021-08-22},
-	date = {2019-11-28},
-	langid = {english},
-	note = {Bandiera\_abtest: a
-Cc\_license\_type: cc\_by
-Cg\_type: Nature Research Journals
-Number: 1
-Primary\_atype: Research
-Publisher: Nature Publishing Group
-Subject\_term: Brain imaging;Computed tomography;Computer science;Stroke
-Subject\_term\_id: brain-imaging;computed-tomography;computer-science;stroke},
-	file = {Full Text PDF:C\:\\Users\\yochien\\Zotero\\storage\\GYCRLBHU\\Patel 等。 - 2019 - Intracerebral Haemorrhage Segmentation in Non-Cont.pdf:application/pdf;Snapshot:C\:\\Users\\yochien\\Zotero\\storage\\HIQLG9XU\\s41598-019-54491-6.html:text/html},
+//Voronoi Diagram
+@article{pellerin2014automatic,
+  title={Automatic surface remeshing of 3D structural models at specified resolution: A method based on Voronoi diagrams},
+  author={Pellerin, Jeanne and L{\'e}vy, Bruno and Caumon, Guillaume and Botella, Arnaud},
+  journal={Computers \& Geosciences},
+  volume={62},
+  pages={103--116},
+  year={2014},
+  publisher={Elsevier}
 }
