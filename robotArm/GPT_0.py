@@ -2,7 +2,7 @@ from ArmEnv_3D_ori import ArmEnv_3D
 import numpy as np
 import time
 
-Arm = ArmEnv_3D([6.25, 7, 8.7, 9.65], True)
+Arm = ArmEnv_3D([5.942, 6.81, 8.747, 7.523], True)
 Arm.ylenList = [0, 0, 0, 0]
 path = []
 

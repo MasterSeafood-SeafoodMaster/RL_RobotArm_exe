@@ -80,7 +80,6 @@ class ArmEnv_3D:
                 #print("break")
                 break
             
-
     def generate_points(self, point1, point2, num_points=10):
         x_values = np.linspace(point1[0], point2[0], num_points)
         y_values = np.linspace(point1[1], point2[1], num_points)
@@ -162,7 +161,6 @@ if __name__ == '__main__':
             Arm.updatePicture()
             int_list = [int(x)+90 for x in a]
             int_list = int_list+[90]*2
-            
             
             print(int_list)
             #time.sleep(0.001)
