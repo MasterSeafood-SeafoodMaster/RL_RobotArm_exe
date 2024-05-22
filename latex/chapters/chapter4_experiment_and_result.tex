@@ -120,7 +120,19 @@
 
 \subsection{函數設計}
 
-\subsection{大型語言模型的範例輸入與輸出}
+本實驗將此機器的動作指令簡化為四個函式：
+
+\begin{itemize}
+    \item find(color): 配合相機定位，驅動輪子尋找動應顏色的方塊。
+
+    \item aim(color): 配合相機定位，驅動機械臂瞄準對應顏色的方塊。
+
+    \item grab: 驅動機械臂，抓取正下方的物品。
+
+    \item reset: 驅動機械臂，回到初始位置
+\end{itemize}
+
+\subsection{下達指令的格式範例}
 \begin{listing}
 \begin{minted}[frame=single,
                framesep=3mm,
@@ -128,25 +140,86 @@
                xleftmargin=21pt,
                tabsize=4]{js}
 {     
-    "role": "user",
-    "content" : 
+    role: "user",
+    content : 
     "The following functions are available:\
+    \
+    find(color): Let the robot look for a block of a specific color.\
+    color option: red, blue.\
     aim(color): Let the robot aim at a block of a specific color.\
     color option: red, blue\
     grab: Make the robot arm grab the block and put it down.\
     reset: Return the robotic arm to its initial position\
     (needs to be executed before each aiming).\
+    \
     Please help me use the above functions to control the robot arm,\
     and do not output other text other than the above functions.\
     (Use "," to separate each step)"
 },
 {
-    "role": "user", 
-    "content": "Task: Please grab the red block, and then grab the blue block."
+    role: "user", 
+    content: "Task: Please grab the red block, and then grab the blue block."
 }
 \end{minted}
 \caption{指令格式範例} 
 \end{listing}
+
+\begin{listing}
+\begin{minted}[frame=single,
+               framesep=3mm,
+               linenos=true,
+               xleftmargin=21pt,
+               tabsize=4]{js}
+
+{
+    role="assistant",
+    content="find(red), aim(red), grab, reset, find(blue), aim(blue), grab"
+}
+
+\end{minted}
+\caption{回傳格式範例} 
+\end{listing}
+
+\begin{figure}[!hbt]
+    %\captionsetup[subfigure]{labelformat=empty} % 完全隱藏圖號
+    \centering
+    %\subcaptionbox
+    %    {初始位置
+    %    \label{fig:fig-dataset-contrast-origin}}
+    %    {\includegraphics[width=0.4\linewidth]{figures/Exp3 (1)_square.jpg}}
+    %~
+    \subcaptionbox
+        {瞄準紅色方塊
+        \label{fig:fig-dataset-contrast-after-adjustment}}
+        {\includegraphics[width=0.4\linewidth]{figures/Exp3 (2)_square.jpg}}
+    ~    
+    \subcaptionbox
+        {夾取紅色方塊
+        \label{fig:fig-dataset-contrast-after-adjustment}}
+        {\includegraphics[width=0.4\linewidth]{figures/Exp3 (3)_square.jpg}}
+    ~
+    \subcaptionbox
+        {夾取成功
+        \label{fig:fig-dataset-contrast-after-adjustment}}
+        {\includegraphics[width=0.4\linewidth]{figures/Exp3 (4)_square.jpg}}
+    ~
+    \subcaptionbox
+        {瞄準藍色方塊
+        \label{fig:fig-dataset-contrast-after-adjustment}}
+        {\includegraphics[width=0.4\linewidth]{figures/Exp3 (5)_square.jpg}}
+    ~    
+    \subcaptionbox
+        {夾取藍色方塊
+        \label{fig:fig-dataset-contrast-after-adjustment}}
+        {\includegraphics[width=0.4\linewidth]{figures/Exp3 (6)_square.jpg}}
+    ~
+    \subcaptionbox
+        {夾取成功
+        \label{fig:fig-dataset-contrast-after-adjustment}}
+        {\includegraphics[width=0.4\linewidth]{figures/Exp3 (7)_square.jpg}}   
+
+    \caption{實驗過程縮圖}
+\end{figure}
 
 
 \end{document}

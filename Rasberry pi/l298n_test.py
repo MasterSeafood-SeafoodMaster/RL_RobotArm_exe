@@ -42,6 +42,12 @@ class l298n:
 
         self.pA.ChangeDutyCycle(abs(lSpeed))
         self.pB.ChangeDutyCycle(abs(rSpeed))
+        
+    def f(self): driver.set_motor_speed(50, 50)
+    def b(self): driver.set_motor_speed(-50, -50)
+    def l(self): driver.set_motor_speed(-50, 50)
+    def r(self): driver.set_motor_speed(50, -50)
+    def s(self): driver.set_motor_speed(0, 0)
 
     def release(self):
         self.pA.stop()

@@ -21,7 +21,7 @@ class movementManager:
 
             if len(center)>0:
                 xth=25; yth=25;
-                if(320-xth<center[0]<320+xth)and(175-yth<center[1]<175+yth)and(ccount<=10):
+                if(320-xth<center[0]<320+xth)and(200-yth<center[1]<200+yth)and(ccount<=10):
                     print("check:", ccount)
                     ccount+=1
                 elif ccount>10:
@@ -54,10 +54,6 @@ class movementManager:
                     
                     time.sleep(0.01)
                     
-                    
-          
-                
-
     def try2grab(self):
         print("try to grab")
         time.sleep(1)
