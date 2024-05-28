@@ -2,7 +2,7 @@ import cv2
 import os
 
 # 設定影片路徑和輸出圖片的目錄
-video_path = './SUCCESS!.mp4'  # 替換為你的影片檔案路徑
+video_path = './T&B.mp4'  # 替換為你的影片檔案路徑
 output_dir = './img'  # 替換為你想要的輸出目錄
 
 # 如果輸出目錄不存在，則創建它
@@ -26,12 +26,12 @@ while True:
     ret, frame = cap.read()
     if not ret:
         break
+    if frame_idx%5==0:
+        # 構建輸出圖片的檔名
+        frame_filename = os.path.join(output_dir, f'frame_{frame_idx:04d}.jpg')
 
-    # 構建輸出圖片的檔名
-    frame_filename = os.path.join(output_dir, f'frame_{frame_idx:04d}.jpg')
-
-    # 將幀儲存為圖片
-    cv2.imwrite(frame_filename, frame)
+        # 將幀儲存為圖片
+        cv2.imwrite(frame_filename, frame)
 
     frame_idx += 1
 

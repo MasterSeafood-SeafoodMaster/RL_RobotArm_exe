@@ -42,11 +42,163 @@
     \caption{機械臂版本一設計圖紙 第五頁(單位:mm)}
 \end{figure}
 
+\subsection{函數設計}
+在這個實驗中，我們的目標是讓機械臂能夠成功夾取特定物體，並放置於指定位置。
+這個過程涉及機械臂路徑的規劃和精確的抓取動作。
+為了實現這一目標，我們撰寫了一個簡易的路徑規劃程式，
+利用語言模型在填空方面的優勢，使其生成和編輯機械臂的運動指令。
+使用這樣的方式，嘗試讓大型語言模型自動生成適當的路徑規劃，並將其應用於機械臂的控制，
+以下為此實驗使用的程式碼：
+
+\begin{listing}
+    \begin{minted}[frame=single,
+                   framesep=3mm,
+                   linenos=true,
+                   xleftmargin=21pt,
+                   tabsize=4]{python}
+
+        from ArmEnv_3D_ori import ArmEnv_3D
+        import math
+
+        Arm = ArmEnv_3D([5.942, 6.81, 8.747, 7.523], False)
+        path = []
+        #Please planning path form hear
+        #path+=Arm.moveto([0, 0, 25], 20) explain: Move to [0, 0, 25] in 20 steps
+        #path+=[[-91, 0, 0, 0]] explain: Close claw
+        #path+=[[91, 0, 0, 0]] explain: Open claw
+
+        #reset
+        end=path[-2].copy()
+        while not sum(end)==0:
+            for i in range(len(end)):
+                if end[i]>0: end[i]-=1
+                elif end[i]<0: end[i]+=1
+            path.append(end.copy())
+
+    \end{minted}
+\caption{實驗程式碼} 
+\end{listing}
+
+\subsection{下達指令的格式範例}
+\begin{listing}
+    \begin{minted}[frame=single,
+                   framesep=3mm,
+                   linenos=true,
+                   xleftmargin=21pt,
+                   tabsize=4]{js}
+    {     
+        role: "user",
+        content : 
+    "\
+    from ArmEnv_3D_ori import ArmEnv_3D\
+    import math\
+    \
+    Arm = ArmEnv_3D([5.942, 6.81, 8.747, 7.523], False)\
+    path = []\
+    #Please planning path form hear\
+    #path+=Arm.moveto([0, 0, 25], 20) explain: Move to [0, 0, 25] in 20 steps\
+    #path+=[[-91, 0, 0, 0]] explain: Close claw\
+    #path+=[[91, 0, 0, 0]] explain: Open claw\
+    \
+    #reset\
+    end=path[-2].copy()\
+    while not sum(end)==0:\
+        for i in range(len(end)):\
+            if end[i]>0: end[i]-=1\
+            elif end[i]<0: end[i]+=1\
+        path.append(end.copy())\
+    "
+    },
+    {
+        role: "user", 
+        content: "This is a sample program for controlling a robotic arm.\
+                  Please modify it to help me complete the following requirements: \
+                  the ball is at [10.5, 12, 2], and the top of the tower is at [9.5, 0, 14.5]. \
+                  Please help me catch the ball to the top of the tower. \
+                  During the process, please do not get too close to the side of the tower \
+                  (keep outside the radius 7).\
+                  "
+    }
+    \end{minted}
+\caption{實驗一：指令格式範例} 
+\end{listing}
+
+\begin{listing}
+    \begin{minted}[frame=single,
+                   framesep=3mm,
+                   linenos=true,
+                   xleftmargin=21pt,
+                   tabsize=4]{js}
+
+    {
+        role="assistant",
+        content=
+    "\
+    from ArmEnv_3D_ori import ArmEnv_3D\
+    import math\
+    \
+    Arm = ArmEnv_3D([5.942, 6.81, 8.747, 7.523], False)\
+    path = []\
+    path += Arm.moveto([0, 0, 25], 20)\
+    path += Arm.moveto([10.5, 12, 2], 20)\
+    path+=[[-91, 0, 0, 0]]\
+    path += Arm.moveto([10, 13, 15], 20)\
+    path += Arm.moveto([9.5, 0, 14.5], 20)\
+    path+=[[91, 0, 0, 0]]\
+    \
+    #reset\
+    end=path[-2].copy()\
+    while not sum(end)==0:\
+        for i in range(len(end)):\
+            if end[i]>0: end[i]-=1\
+            elif end[i]<0: end[i]+=1\
+        path.append(end.copy())\
+    "
+    }
+
+    \end{minted}
+\caption{實驗一：回傳格式範例} 
+\end{listing}
+
+\begin{figure}[!hbt]
+    \centering
+    \subcaptionbox
+        {初始位置
+        \label{fig:fig-dataset-contrast-after-adjustment}}
+        {\includegraphics[width=0.4\linewidth]{figures/TB (1).jpg}}
+    ~    
+    \subcaptionbox
+        {移動至黑球位置
+        \label{fig:fig-dataset-contrast-after-adjustment}}
+        {\includegraphics[width=0.4\linewidth]{figures/TB (2).jpg}}
+    ~
+    \subcaptionbox
+        {夾取黑球
+        \label{fig:fig-dataset-contrast-after-adjustment}}
+        {\includegraphics[width=0.4\linewidth]{figures/TB (3).jpg}}
+    ~
+    \subcaptionbox
+        {移動至塔頂位置
+        \label{fig:fig-dataset-contrast-after-adjustment}}
+        {\includegraphics[width=0.4\linewidth]{figures/TB (4).jpg}}
+    ~    
+    \subcaptionbox
+        {放開黑球
+        \label{fig:fig-dataset-contrast-after-adjustment}}
+        {\includegraphics[width=0.4\linewidth]{figures/TB (5).jpg}}
+    ~
+    \subcaptionbox
+        {回到初始位置
+        \label{fig:fig-dataset-contrast-after-adjustment}}
+        {\includegraphics[width=0.4\linewidth]{figures/TB (6).jpg}}   
+\caption{實驗二：實驗過程縮圖}
+\end{figure}
 
 
 \section{實驗二：將機械臂用於畫圖}
 \subsection{機械結構設計圖}
-本實驗的硬體部分使用了3D列印技術，結合小型伺服馬達，設計了一個畫筆的小型機械臂，以下為此硬體的詳細設計圖紙：
+本實驗的硬體部分使用了3D列印技術，結合小型伺服馬達，
+設計了一個畫筆的小型機械臂，以下為此硬體的詳細設計圖紙：
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.9\textwidth]{figures/Armv2 (1).PNG}
@@ -77,6 +229,99 @@
     \includegraphics[width=0.9\textwidth]{figures/Armv2 (5).PNG}
     \caption{機械臂版本二設計圖紙 第五頁(單位:mm)}
 \end{figure}
+
+\subsection{函數設計}
+從實驗一的基礎上，我們改進了機械臂的路徑規劃方法，將其應用於讓機械臂進行畫畫。
+此次實驗中，我們簡化了路徑規劃，使大型語言模型在平面座標內進行規劃，
+這樣可以降低複雜度，並節省資源。通過這種簡化的路徑規劃方法，
+我們能夠更有效地控制機械臂，讓其能夠在紙上或畫布上繪製出預定的圖案。
+本實驗將此機器的動作指令簡化為以下函式：
+
+\begin{itemize}
+    \item draw(from, to): 由變數from提供的座標，畫至變數to提供的座標。
+\end{itemize}
+
+\subsection{下達指令的格式範例}
+\begin{listing}
+    \begin{minted}[frame=single,
+                   framesep=3mm,
+                   linenos=true,
+                   xleftmargin=21pt,
+                   tabsize=4]{js}
+    {     
+        role: "user",
+        content : 
+        "The following functions are available:\
+        \
+        draw(from, to): Let the arm draw a straight line from from to to,\
+        such as draw([0, 0], [5, 5]).\
+        the limit is[0, 5]\
+        \
+        Please help me use the above functions to control the robot arm,\
+        and do not output other text other than the above functions.\
+        (Use "," to separate each step)"
+    },
+    {
+        role: "user", 
+        content: "Task: Draw a square."
+    }
+    \end{minted}
+\caption{實驗二：指令格式範例} 
+\end{listing}
+
+\begin{listing}
+    \begin{minted}[frame=single,
+                   framesep=3mm,
+                   linenos=true,
+                   xleftmargin=21pt,
+                   tabsize=4]{js}
+
+    {
+        role="assistant",
+        content="draw([1, 1], [1, 4]),\
+                 draw([1, 4], [4, 4]),\
+                 draw([4, 4], [4, 1]),\
+                 draw([4, 1], [1, 1])"
+    }
+
+    \end{minted}
+\caption{實驗二：回傳格式範例} 
+\end{listing}
+
+\begin{figure}[!hbt]
+    \centering
+    \subcaptionbox
+        {執行畫方形指令
+        \label{fig:fig-dataset-contrast-after-adjustment}}
+        {\includegraphics[width=0.4\linewidth]{figures/square_0.jpg}}
+    ~    
+    \subcaptionbox
+        {完成畫方形指令
+        \label{fig:fig-dataset-contrast-after-adjustment}}
+        {\includegraphics[width=0.4\linewidth]{figures/square_1.jpg}}
+    ~
+    \subcaptionbox
+        {執行畫三角形指令
+        \label{fig:fig-dataset-contrast-after-adjustment}}
+        {\includegraphics[width=0.4\linewidth]{figures/triangle_0.jpg}}
+    ~
+    \subcaptionbox
+        {完成畫三角形指令
+        \label{fig:fig-dataset-contrast-after-adjustment}}
+        {\includegraphics[width=0.4\linewidth]{figures/triangle_1.jpg}}
+    ~    
+    \subcaptionbox
+        {執行畫星形指令
+        \label{fig:fig-dataset-contrast-after-adjustment}}
+        {\includegraphics[width=0.4\linewidth]{figures/star_0.jpg}}
+    ~
+    \subcaptionbox
+        {完成畫星形指令
+        \label{fig:fig-dataset-contrast-after-adjustment}}
+        {\includegraphics[width=0.4\linewidth]{figures/star_1.jpg}}   
+\caption{實驗二：實驗過程縮圖}
+\end{figure}
+
 
 \section{實驗三：機械臂在自動運輸車上的應用}
 \subsection{機械結構設計圖}
@@ -118,78 +363,76 @@
     \caption{機械臂版本三設計圖紙 第六頁(單位:mm)}
 \end{figure}
 
-\subsection{函數設計}
 
-本實驗將此機器的動作指令簡化為四個函式：
+\subsection{函數設計}
+在前兩個實驗的基礎上，我們進一步改進了控制流程，將機械臂與自動運輸車整合在一起。
+這次，我們將控制函式進行細分，並模組化，使得大型語言模型能夠通過簡單的指令來控制機械臂和車輛的行動。
+這種模組化的設計不僅降低了指令的複雜度，還減少了資源利用。
+最終，我們能夠通過簡單的模組化指令來控制整個系統，
+使得機械臂和車輛能夠協同工作，完成更複雜的任務。
 
 \begin{itemize}
     \item find(color): 配合相機定位，驅動輪子尋找動應顏色的方塊。
 
     \item aim(color): 配合相機定位，驅動機械臂瞄準對應顏色的方塊。
 
-    \item grab: 驅動機械臂，抓取正下方的物品。
+    \item grab(): 驅動機械臂，抓取正下方的物品。
 
-    \item reset: 驅動機械臂，回到初始位置
+    \item reset(): 驅動機械臂，回到初始位置
 \end{itemize}
 
-簡述輸入給chat-GPT的內容，跟預期的回傳。
-
+\newpage
 \subsection{下達指令的格式範例}
+以下為指令格式：
 \begin{listing}
-\begin{minted}[frame=single,
-               framesep=3mm,
-               linenos=true,
-               xleftmargin=21pt,
-               tabsize=4]{js}
-{     
-    role: "user",
-    content : 
-    "The following functions are available:\
-    \
-    find(color): Let the robot look for a block of a specific color.\
-    color option: red, blue.\
-    aim(color): Let the robot aim at a block of a specific color.\
-    color option: red, blue\
-    grab: Make the robot arm grab the block and put it down.\
-    reset: Return the robotic arm to its initial position\
-    (needs to be executed before each aiming).\
-    \
-    Please help me use the above functions to control the robot arm,\
-    and do not output other text other than the above functions.\
-    (Use "," to separate each step)"
-},
-{
-    role: "user", 
-    content: "Task: Please grab the red block, and then grab the blue block."
-}
-\end{minted}
-\caption{指令格式範例} 
+    \begin{minted}[frame=single,
+                   framesep=3mm,
+                   linenos=true,
+                   xleftmargin=21pt,
+                   tabsize=4]{js}
+    {     
+        role: "user",
+        content : 
+        "The following functions are available:\
+        \
+        find(color): Let the robot look for a block of a specific color.\
+        color option: red, blue.\
+        aim(color): Let the robot aim at a block of a specific color.\
+        color option: red, blue\
+        grab: Make the robot arm grab the block and put it down.\
+        reset: Return the robotic arm to its initial position\
+        (needs to be executed before each aiming).\
+        \
+        Please help me use the above functions to control the robot arm,\
+        and do not output other text other than the above functions.\
+        (Use "," to separate each step)"
+    },
+    {
+        role: "user", 
+        content: "Task: Please grab the red block, and then grab the blue block."
+    }
+    \end{minted}
+\caption{實驗三：指令格式範例} 
 \end{listing}
 
 \begin{listing}
-\begin{minted}[frame=single,
-               framesep=3mm,
-               linenos=true,
-               xleftmargin=21pt,
-               tabsize=4]{js}
+    \begin{minted}[frame=single,
+                   framesep=3mm,
+                   linenos=true,
+                   xleftmargin=21pt,
+                   tabsize=4]{js}
 
-{
-    role="assistant",
-    content="find(red), aim(red), grab, reset, find(blue), aim(blue), grab"
-}
+    {
+        role="assistant",
+        content="find(red), aim(red), grab(), reset(), find(blue), aim(blue), grab()"
+    }
 
-\end{minted}
-\caption{回傳格式範例} 
+    \end{minted}
+\caption{實驗三：回傳格式範例} 
 \end{listing}
 
 \begin{figure}[!hbt]
-    %\captionsetup[subfigure]{labelformat=empty} % 完全隱藏圖號
     \centering
-    %\subcaptionbox
-    %    {初始位置
-    %    \label{fig:fig-dataset-contrast-origin}}
-    %    {\includegraphics[width=0.4\linewidth]{figures/Exp3 (1)_square.jpg}}
-    %~
     \subcaptionbox
         {瞄準紅色方塊
         \label{fig:fig-dataset-contrast-after-adjustment}}
@@ -219,11 +462,9 @@
         {夾取成功
         \label{fig:fig-dataset-contrast-after-adjustment}}
         {\includegraphics[width=0.4\linewidth]{figures/Exp3 (7)_square.jpg}}   
-
-    \caption{實驗過程縮圖}
+\caption{實驗三：實驗過程縮圖}
 \end{figure}
 
-這邊放成功次數10/10
-
+\subsection{實驗結果}
 
 \end{document}
