@@ -1,0 +1,18 @@
+#temp
+利用大型語言模型實現自動程式碼生成以改進工業機器控制系統
+大型語言模型在自主程式碼生成中的應用：增強機器人控制的效能
+自動程式碼生成技術在機器控制領域的應用及挑戰
+人工智慧驅動的自動程式碼生成在機器控制中的創新應用
+自動程式碼生成技術在機器人手臂控制系統中的實踐與研究
+
+#Semi-finished
+使用自然語言控制機器：探索大型語言模型在自動程式碼生成中的應用
+Controlling Machines with Natural Language: Explore the use of large language models in automated code generation
+基於大型語言模型的自動程式碼生成技術在智慧控制系統中的應用研究
+Research on the Application of Automatic Code Generation Technology 
+Based on Large Language Models in Intelligent Control Systems
+使用大型語言模型進行機器控制指令的自動化生成
+Automated Generation of Machine Control Commands Using Large Language Models
+從生成到部署：自動程式碼生成技術在智能機器控制中的流程與應用
+From Generation to Deployment: 
+The Process and Application of Automatic Code Generation Technology in Intelligent Machine Control
