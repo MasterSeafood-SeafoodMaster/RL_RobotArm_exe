@@ -117,6 +117,7 @@
                   Please help me catch the ball to the top of the tower. \
                   During the process, please do not get too close to the side of the tower \
                   (keep outside the radius 7).\
+                  return only code.\
                   "
     }
     \end{minted}
@@ -160,6 +161,8 @@
 \caption{實驗一：回傳格式範例} 
 \end{listing}
 
+\subsection{實驗結果}
+將球放於塔上: 7/10\\
 \begin{figure}[!hbt]
     \centering
     \subcaptionbox
@@ -287,6 +290,10 @@
     \end{minted}
 \caption{實驗二：回傳格式範例} 
 \end{listing}
+
+\subsection{實驗結果}
+GPT3.5 方塊(10/10)、三角形(10/10)、星形(10/5)、房子(10/0)\\
+GPT4o 方塊(10/10)、三角形(10/10)、星形(10/9)、房子(10/7)
 
 \begin{figure}[!hbt]
     \centering
@@ -431,6 +438,12 @@
 \caption{實驗三：回傳格式範例} 
 \end{listing}
 
+\subsection{實驗結果}
+夾取藍色->夾取紅色(10/8)、\\
+失敗的兩次:\\
+鏡頭判斷失準(瞄歪了)。
+
+
 \begin{figure}[!hbt]
     \centering
     \subcaptionbox
@@ -464,7 +477,5 @@
         {\includegraphics[width=0.4\linewidth]{figures/Exp3 (7)_square.jpg}}   
 \caption{實驗三：實驗過程縮圖}
 \end{figure}
-
-\subsection{實驗結果}
 
 \end{document}
