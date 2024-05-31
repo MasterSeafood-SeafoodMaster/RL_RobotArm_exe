@@ -1,0 +1,25 @@
+from ArmEnv_3D_ori import ArmEnv_3D
+import math
+
+Arm = ArmEnv_3D([5.942, 6.81, 8.747, 7.523], False)
+path = []
+#Please planning path form hear
+#path+=Arm.moveto([0, 0, 25], 20) explain: Move to [0, 0, 25] in 20 steps
+#path+=[[-91, 0, 0, 0]] explain: Close claw
+#path+=[[91, 0, 0, 0]] explain: Open claw
+
+#reset
+end=path[-2].copy()
+while not sum(end)==0:
+    for i in range(len(end)):
+        if end[i]>0: end[i]-=1
+        elif end[i]<0: end[i]+=1
+    path.append(end.copy())
+
+This is a sample program for controlling a robotic arm.
+Please modify it to help me complete the following requirements: 
+the ball is at [10.5, 12, 2], and the top of the tower is at [9.5, 0, 14.5]. 
+Please help me catch the ball to the top of the tower. 
+During the process, please do not get too close to the side of the tower 
+(keep outside the radius 7).
+return only code.
