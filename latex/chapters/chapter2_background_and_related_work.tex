@@ -82,40 +82,51 @@ Liang等人~\cite{10160591}的研究提出了名為「程式即為策略」（Co
 
 如圖2所示，沿Xi-1測得的Zi-1到Zi的距離記ai-1，沿Xi測得的Zi-1和Zi之間的角度為αi-1，距Xi的距離沿Zi測量的-1 到Xi 指定為di，關於Zi 測量的Xi-1 到Xi 之間的角度指定為θi (Craig, 1989)。單一鏈路的一般變換矩陣T1ii−可以如下獲得。
 
-$$
-\begin{aligned}
+
+\small{
+
+\begin{align}
+\nonumber
 & { }_{\mathrm{i}}^{\mathrm{i}-1} \mathrm{~T}=\mathrm{R}_{\mathrm{x}}\left(\alpha_{\mathrm{i}-1}\right) \mathrm{D}_{\mathrm{x}}\left(\mathrm{a}_{\mathrm{i}-1}\right) \mathrm{R}_{\mathrm{z}}\left(\theta_{\mathrm{i}}\right) \mathrm{Q}_{\mathrm{i}}\left(\mathrm{d}_{\mathrm{i}}\right) \\
+\nonumber
 & =
 \left[\begin{array}{cccc}
 1 & 0 & 0 & 0 \\
 0 & \cos \alpha_{i-1} & -\sin \alpha_{i-1} & 0 \\
 0 & \sin \alpha_{i-1} & \cos \alpha_{i-1} & 0 \\
 0 & 0 & 0 & 1
-\end{array}\right]\left[\begin{array}{cccc}
+\end{array}\right]
+\nonumber
+\left[\begin{array}{cccc}
 1 & 0 & 0 & a_{i-1} \\
 0 & 1 & 0 & 0 \\
 0 & 0 & 1 & 0 \\
 0 & 0 & 0 & 1
-\end{array}\right] \\
+\end{array}\right]
+\nonumber
 \left[\begin{array}{cccc}
 \cos \theta_{i} & -\sin \theta_{i} & 0 & 0 \\
 \sin \theta_{i} & -\cos \theta_{i} & 0 & 0 \\
 0 & 0 & 1 & 0\\
 0 & 0 & 0 & 1
-\end{array}\right]\left[\begin{array}{cccc}
+\end{array}\right]
+\nonumber
+\left[\begin{array}{cccc}
 1 & 0 & 0 & 0 \\
 0 & 1 & 0 & 0 \\
 0 & 0 & 1 & d_{i} \\
 0 & 0 & 0 & 1
 \end{array}\right]\\
+\nonumber
 & =\left[\begin{array}{cccc}
 \cos \theta_{i} & -\sin \theta_{i} & 0 & a_{i-1} \\
 \sin \theta_{i} \cos \alpha_{i-1} & \cos \theta_{i} \cos \alpha_{i-1} & -\sin \alpha_{i-1} & -\sin \alpha_{i-1} d_{i} \\
 \sin \theta_{i} \sin \alpha_{i-1} & \cos \theta_{i} \sin \alpha_{i-1} & \cos \alpha_{i-1} & \cos \alpha_{i-1} d_{i} \\
 0 & 0 & 0 & 1
 \end{array}\right] \\
-&\end{aligned}
-$$
+\nonumber
+&\end{align}
+}
 
 1~\cite{dauce2010inverse}
 2~\cite{almusawi2016new}
