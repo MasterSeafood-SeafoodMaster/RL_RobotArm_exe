@@ -78,10 +78,23 @@ Liang等人~\cite{10160591}的研究提出了名為「程式即為策略」（Co
 	\item 逆向運動學 (Inverse Kinematics)： 逆向運動學是正向運動學的反向問題。它試圖根據機械臂末端的位置，計算出每個關節應該轉動的角度。這是一個更困難的問題，因為它涉及到解方程組或使用數值方法來找到關節角度。逆向運動學在機械手臂的路徑規劃和避障中至關重要。
 \end{itemize}
 
-在順向運動學中，Denavit-Hartenberg 方法是描述機器人運動學的最常用方法。這些參數 $a_{i-1}$、$\alpha_{i-1}$、$d_{i}$和$\theta_{i}$分別是力臂長度(Link length)、節點扭曲(Link twist)、節點偏移(Link offset)和節點角度(joint angle)。每個關節都附有一個座標系來決定這些參數。
+在順向運動學中，Denavit-Hartenberg為最常用的計算方式。此方法使用四個參數來計算力臂頂點座標： 
+\begin{itemize}
+    \item $a_{i}$：力臂長度(Link length)，指在第$i$個力臂上，從第$i$個關節的旋轉軸到第$i+1$個關節的旋轉軸之間的距離，此參數沿著第$i$個力臂的$Z_{i}$軸測量。
+    \item $\alpha_{i}$：扭轉角(Twist Angle)，兩個力臂的連接處稱為節點，指從第$i$個節點到第$i+1$個節點之間的扭轉角度，此參數沿著第$i$個節點$X_{i}$軸測量。
+    \item $d_{i}$：節點偏移(Link offset)，指從第$i$個節點到第$i+1$個節點之間的距離，此參數通常是變量。
+    \item $\theta_{i}$：節點角度(joint angle)，指第$i$個旋轉軸的旋轉角度，此參數通常是變量。
+\end{itemize}
+每個關節都使用一個獨立座標系來決定這些參數。
 
-如圖2所示，沿$X_{i-1}$測得的$Z_{i-1}$到$Z_{i}$的距離記$a_{i-1}$，沿$X_{i}$測得的$Z_{i-1}$和$Z_{i}$之間的角度為$\alpha_{i-1}$，沿$Z_{i}$測得的$X_{i-1}$到$X_{i}$的距離記$d_{i}$，沿$Z_{i}$測得的$X_{i-1}$到$X_{i}$的角度記$\theta_{i}$。因此求得變換矩陣${ }_{\mathrm{i}}^{\mathrm{i}-1} \mathrm{~T}$：
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.9\textwidth]{figures/Coordinate frame assignment for a general manipulator.jpg}
+\caption{順向運動學示例圖}
+\end{figure}
 
+如上圖所示，沿$X_{i-1}$測得的$Z_{i-1}$到$Z_{i}$的距離記$a_{i-1}$，沿$X_{i}$測得的$Z_{i-1}$和$Z_{i}$之間的角度為$\alpha_{i-1}$，沿$Z_{i}$測得的$X_{i-1}$到$X_{i}$的距離記$d_{i}$，沿$Z_{i}$測得的$X_{i-1}$到$X_{i}$的角度記$\theta_{i}$。\\
+如此可求得變換矩陣${ }_{\mathrm{i}}^{\mathrm{i}-1} \mathrm{~T}$：
 
 \small{
 \begin{align}
@@ -127,8 +140,71 @@ Liang等人~\cite{10160591}的研究提出了名為「程式即為策略」（Co
 &\end{align}
 }
 
-1~\cite{dauce2010inverse}
-2~\cite{almusawi2016new}
+而逆向運動學問題，實驗中使用了幾何求解(Geometric solution approach)，與策略梯度方法(Policy-Gradient solution approach)~\cite{dauce2010inverse}來開發機械臂的逆向控制。\\
+
+幾何求解方法的原理是將機械手臂的空間幾何問題分解為多個平面幾何問題，適用於機械結構較為簡單的機器人，如下圖所示：
+
+幾何求解逆向運動學示例圖
+
+可由以下算式機算頂點$P$的分量($P_{x}$, $P_{y}$)。
+$$
+\begin{aligned}
+& p_{x}=l_1 \cos \theta_1+l_2 \cos \theta_{12} \\
+& p_{y}=l_1 \sin \theta_1+l_2 \sin \theta_{12}
+\end{aligned}
+$$
+其中，$\cos \theta_{12}=\cos \theta_{1} \cos \theta_{2}-\sin \theta_{1} \sin \theta_{2}$，$
+\sin \theta_{12}=\sin \theta_{1} \cos \theta_{2}-\cos \theta_{1} \sin \theta_{2}$，由此可得以下算式。
+
+$$
+\begin{aligned}
+& p_{x}^2=l_1^2 \cos^2 \theta_1+l_2^2 \cos^2 \theta_{12}+2 l_1 l_2 \cos \theta_1 \cos \theta_{12} \\
+& p_{y}^2=l_1^2 \sin^2 \theta_1 + l_2^2 \sin^2 \theta_{12}+2 l1_2 \sin \theta_1 \sin \theta_{12} \\
+& p_{x}^2+p_{y}^2=l_1^2\left(\cos^2 \theta_1+\sin^2 \theta_1\right)+l_2^2\left(\cos^2 \theta_{12}+\sin^2 \theta_{12}\right)+2l_1 l_2\left(\cos \theta_1 \cos \theta_{12}+\sin \theta_1 \sin \theta_{12}\right)
+\end{aligned}
+$$
+
+由於$\cos^2 \theta_{i}+\sin^2 \theta_{i}=1$，故可將上式化簡為：
+
+$$
+\begin{aligned}
+& p_{x}^2+p_{y}^2=l_1^2+l_2^2+2l_1 l_2\left(c \theta_1\left[\cos \theta_1 \cos \theta_2-\sin \theta_1 \sin \theta_2\right]+\sin \theta_1\left[\sin \theta_1 \cos \theta_2+\cos \theta_1 \sin \theta_2\right]\right) \\
+& p_{x}^2+p_y^2=l_1^2+l_2^2+2l_1 l_2\left(\cos^2 \theta_1 \cos \theta_2-\cos \theta_1 \sin \theta_1 \sin \theta_2+\sin^2 \theta_1 \cos \theta_2+\cos \theta_1 \sin \theta_1 \sin \theta_2\right) \\
+& p_{x}^2+p_y^2=l_1^2+l_2^2+2l_1 l_2\left(\cos \theta_2\left[\cos^2 \theta_1+\sin^2 \theta_1\right]\right) \\
+& p_{x}^2+p_{y}^2=l_1^2+l_2^2+2l_1 l_2 \cos \theta_2
+\end{aligned}
+$$
+
+由上述結論可得：
+
+$$
+& \cos \theta_2=\frac{p_{x}^2+p_{y}^2-l_1^2-l_2^2}{2l_1 l_2} \\
+
+& \sin \theta_2= \pm \sqrt{1-\left(\frac{p_{x}^2+p_{y}^2-l_1^2-l_2^2}{2l_1 l_2}\right)^2} \\
+
+& \theta_2=A \tan 2\left( \pm \sqrt{1-\left(\frac{p_{x}^2+p_{y}^2-l_1^2-l_2^2}{2l_1 l_2}\right)^2}, \frac{p_{x}^2+p_{y}^2-l_1^2-l_2^2}{2l_1 l_2}\right)
+$$
+
+$$
+\begin{aligned}
+& \mathrm{c} \theta_1 \mathrm{p}_{\mathrm{x}}=1_1 \mathrm{c}^2 \theta_1+1_2 \mathrm{c}^2 \theta_1 \mathrm{c} \theta_2-1_2 \mathrm{c} \theta_1 \mathrm{~s} \theta_1 \mathrm{~s} \theta_2 \\
+& \mathrm{~s} \mathrm{p}_{\mathrm{y}}=1_1 \mathrm{~s}^2 \theta_1+1_2 \mathrm{~s} \theta_{\mathrm{c}} \theta_2+1_2 \mathrm{~s} \theta_1 \mathrm{c} \theta_1 \mathrm{~s} \theta_2 \\
+& \mathrm{c} \theta_1 \mathrm{p}_{\mathrm{x}}+\mathrm{s} \theta_1 \mathrm{p}_{\mathrm{y}}=1_1\left(\mathrm{c}^2 \theta_1+\mathrm{s}^2 \theta_1\right)+1_2 \theta_2\left(\mathrm{c} \theta_1+\mathrm{s}^2 \theta_1\right)
+\end{aligned}
+$$
+
+$$
+\mathrm{c} \theta_1 \mathrm{p}_{\mathrm{x}}+\mathrm{s} \theta_1 \mathrm{p}_{\mathrm{y}}=1_1+1_2 \mathrm{c} \theta_2
+$$
+
+$$
+\begin{aligned}
+& -\mathrm{s} \theta_1 \mathrm{p}_{\mathrm{x}}=-1_1 \mathrm{~s} \theta_1 \mathrm{c} \theta_1-1_2 \mathrm{~s} \theta_1 \mathrm{c} \theta_1 \mathrm{c} \theta_2+1_1 \mathrm{~s}^2 \theta_1 \mathrm{~s} \theta_2 \\
+& \mathrm{c} \theta_1 \mathrm{p}_{\mathrm{y}}=1_1 \mathrm{~s} \theta_1 \mathrm{c} \theta_1+1_2 \mathrm{c} \theta_1 \mathrm{~s} \theta_1 \mathrm{c} \theta_2+1_2 \mathrm{~s}^2 \theta_{\mathrm{s}} \\
+& -\mathrm{s} \theta_1 \mathrm{p}_{\mathrm{x}}+\mathrm{c} \theta_1 \mathrm{p}_{\mathrm{y}}=1_2 \mathrm{~s} \theta_2\left(\mathrm{c}^2 \theta_1+\mathrm{s} \theta_1\right)
+\end{aligned}
+$$
+
 
 
 \subsection{3D列印應用於機器人製作的相關文獻}
