@@ -179,32 +179,39 @@ $$
 
 $$
 & \cos \theta_2=\frac{p_{x}^2+p_{y}^2-l_1^2-l_2^2}{2l_1 l_2} \\
-
 & \sin \theta_2= \pm \sqrt{1-\left(\frac{p_{x}^2+p_{y}^2-l_1^2-l_2^2}{2l_1 l_2}\right)^2} \\
-
 & \theta_2=A \tan 2\left( \pm \sqrt{1-\left(\frac{p_{x}^2+p_{y}^2-l_1^2-l_2^2}{2l_1 l_2}\right)^2}, \frac{p_{x}^2+p_{y}^2-l_1^2-l_2^2}{2l_1 l_2}\right)
 $$
 
+繼續利用$\theta_2$求解$\theta_1$：
+px兩邊同乘$\cos \theta_1$
+py兩邊同乘$\sin \theta_1$
+可得：
 $$
 \begin{aligned}
-& \mathrm{c} \theta_1 \mathrm{p}_{\mathrm{x}}=1_1 \mathrm{c}^2 \theta_1+1_2 \mathrm{c}^2 \theta_1 \mathrm{c} \theta_2-1_2 \mathrm{c} \theta_1 \mathrm{~s} \theta_1 \mathrm{~s} \theta_2 \\
-& \mathrm{~s} \mathrm{p}_{\mathrm{y}}=1_1 \mathrm{~s}^2 \theta_1+1_2 \mathrm{~s} \theta_{\mathrm{c}} \theta_2+1_2 \mathrm{~s} \theta_1 \mathrm{c} \theta_1 \mathrm{~s} \theta_2 \\
-& \mathrm{c} \theta_1 \mathrm{p}_{\mathrm{x}}+\mathrm{s} \theta_1 \mathrm{p}_{\mathrm{y}}=1_1\left(\mathrm{c}^2 \theta_1+\mathrm{s}^2 \theta_1\right)+1_2 \theta_2\left(\mathrm{c} \theta_1+\mathrm{s}^2 \theta_1\right)
+& \cos \theta_1 p_{x}=l_1 \cos^2 \theta_1+l_2 \cos^2 \theta_1 \cos \theta_2-l_2 \cos \theta_1 \sin \theta_1 \sin \theta_2 \\
+& \sin p_{y}=l_1 \sin^2 \theta_1+l_2 \sin^2 \theta_{1} \cos \theta_2+l_2 \sin \theta_1 \cos \theta_1 \sin \theta_2 \\
+& \cos \theta_1 p_{x}+\sin \theta_1 p_{y}=l_1\left(\cos^2 \theta_1+\sin^2 \theta_1\right)+l_2 \theta_2\left(\cos \theta_1+\sin^2 \theta_1\right)
 \end{aligned}
 $$
-
+可簡化至下式：
 $$
-\mathrm{c} \theta_1 \mathrm{p}_{\mathrm{x}}+\mathrm{s} \theta_1 \mathrm{p}_{\mathrm{y}}=1_1+1_2 \mathrm{c} \theta_2
+\cos \theta_1 p_{x}+\sin \theta_1 p_{y}=l_1+l_2 \cos \theta_2
 $$
 
+px兩邊同乘$-\sin \theta_1$
+py兩邊同乘$\cos \theta_1$
 $$
 \begin{aligned}
-& -\mathrm{s} \theta_1 \mathrm{p}_{\mathrm{x}}=-1_1 \mathrm{~s} \theta_1 \mathrm{c} \theta_1-1_2 \mathrm{~s} \theta_1 \mathrm{c} \theta_1 \mathrm{c} \theta_2+1_1 \mathrm{~s}^2 \theta_1 \mathrm{~s} \theta_2 \\
-& \mathrm{c} \theta_1 \mathrm{p}_{\mathrm{y}}=1_1 \mathrm{~s} \theta_1 \mathrm{c} \theta_1+1_2 \mathrm{c} \theta_1 \mathrm{~s} \theta_1 \mathrm{c} \theta_2+1_2 \mathrm{~s}^2 \theta_{\mathrm{s}} \\
-& -\mathrm{s} \theta_1 \mathrm{p}_{\mathrm{x}}+\mathrm{c} \theta_1 \mathrm{p}_{\mathrm{y}}=1_2 \mathrm{~s} \theta_2\left(\mathrm{c}^2 \theta_1+\mathrm{s} \theta_1\right)
+& -\sin \theta_1 p_{x}=-l_1 \sin \theta_1 \cos \theta_1-l_2 \sin \theta_1 \cos \theta_1 \cos \theta_2+l_1 \sin^2 \theta_1 \sin \theta_2 \\
+& \cos \theta_1 p_{y}=l_1 \sin \theta_1 \cos \theta_1+l_2 \cos \theta_1 \sin \theta_1 \cos \theta_2+l_2 \cos^2 \theta_1 \sin \theta_2 \\
+& -\sin \theta_1 p_{x}+\cos \theta_1 p_{y}=l_2 \sin \theta_2\left(\cos^2 \theta_1+\sin \theta_1\right)
 \end{aligned}
 $$
-
+可簡化至下式：
+$$
+-\sin \theta_1 p_{x} + \cos \theta_1 p_{y} = l_2 \sin \theta_2
+$$
 
 
 \subsection{3D列印應用於機器人製作的相關文獻}
