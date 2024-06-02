@@ -197,6 +197,7 @@
         {\includegraphics[width=0.4\linewidth]{figures/TB (6).jpg}}   
 \caption{實驗一：實驗過程縮圖}
 \end{figure}
+\newpage
 
 \begin{table}[h]
     \centering
@@ -343,6 +344,7 @@
         {\includegraphics[width=0.4\linewidth]{figures/star_1.jpg}}   
 \caption{實驗二：實驗過程縮圖}
 \end{figure}
+\newpage
 
 \begin{table}[h]
     \centering
@@ -399,7 +401,7 @@
     \hline
     \end{tabular}
 \end{table}
-
+\newpage
 在這次實驗中，我們針對上一個實驗中存在的問題進行了改進。首先，我們將複雜的三維空間路徑規劃簡化為平面上的路徑規劃。使的整個控制系統不在需要提供冗長的程式碼與相關條件條件，只需提供特定的圖形，就能驅動機械臂進行繪圖的控制模式，從實驗結果可以看出，這種改進的控制方式不僅大大減少了輸入和回傳的資料量，同時也保持了相當不錯的準確率。這表明此簡化方法在實現高效控制的同時，並未犧牲其性能。因此，我們決定將實驗繼續沿著這個方向進行調整和優化。
 
 \section{實驗三：機械臂在自動運輸車上的應用}
@@ -546,9 +548,11 @@
         {\includegraphics[width=0.4\linewidth]{figures/Exp3 (7)_square.jpg}}   
 \caption{實驗三：實驗過程縮圖}
 \end{figure}
-
-指令：Please grab the red block, and then grab the blue block.\\
-\begin{tabular}[c]{|l|l|l|l|l|}
+\newpage
+\begin{table}[h]
+    \centering
+    \caption{實驗結果：Please grab the red block, and then grab the blue block.}
+    \begin{tabular}{ccccc}
     \hline
     大型語言模型 & 總次數 & 成功次數 & 失敗次數 & 成功率 \\
     \hline
@@ -556,7 +560,8 @@
     \hline
     GPT-3.5 Turbo & 10 & 7 & 3 & 0.7\\
     \hline
-\end{tabular}
+    \end{tabular}
+\end{table}
 
 在本次實驗中，我們增加了車輪、鏡頭等更多的硬體連動設備。由於每個任務都需要協調各個硬體的運作才能順利完成，我們在撰寫控制程式時，將各個重要指令整理成更加簡化且直觀的獨立函式，這樣可以方便大型語言模型在生成控制指令時直接呼叫這些函式。實驗結果顯示，這種方法取得了非常好的成效，顯著提高了控制指令的生成效率和準確性。然而，由於連動的硬體較多，在呼叫控制函式時難免會發生一些機械性的失誤。例如，鏡頭失真可能導致機械臂瞄準失誤，而車輪的移動則可能導致機械臂在夾取物體時出現掉落的情況。針對這些問題，我們希望在未來進一步優化硬體間的協調機制，以提升系統的穩定性和精確度。
 \end{document}
