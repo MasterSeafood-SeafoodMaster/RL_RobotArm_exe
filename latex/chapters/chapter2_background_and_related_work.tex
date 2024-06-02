@@ -83,7 +83,7 @@ Liang等人~\cite{10160591}的研究提出了名為「程式即為策略」（Co
     \item $a_{i}$：力臂長度(Link length)，指在第$i$個力臂上，從第$i$個關節的旋轉軸到第$i+1$個關節的旋轉軸之間的距離，此參數沿著第$i$個力臂的$Z_{i}$軸測量。
     \item $\alpha_{i}$：扭轉角(Twist Angle)，兩個力臂的連接處稱為節點，指從第$i$個節點到第$i+1$個節點之間的扭轉角度，此參數沿著第$i$個節點$X_{i}$軸測量。
     \item $d_{i}$：節點偏移(Link offset)，指從第$i$個節點到第$i+1$個節點之間的距離，此參數通常是變量。
-    \item $\theta_{i}$：節點角度(joint angle)，指第$i$個旋轉軸的旋轉角度，此參數通常是變量。
+    \item $\theta_{i}$：節點角度(Joint angle)，指第$i$個旋轉軸的旋轉角度，此參數通常是變量。
 \end{itemize}
 每個關節都使用一個獨立座標系來決定這些參數。
 
@@ -156,8 +156,8 @@ $$
 & p_{y}=l_1 \sin \theta_1+l_2 \sin \theta_{12}
 \end{aligned}
 $$
-其中，$\cos \theta_{12}=\cos \theta_{1} \cos \theta_{2}-\sin \theta_{1} \sin \theta_{2}$，$
-\sin \theta_{12}=\sin \theta_{1} \cos \theta_{2}-\cos \theta_{1} \sin \theta_{2}$，由此可得以下算式。
+由於，$\cos \theta_{12}=\cos \theta_{1} \cos \theta_{2}-\sin \theta_{1} \sin \theta_{2}$，$
+\sin \theta_{12}=\sin \theta_{1} \cos \theta_{2}-\cos \theta_{1} \sin \theta_{2}$，所以可得：
 
 $$
 \begin{aligned}
@@ -178,7 +178,7 @@ $$
 \end{aligned}
 $$
 
-由移項後可得：
+由移項後得：
 
 $$
 \begin{aligned}

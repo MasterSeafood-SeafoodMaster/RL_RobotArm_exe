@@ -161,9 +161,45 @@ STL（Stereolithography）是一種常用的3D模型文件格式，特別是在3
 \end{figure}
 
 \section{運動學開發}
+
+\subsection{運動模擬環境}
+本專案使用Python語言開發了一個簡易的機械臂模擬環境。這個模擬環境的基本原理，是將機械臂定義為一個擁有多個可調整參數的獨立物件，其中包括力臂長度、扭轉角、節點偏移、節點角度、目標頂點、和目前頂點等。這些參數可以由使用者根據需求進行調整，從而在虛擬空間中生成機械臂的模型。該模擬環境提供了一個直觀且靈活的介面，使得使用者能夠方便地設計和測試機械臂的運動行為。
+
+\begin{listing}
+    \begin{minted}[frame=single,
+                   framesep=3mm,
+                   linenos=true,
+                   xleftmargin=21pt,
+                   tabsize=4]{python}
+
+        class ArmEnv_3D:
+            def __init__(self, lList, vision=True):
+                self.Link_length = lList
+                self.Link_offset=[0]*len(lList)
+                self.Twist_angle=[0]*len(lList)
+                self.Joint_angle = [0]*len(lList)
+                self.Target_point=[0, 0, 0]
+                self.Current_point=[0, 0, sum(lList)]
+
+            def Forward_kinematics(self, joint_angles):...
+            
+            def Geometric_solution(self):...
+
+            def Gradient_policy(self,times=100, points=10, speed=5):...
+
+            def initPicture(self):...
+
+            def updatePicture(self):...
+
+    \end{minted}
+\caption{運動模擬環境程式架構} 
+\end{listing}
+
 \subsection{順向運動學}
-\subsection{逆向運動學-Policy-Gradient}
-\subsection{逆向運動學-三角函數}
+在順向運動學部分，本專案採用了Denavit-Hartenberg方法作為主要的計算方式。這種方法能夠系統地描述和計算機械臂的運動行為。模擬環境中的相關函式可以直接被呼叫，利用即時的機械臂參數來計算操作點的空間座標。計算結果會即時顯示在模擬空間中。
+
+\subsection{逆向運動學}
+在逆向運動學方面，本專案結合了幾何求解(Geometric solution approach)方法和策略梯度(Policy-Gradient solution approach)方法來進行計算。幾何求解方法主要用於計算運動模式較為簡單的機械臂，而策略梯度方法則適用於運動較為複雜的機械臂。這些計算函式同樣可以在模擬環境中直接被呼叫。根據輸入的目標操作點位置，系統會計算出對應的扭轉角，並將結果顯示在模擬空間中。
 
 \section{大型語言模型選擇}
 \subsection{open ai介紹}

@@ -7,17 +7,12 @@ import time
 
 class ArmEnv_3D:
     def __init__(self, lList, vision=True):
-        self.lenList = lList
-        self.ylenList=[0, 0, 0, 0]
-        self.angList = [0, 0, 0, 0]
-        self.angDir = ["Z", "Y", "Y", "Y"]
-        self.target=[0, 0, sum(lList)]
-        self.cord=[]
-        self.lim = sum(self.lenList)
-        self.vision=vision
-
-        if vision:
-            self.initPicture()
+        self.Link_length = lList
+        self.Link_offset=[0]*len(lList)
+        self.Twist_angle=[0]*len(lList)
+        self.Joint_angle = [0]*len(lList)
+        self.Target_point=[0, 0, 0]
+        self.Current_point=[0, 0, sum(lList)]
 
     def forward_kinematics(self, joint_angles):
         arm_lengths = self.lenList
@@ -79,7 +74,7 @@ class ArmEnv_3D:
                     reg[r]=round(reg[r])
                 path.append(reg)
         return path
-    #可視化(optional)
+    
     def initPicture(self):
         self.fig = plt.figure()
         self.ax = self.fig.add_subplot(111, projection='3d')
