@@ -198,8 +198,10 @@
 \caption{實驗一：實驗過程縮圖}
 \end{figure}
 
-指令：Please catch the ball to the top of the tower. \\
-\begin{tabular}[c]{|l|l|l|l|l|}
+\begin{table}[h]
+    \centering
+    \caption{指令：Please catch the ball to the top of the tower.}
+    \begin{tabular}{ccccc}
     \hline
     大型語言模型 & 總次數 & 成功次數 & 失敗次數 & 成功率 \\
     \hline
@@ -207,7 +209,8 @@
     \hline
     GPT-3.5 Turbo & 10 & 4 & 6 & 0.4\\
     \hline
-\end{tabular}
+    \end{tabular}
+\end{table}
 
 
 根據本實驗結果顯示，使用大型語言模型進行路徑規劃的效果相當不錯，並且隨著語言模型技術的發展，路徑規劃的準確率也有顯著的提升。然而，目前的方法需要將整個程式碼放入語言模型的輸入中以生成控制程式碼，這種方式過於繁瑣。此外，這種方法也需要提供大量的前置條件，使用起來相當不便。因此，我們認為有必要對這個實驗進行進一步的調整，以提高其實用性和效率。
