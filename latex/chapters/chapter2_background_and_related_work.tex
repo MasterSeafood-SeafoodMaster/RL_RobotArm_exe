@@ -96,7 +96,7 @@ Liang等人~\cite{10160591}的研究提出了名為「程式即為策略」（Co
 如上圖所示，沿$X_{i-1}$測得的$Z_{i-1}$到$Z_{i}$的距離記$a_{i-1}$，沿$X_{i}$測得的$Z_{i-1}$和$Z_{i}$之間的角度為$\alpha_{i-1}$，沿$Z_{i}$測得的$X_{i-1}$到$X_{i}$的距離記$d_{i}$，沿$Z_{i}$測得的$X_{i-1}$到$X_{i}$的角度記$\theta_{i}$。\\
 如此可求得變換矩陣${ }_{\mathrm{i}}^{\mathrm{i}-1} \mathrm{~T}$：
 
-\small{
+\begin{small}
 \begin{align}
 \nonumber
 & { }_{\mathrm{i}}^{\mathrm{i}-1} \mathrm{~T}=\mathrm{R}_{\mathrm{x}}\left(\alpha_{\mathrm{i}-1}\right) \mathrm{D}_{\mathrm{x}}\left(\mathrm{a}_{\mathrm{i}-1}\right) \mathrm{R}_{\mathrm{z}}\left(\theta_{\mathrm{i}}\right) \mathrm{Q}_{\mathrm{i}}\left(\mathrm{d}_{\mathrm{i}}\right) \\
@@ -137,7 +137,8 @@ Liang等人~\cite{10160591}的研究提出了名為「程式即為策略」（Co
 0 & 0 & 0 & 1
 \end{array}\right] \\
 \nonumber
-&\end{align}}
+&\end{align}
+\end{small}
 
 而逆向運動學問題，實驗中使用了幾何求解(Geometric solution approach)，與策略梯度方法(Policy-Gradient solution approach)~\cite{dauce2010inverse}來開發機械臂的逆向控制。\\
 
@@ -160,22 +161,26 @@ $$
 \sin \theta_{12}=\sin \theta_{1} \cos \theta_{2}-\cos \theta_{1} \sin \theta_{2}$，所以可得：
 
 $$
+\begin{small}
 \begin{aligned}
 & p_{x}^2=l_1^2 \cos^2 \theta_1+l_2^2 \cos^2 \theta_{12}+2 l_1 l_2 \cos \theta_1 \cos \theta_{12} \\
 & p_{y}^2=l_1^2 \sin^2 \theta_1 + l_2^2 \sin^2 \theta_{12}+2 l1_2 \sin \theta_1 \sin \theta_{12} \\
 & p_{x}^2+p_{y}^2=l_1^2\left(\cos^2 \theta_1+\sin^2 \theta_1\right)+l_2^2\left(\cos^2 \theta_{12}+\sin^2 \theta_{12}\right)+2l_1 l_2\left(\cos \theta_1 \cos \theta_{12}+\sin \theta_1 \sin \theta_{12}\right)
 \end{aligned}
+\end{small}
 $$
 
 由於$\cos^2 \theta_{i}+\sin^2 \theta_{i}=1$，故可將上式化簡為：
 
 $$
+\begin{small}
 \begin{aligned}
 & p_{x}^2+p_{y}^2=l_1^2+l_2^2+2l_1 l_2\left(c \theta_1\left[\cos \theta_1 \cos \theta_2-\sin \theta_1 \sin \theta_2\right]+\sin \theta_1\left[\sin \theta_1 \cos \theta_2+\cos \theta_1 \sin \theta_2\right]\right) \\
 & p_{x}^2+p_y^2=l_1^2+l_2^2+2l_1 l_2\left(\cos^2 \theta_1 \cos \theta_2-\cos \theta_1 \sin \theta_1 \sin \theta_2+\sin^2 \theta_1 \cos \theta_2+\cos \theta_1 \sin \theta_1 \sin \theta_2\right) \\
 & p_{x}^2+p_y^2=l_1^2+l_2^2+2l_1 l_2\left(\cos \theta_2\left[\cos^2 \theta_1+\sin^2 \theta_1\right]\right) \\
 & p_{x}^2+p_{y}^2=l_1^2+l_2^2+2l_1 l_2 \cos \theta_2
 \end{aligned}
+\end{small}
 $$
 
 由移項後得：
@@ -192,11 +197,13 @@ $$
 將$p_{x}=l_1 \cos \theta_1+l_2 \cos \theta_{12}$等號兩邊同乘$\cos \theta_1$
 將$p_{y}=l_1 \sin \theta_1+l_2 \sin \theta_{12}$等號兩邊同乘$\sin \theta_1$得：
 $$
+\begin{small}
 \begin{aligned}
 & \cos \theta_1 p_{x}=l_1 \cos^2 \theta_1+l_2 \cos^2 \theta_1 \cos \theta_2-l_2 \cos \theta_1 \sin \theta_1 \sin \theta_2 \\
 & \sin p_{y}=l_1 \sin^2 \theta_1+l_2 \sin^2 \theta_{1} \cos \theta_2+l_2 \sin \theta_1 \cos \theta_1 \sin \theta_2 \\
 & \cos \theta_1 p_{x}+\sin \theta_1 p_{y}=l_1\left(\cos^2 \theta_1+\sin^2 \theta_1\right)+l_2 \theta_2\left(\cos \theta_1+\sin^2 \theta_1\right)
 \end{aligned}
+\end{small}
 $$
 可化簡為：
 $$
@@ -206,11 +213,13 @@ $$
 將$p_{x}=l_1 \cos \theta_1+l_2 \cos \theta_{12}$等號兩邊同乘$-\sin \theta_1$
 將$p_{y}=l_1 \sin \theta_1+l_2 \sin \theta_{12}$等號兩邊同乘$\cos \theta_1$得：
 $$
+\begin{small}
 \begin{aligned}
 & -\sin \theta_1 p_{x}=-l_1 \sin \theta_1 \cos \theta_1-l_2 \sin \theta_1 \cos \theta_1 \cos \theta_2+l_1 \sin^2 \theta_1 \sin \theta_2 \\
 & \cos \theta_1 p_{y}=l_1 \sin \theta_1 \cos \theta_1+l_2 \cos \theta_1 \sin \theta_1 \cos \theta_2+l_2 \cos^2 \theta_1 \sin \theta_2 \\
 & -\sin \theta_1 p_{x}+\cos \theta_1 p_{y}=l_2 \sin \theta_2\left(\cos^2 \theta_1+\sin \theta_1\right)
 \end{aligned}
+\end{small}
 $$
 可化簡為：
 $$
@@ -228,11 +237,13 @@ $$
 $$
 可求出$\theta_1$：
 $$
+\begin{small}
 \begin{aligned}
 & \cos \theta_1= \frac{p_x \left(l_1+l_2 \cos \theta_2 \right)+p_y l_2 \sin \theta_2}{p_x^2 + p_y^2} \\
 & \sin \theta_1= \pm \sqrt{1-\left(\frac{p_{x} \left(l_1 + l_2 \cos \theta_2 \right)+p_y l_2 \sin \theta_2}{p_x^2 = p_y^2}\right)^2} \\
 & \theta_1=A \tan 2\left( \pm \sqrt{1-\left(\frac{p_{x}\left(l_1+l_2 \cos \theta_2\right)+p_{y} l_2 \sin \theta_2}{p_{x}^2+p_{y}^2}\right)^2}, \frac{p_{x}\left(l_1+l_2 \cos \theta_2\right)+p_{y} l_2 \sin \theta_2}{p_{x}^2+p_{y}^2}\right)
 \end{aligned}
+\end{small}
 $$
 
 以上為使用幾何求解逆向運動學的簡易範例，可以看出使用此方法求解需要繁瑣的計算。 \\
