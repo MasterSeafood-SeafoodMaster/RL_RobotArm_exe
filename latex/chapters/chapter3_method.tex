@@ -54,8 +54,8 @@ STL（Stereolithography）是一種常用的3D模型文件格式，特別是在3
 \subsection{馬達與開發版介紹}
 以下為本論文使用到的零件簡介：
 
-
-item SG90，是一款微型伺服馬達，由於扭矩較小，所以本實驗將其用於機械臂後段(操作點)。其特點包括：
+\begin{enumerate}
+\item SG90，是一款微型伺服馬達，由於扭矩較小，所以本實驗將其用於機械臂後段(操作點)。其特點包括：
 \begin{itemize}
     \item 重量：小巧輕便，重量僅為9克。
     \item 操作電壓：4.8V至6.0V。
@@ -63,7 +63,7 @@ item SG90，是一款微型伺服馬達，由於扭矩較小，所以本實驗�
     \item 控制方式：使用PWM信號來控制轉角，通常範圍為0°至180°。
 \end{itemize}
 
-item MG90S，是一款金屬齒輪伺服馬達，由於扭矩適中，所以本實驗將其用於機械臂前中段。其特點包括：
+\item MG90S，是一款金屬齒輪伺服馬達，由於扭矩適中，所以本實驗將其用於機械臂前中段。其特點包括：
 \begin{itemize}
     \item 重量：重量約為14g，稍大於SG90，但仍屬於微型伺服馬達。
     \item 操作電壓：4.8V至6.0V。
@@ -71,7 +71,7 @@ item MG90S，是一款金屬齒輪伺服馬達，由於扭矩適中，所以本�
     \item 控制方式：使用PWM信號來控制轉角，通常範圍為0°至180°。
 \end{itemize}
 
-item MG996R，是一款高扭矩伺服馬達，由於扭矩較大，所以本實驗將其用於機械臂前段。其特點包括：
+\item MG996R，是一款高扭矩伺服馬達，由於扭矩較大，所以本實驗將其用於機械臂前段。其特點包括：
 \begin{itemize}
     \item 尺寸：重量約為55g，適用於中型或大型專案。
     \item 操作電壓：4.8V至7.2V。
@@ -79,7 +79,7 @@ item MG996R，是一款高扭矩伺服馬達，由於扭矩較大，所以本實
     \item 控制方式：使用PWM信號來控制轉角，通常範圍為0°至180°。
 \end{itemize}
 
-item Raspberry Pi 4，是一款高性能的嵌入式裝置。其特點包括：
+\item Raspberry Pi 4，是一款高性能的嵌入式裝置。其特點包括：
 \begin{itemize}
     \item 處理器：四核ARM Cortex-A72，1.5GHz。
     \item 內存：有2GB、4GB和8GB可選，本實驗採用8GB內存。
@@ -87,7 +87,7 @@ item Raspberry Pi 4，是一款高性能的嵌入式裝置。其特點包括：
     \item 作業系統：本實驗採用Raspberry Pi OS（基於Debian）。
 \end{itemize}
 
-item ESP32-S3-Devkit，是一款高性能、低功耗的微控制器，適合用於物聯網應用。其特點包括：
+\item ESP32-S3-Devkit，是一款高性能、低功耗的微控制器，適合用於物聯網應用。其特點包括：
 \begin{itemize}
     \item 處理器：雙核Xtensa LX7，最高240MHz。
     \item 內存：512KB SRAM，支持外部RAM擴展。
@@ -95,7 +95,7 @@ item ESP32-S3-Devkit，是一款高性能、低功耗的微控制器，適合用
     \item 作業系統：本實驗採用circuit python。
 \end{itemize}
 
-item ESP32 Doit-Devkit，是一個常見的ESP32開發板，設計簡單且功能強大。其特點包括：
+\item ESP32 Doit-Devkit，是一個常見的ESP32開發板，設計簡單且功能強大。其特點包括：
 \begin{itemize}
     \item 處理器：雙核Xtensa LX6，最高240MHz。
     \item 內存：520KB SRAM。
@@ -103,20 +103,20 @@ item ESP32 Doit-Devkit，是一個常見的ESP32開發板，設計簡單且功�
     \item 作業系統：本實驗採用circuit python。
 \end{itemize}
 
-item L298N，直流馬達驅動模組，常用於控制雙馬達系統，本實驗將此裝置用於控制車輪。其特點包括：
+\item L298N，直流馬達驅動模組，常用於控制雙馬達系統，本實驗將此裝置用於控制車輪。其特點包括：
 \begin{itemize}
     \item 電壓範圍：可操作電壓範圍為5V至35V。
     \item 電流：每通道峰值電流可達2A。
     \item 控制：使用PWM訊號控制馬達速度和方向。
 \end{itemize}
 
-item PCA9685，是一款16通道PWM驅動模組，通常用於控制伺服馬達和LED燈，本實驗將此裝置用於控制機械臂馬達。其特點包括：
+\item PCA9685，是一款16通道PWM驅動模組，通常用於控制伺服馬達和LED燈，本實驗將此裝置用於控制機械臂馬達。其特點包括：
 \begin{itemize}
     \item PWM頻率：可調頻率範圍為24Hz至1526Hz。
     \item 接口：使用I2C介面進行訊號傳輸。
     \item 控制：使用PWM訊號控制馬達速度和方向，適合需要一次性控制大量馬達的專案。
 \end{itemize}
-
+\end{enumerate}
 \begin{figure}[!hbt]
     \centering
     \subcaptionbox
@@ -208,7 +208,7 @@ item PCA9685，是一款16通道PWM驅動模組，通常用於控制伺服馬達
 
 \subsection{模型調用流程}
 呼叫OpenAI chat-GPT API的流程，簡單可以分為以下幾個步驟：\\
-\begin{enumerate}[1.]
+\begin{enumerate}
     \item 註冊與獲取密鑰：在OpenAI的官方網站上註冊一個帳號，並建立一個API密鑰。
     \item 安裝必要的函式庫：本實驗使用python作為開發語言，所以需要在開發環境中安裝python版本的函式庫。
     \item 在程式中設置密鑰：在程式碼中設定建立好的密鑰，以供官方伺服器驗證。
@@ -222,7 +222,7 @@ item PCA9685，是一款16通道PWM驅動模組，通常用於控制伺服馬達
                    framesep=3mm,
                    linenos=true,
                    xleftmargin=21pt,
-                   tabsize=4]{json}
+                   tabsize=4]{js}
         {
           "model": "model_type",
           "prompt": "介紹一下OpenAI和GPT模型。",
@@ -259,16 +259,16 @@ item PCA9685，是一款16通道PWM驅動模組，通常用於控制伺服馬達
 \caption{HTTP請求範例} 
 \end{listing}
 
-以下為主要參數說明：\\
+以下為主要參數說明：
 \begin{itemize}
     \item model: 指定使用的GPT模型，例如text-davinci-004、GPT-4o、GPT-3.5等。
     \item prompt: 下達的指令。
-    \item max_tokens: 回傳文字的最大長度。
+    \item max\_tokens: 回傳文字的最大長度。
     \item temperature: 控制生成文字的隨機性。此值越高會生成更具創造性的文字，反之值越低則生成越保守的文字。
-    \item top_p: 取樣方法，決定生成文本的多樣性。
+    \item top\_p: 取樣方法，決定生成文本的多樣性。
     \item n: 返回生成文章的數量。
     \item stop: 用於指定生成文字停止的條件，可設定為空值。
-\begin{end}
+\end{itemize}
 
 \section{系統架構}
 \subsection{系統架構與流程}
@@ -280,12 +280,11 @@ item PCA9685，是一款16通道PWM驅動模組，通常用於控制伺服馬達
     \caption{系統架構圖}
 \end{figure}
 
-\begin{emuerate}
+\begin{enumerate}
     \item GUI上傳使用者輸入至Server：使用者在GUI上輸入文字並上傳至伺服器。
     \item Server上傳使用者輸入至OpenAI API：伺服器將這些使用者輸入發送至OpenAI API。
     \item OpenAI API回傳模型輸出至Server：OpenAI API處理輸入並回傳模型生成的輸出至伺服器。
     \item Server將輸出傳送至指定的機器：伺服器將這些輸出數據傳送至指定的機器，進行控制。
     \item Server向GUI回傳伺服器與機器狀態：最後，伺服器將機器和自身的狀態訊息回傳至GUI，讓使用者了解系統運行情況。
-\end{emuerate}
-
+\end{enumerate}
 \end{document}
