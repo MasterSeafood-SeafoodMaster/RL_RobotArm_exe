@@ -214,10 +214,10 @@ STL（Stereolithography）是一種常用的3D模型文件格式，特別是在3
     \item 在程式中設置密鑰：在程式碼中設定建立好的密鑰，以供官方伺服器驗證。
     \item 發送請求與處理回應：接下來即可向伺服器發送請求，並處理文本回應。
 \end{enumerate}
-
+\newpage
 在對GPT模型下達指令時，需要將預計上傳的文字資訊封裝成特定格式，以下為簡易範例：\\
 
-\begin{listing}
+\begin{listing}[h]
     \begin{minted}[frame=single,
                    framesep=3mm,
                    linenos=true,
@@ -236,7 +236,7 @@ STL（Stereolithography）是一種常用的3D模型文件格式，特別是在3
 \caption{JSON請求範例} 
 \end{listing}
 
-\begin{listing}
+\begin{listing}[h]
     \begin{minted}[frame=single,
                    framesep=3mm,
                    linenos=true,
@@ -269,6 +269,7 @@ STL（Stereolithography）是一種常用的3D模型文件格式，特別是在3
     \item n: 返回生成文章的數量。
     \item stop: 用於指定生成文字停止的條件，可設定為空值。
 \end{itemize}
+\newpage
 
 \section{系統架構}
 \subsection{系統架構與流程}
@@ -276,10 +277,16 @@ STL（Stereolithography）是一種常用的3D模型文件格式，特別是在3
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.9\textwidth]{figures/structure.jpg}
+    \includegraphics[width=0.6\textwidth]{figures/structure.jpg}
     \caption{系統架構圖}
 \end{figure}
 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.6\textwidth]{figures/GUI.png}
+    \caption{使用者介面縮圖}
+\end{figure}
+\newpage
 \begin{enumerate}
     \item GUI上傳使用者輸入至Server：使用者在GUI上輸入文字並上傳至伺服器。
     \item Server上傳使用者輸入至OpenAI API：伺服器將這些使用者輸入發送至OpenAI API。
@@ -287,4 +294,5 @@ STL（Stereolithography）是一種常用的3D模型文件格式，特別是在3
     \item Server將輸出傳送至指定的機器：伺服器將這些輸出數據傳送至指定的機器，進行控制。
     \item Server向GUI回傳伺服器與機器狀態：最後，伺服器將機器和自身的狀態訊息回傳至GUI，讓使用者了解系統運行情況。
 \end{enumerate}
+
 \end{document}

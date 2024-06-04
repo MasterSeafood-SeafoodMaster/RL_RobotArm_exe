@@ -123,7 +123,7 @@ class GUI:
             Exe_end = self.server.recv(1024).decode()
             self.Log("Execution ends")
 
-    def send2client(self, idx):
+    #def send2client(self, idx):
 
 if __name__=="__main__":
     gui=GUI()
