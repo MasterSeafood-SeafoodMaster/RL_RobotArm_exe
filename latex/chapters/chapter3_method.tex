@@ -16,8 +16,8 @@ Autodesk Fusion 360是一款集合了電腦輔助設計(Computer-Aided Design, C
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.9\textwidth]{figures/autodesk-fusion-360-seeklogo.png}
-\caption{Autodesk Fusion 360 Logo}
+    \includegraphics[width=0.75\textwidth]{figures/autodesk-fusion-360-seeklogo.png}
+\caption{Autodesk Fusion 360 Logo~\cite{autodesk_echo_dot}}
 \end{figure}
 
 \subsection{檔案輸出格式：STL（Stereolithography）}
@@ -32,8 +32,8 @@ STL（Stereolithography）是一種常用的3D模型文件格式，特別是在3
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.9\textwidth]{figures/3D_Systems_Logo.png}
-\caption{3D Systems Logo}
+    \includegraphics[width=0.6\textwidth]{figures/3D_Systems_Logo.png}
+\caption{3D Systems Logo~\cite{3dsystems_echo_dot}}
 \end{figure}
 
 \subsection{3D列印機：Creality K1 MAX}
@@ -47,15 +47,15 @@ STL（Stereolithography）是一種常用的3D模型文件格式，特別是在3
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.9\textwidth]{figures/creality-k1-max.png}
-\caption{Creality K1 MAX}
+    \includegraphics[width=0.5\textwidth]{figures/creality-k1-max.png}
+\caption{Creality K1 MAX~\cite{creality_echo_dot}}
 \end{figure}
 
 \subsection{馬達與開發版介紹}
 以下為本論文使用到的零件簡介：
 
 \begin{enumerate}
-\item SG90，是一款微型伺服馬達，由於扭矩較小，所以本實驗將其用於機械臂後段(操作點)。其特點包括：
+\item SG90~\cite{sg90_servo_motor}，是一款微型伺服馬達，由於扭矩較小，所以本實驗將其用於機械臂後段(操作點)。其特點包括：
 \begin{itemize}
     \item 重量：小巧輕便，重量僅為9克。
     \item 操作電壓：4.8V至6.0V。
@@ -63,7 +63,7 @@ STL（Stereolithography）是一種常用的3D模型文件格式，特別是在3
     \item 控制方式：使用PWM信號來控制轉角，通常範圍為0°至180°。
 \end{itemize}
 
-\item MG90S，是一款金屬齒輪伺服馬達，由於扭矩適中，所以本實驗將其用於機械臂前中段。其特點包括：
+\item MG90S~\cite{mg90s_servo_motor}，是一款金屬齒輪伺服馬達，由於扭矩適中，所以本實驗將其用於機械臂前中段。其特點包括：
 \begin{itemize}
     \item 重量：重量約為14g，稍大於SG90，但仍屬於微型伺服馬達。
     \item 操作電壓：4.8V至6.0V。
@@ -71,7 +71,7 @@ STL（Stereolithography）是一種常用的3D模型文件格式，特別是在3
     \item 控制方式：使用PWM信號來控制轉角，通常範圍為0°至180°。
 \end{itemize}
 
-\item MG996R，是一款高扭矩伺服馬達，由於扭矩較大，所以本實驗將其用於機械臂前段。其特點包括：
+\item MG996R~\cite{mg996r_servo_motor}，是一款高扭矩伺服馬達，由於扭矩較大，所以本實驗將其用於機械臂前段。其特點包括：
 \begin{itemize}
     \item 尺寸：重量約為55g，適用於中型或大型專案。
     \item 操作電壓：4.8V至7.2V。
@@ -79,7 +79,7 @@ STL（Stereolithography）是一種常用的3D模型文件格式，特別是在3
     \item 控制方式：使用PWM信號來控制轉角，通常範圍為0°至180°。
 \end{itemize}
 
-\item Raspberry Pi 4，是一款高性能的嵌入式裝置。其特點包括：
+\item Raspberry Pi 4~\cite{raspberry_pi_4}，是一款高性能的嵌入式裝置。其特點包括：
 \begin{itemize}
     \item 處理器：四核ARM Cortex-A72，1.5GHz。
     \item 內存：有2GB、4GB和8GB可選，本實驗採用8GB內存。
@@ -87,7 +87,7 @@ STL（Stereolithography）是一種常用的3D模型文件格式，特別是在3
     \item 作業系統：本實驗採用Raspberry Pi OS（基於Debian）。
 \end{itemize}
 
-\item ESP32-S3-Devkit，是一款高性能、低功耗的微控制器，適合用於物聯網應用。其特點包括：
+\item ESP32-S3-Devkit~\cite{esp32_s3_devkit}，是一款高性能、低功耗的微控制器，適合用於物聯網應用。其特點包括：
 \begin{itemize}
     \item 處理器：雙核Xtensa LX7，最高240MHz。
     \item 內存：512KB SRAM，支持外部RAM擴展。
@@ -95,7 +95,7 @@ STL（Stereolithography）是一種常用的3D模型文件格式，特別是在3
     \item 作業系統：本實驗採用circuit python。
 \end{itemize}
 
-\item ESP32 Doit-Devkit，是一個常見的ESP32開發板，設計簡單且功能強大。其特點包括：
+\item ESP32 Doit-Devkit~\cite{esp32_doit_devkit}，是一個常見的ESP32開發板，設計簡單且功能強大。其特點包括：
 \begin{itemize}
     \item 處理器：雙核Xtensa LX6，最高240MHz。
     \item 內存：520KB SRAM。
@@ -103,14 +103,14 @@ STL（Stereolithography）是一種常用的3D模型文件格式，特別是在3
     \item 作業系統：本實驗採用circuit python。
 \end{itemize}
 
-\item L298N，直流馬達驅動模組，常用於控制雙馬達系統，本實驗將此裝置用於控制車輪。其特點包括：
+\item L298N~\cite{l298n_motor_driver}，直流馬達驅動模組，常用於控制雙馬達系統，本實驗將此裝置用於控制車輪。其特點包括：
 \begin{itemize}
     \item 電壓範圍：可操作電壓範圍為5V至35V。
     \item 電流：每通道峰值電流可達2A。
     \item 控制：使用PWM訊號控制馬達速度和方向。
 \end{itemize}
 
-\item PCA9685，是一款16通道PWM驅動模組，通常用於控制伺服馬達和LED燈，本實驗將此裝置用於控制機械臂馬達。其特點包括：
+\item PCA9685~\cite{pca9685_pwm_driver}，是一款16通道PWM驅動模組，通常用於控制伺服馬達和LED燈，本實驗將此裝置用於控制機械臂馬達。其特點包括：
 \begin{itemize}
     \item PWM頻率：可調頻率範圍為24Hz至1526Hz。
     \item 接口：使用I2C介面進行訊號傳輸。
@@ -120,42 +120,42 @@ STL（Stereolithography）是一種常用的3D模型文件格式，特別是在3
 \begin{figure}[!hbt]
     \centering
     \subcaptionbox
-        {SG90
+        {SG90~\cite{sg90_servo_motor}
         \label{fig:fig-dataset-contrast-after-adjustment}}
         {\includegraphics[width=0.25\linewidth]{figures/SG90.jpg}}
     ~    
     \subcaptionbox
-        {MG90S
+        {MG90S~\cite{mg90s_servo_motor}
         \label{fig:fig-dataset-contrast-after-adjustment}}
         {\includegraphics[width=0.25\linewidth]{figures/MG90S.jpg}}
     ~    
     \subcaptionbox
-        {MG996R
+        {MG996R~\cite{mg996r_servo_motor}
         \label{fig:fig-dataset-contrast-after-adjustment}}
         {\includegraphics[width=0.25\linewidth]{figures/MG996R.jpg}}
     ~   
     \subcaptionbox
-        {Raspberry Pi 4
+        {Raspberry Pi 4~\cite{raspberry_pi_4}
         \label{fig:fig-dataset-contrast-after-adjustment}}
         {\includegraphics[width=0.25\linewidth]{figures/Rasberry pi 4.jpg}}
     ~    
     \subcaptionbox
-        {ESP32-S3-Devkit
+        {ESP32-S3-Devkit~\cite{esp32_s3_devkit}
         \label{fig:fig-dataset-contrast-after-adjustment}}
         {\includegraphics[width=0.25\linewidth]{figures/ESP32-S3.jpg}}
     ~    
     \subcaptionbox
-        {ESP32 Doit-Devkit
+        {ESP32 Doit-Devkit~\cite{esp32_doit_devkit}
         \label{fig:fig-dataset-contrast-after-adjustment}}
         {\includegraphics[width=0.25\linewidth]{figures/ESP32-DOIT.jpg}}
     ~  
     \subcaptionbox
-        {L298N
+        {L298N~\cite{l298n_motor_driver}
         \label{fig:fig-dataset-contrast-after-adjustment}}
         {\includegraphics[width=0.25\linewidth]{figures/L298N.png}}
     ~    
     \subcaptionbox
-        {PCA9685
+        {PCA9685~\cite{pca9685_pwm_driver}
         \label{fig:fig-dataset-contrast-after-adjustment}}
         {\includegraphics[width=0.25\linewidth]{figures/PCA9685.png}}
 \caption{開發板與馬達縮圖}

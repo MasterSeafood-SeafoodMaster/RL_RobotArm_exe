@@ -89,8 +89,8 @@ Liang等人~\cite{10160591}的研究提出了名為「程式即為策略」（Co
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.9\textwidth]{figures/Coordinate frame assignment for a general manipulator.jpg}
-\caption{順向運動學示例圖}
+    \includegraphics[width=0.75\textwidth]{figures/Coordinate frame assignment for a general manipulator.jpg}
+\caption{順向運動學示例圖~\cite{kucuk2006robot}}
 \end{figure}
 
 如上圖所示，沿$X_{i-1}$測得的$Z_{i-1}$到$Z_{i}$的距離記$a_{i-1}$，沿$X_{i}$測得的$Z_{i-1}$和$Z_{i}$之間的角度為$\alpha_{i-1}$，沿$Z_{i}$測得的$X_{i-1}$到$X_{i}$的距離記$d_{i}$，沿$Z_{i}$測得的$X_{i-1}$到$X_{i}$的角度記$\theta_{i}$。\\
@@ -146,16 +146,18 @@ Liang等人~\cite{10160591}的研究提出了名為「程式即為策略」（Co
 
 \begin{figure}[htbp]
     \centering
-    \includegraphics[width=0.9\textwidth]{figures/IK.jpg}
-\caption{幾何求解逆向運動學示例圖}
+    \includegraphics[width=0.75\textwidth]{figures/IK.jpg}
+\caption{幾何求解逆向運動學示例圖~\cite{kucuk2006robot}}
 \end{figure}
 
 可由以下算式機算頂點$P$的分量($P_{x}$, $P_{y}$)。
 $$
+\begin{small}
 \begin{aligned}
 & p_{x}=l_1 \cos \theta_1+l_2 \cos \theta_{12} \\
 & p_{y}=l_1 \sin \theta_1+l_2 \sin \theta_{12}
 \end{aligned}
+\end{small}
 $$
 由於，$\cos \theta_{12}=\cos \theta_{1} \cos \theta_{2}-\sin \theta_{1} \sin \theta_{2}$，$
 \sin \theta_{12}=\sin \theta_{1} \cos \theta_{2}-\cos \theta_{1} \sin \theta_{2}$，所以可得：
@@ -175,7 +177,7 @@ $$
 $$
 \begin{small}
 \begin{aligned}
-& p_{x}^2+p_{y}^2=l_1^2+l_2^2+2l_1 l_2\left(c \theta_1\left[\cos \theta_1 \cos \theta_2-\sin \theta_1 \sin \theta_2\right]+\sin \theta_1\left[\sin \theta_1 \cos \theta_2+\cos \theta_1 \sin \theta_2\right]\right) \\
+& p_{x}^2+p_{y}^2=l_1^2+l_2^2+2l_1 l_2\left(\cos \theta_1\left[\cos \theta_1 \cos \theta_2-\sin \theta_1 \sin \theta_2\right]+\sin \theta_1\left[\sin \theta_1 \cos \theta_2+\cos \theta_1 \sin \theta_2\right]\right) \\
 & p_{x}^2+p_y^2=l_1^2+l_2^2+2l_1 l_2\left(\cos^2 \theta_1 \cos \theta_2-\cos \theta_1 \sin \theta_1 \sin \theta_2+\sin^2 \theta_1 \cos \theta_2+\cos \theta_1 \sin \theta_1 \sin \theta_2\right) \\
 & p_{x}^2+p_y^2=l_1^2+l_2^2+2l_1 l_2\left(\cos \theta_2\left[\cos^2 \theta_1+\sin^2 \theta_1\right]\right) \\
 & p_{x}^2+p_{y}^2=l_1^2+l_2^2+2l_1 l_2 \cos \theta_2
@@ -186,11 +188,13 @@ $$
 由移項後得：
 
 $$
+\begin{small}
 \begin{aligned}
 & \cos \theta_2=\frac{p_{x}^2+p_{y}^2-l_1^2-l_2^2}{2l_1 l_2} \\
 & \sin \theta_2= \pm \sqrt{1-\left(\frac{p_{x}^2+p_{y}^2-l_1^2-l_2^2}{2l_1 l_2}\right)^2} \\
 & \theta_2=A \tan 2\left( \pm \sqrt{1-\left(\frac{p_{x}^2+p_{y}^2-l_1^2-l_2^2}{2l_1 l_2}\right)^2}, \frac{p_{x}^2+p_{y}^2-l_1^2-l_2^2}{2l_1 l_2}\right)
 \end{aligned}
+\end{small}
 $$
 
 繼續利用$\theta_2$求解$\theta_1$：
@@ -200,14 +204,16 @@ $$
 \begin{small}
 \begin{aligned}
 & \cos \theta_1 p_{x}=l_1 \cos^2 \theta_1+l_2 \cos^2 \theta_1 \cos \theta_2-l_2 \cos \theta_1 \sin \theta_1 \sin \theta_2 \\
-& \sin p_{y}=l_1 \sin^2 \theta_1+l_2 \sin^2 \theta_{1} \cos \theta_2+l_2 \sin \theta_1 \cos \theta_1 \sin \theta_2 \\
-& \cos \theta_1 p_{x}+\sin \theta_1 p_{y}=l_1\left(\cos^2 \theta_1+\sin^2 \theta_1\right)+l_2 \theta_2\left(\cos \theta_1+\sin^2 \theta_1\right)
+& \sin \theta_1 p_{y}=l_1 \sin^2 \theta_1+l_2 \sin^2 \theta_{1} \cos \theta_2+l_2 \sin \theta_1 \cos \theta_1 \sin \theta_2 \\
+& \cos \theta_1 p_{x}+\sin \theta_1 p_{y}=l_1\left(\cos^2 \theta_1+\sin^2 \theta_1\right)+l_2 \cos \theta_2\left(\cos^2 \theta_1+\sin^2 \theta_1\right)
 \end{aligned}
 \end{small}
 $$
 可化簡為：
 $$
+\begin{small}
 \cos \theta_1 p_{x}+\sin \theta_1 p_{y}=l_1+l_2 \cos \theta_2
+\end{small}
 $$
 
 將$p_{x}=l_1 \cos \theta_1+l_2 \cos \theta_{12}$等號兩邊同乘$-\sin \theta_1$
@@ -223,17 +229,21 @@ $$
 $$
 可化簡為：
 $$
+\begin{small}
 -\sin \theta_1 p_{x} + \cos \theta_1 p_{y} = l_2 \sin \theta_2
+\end{small}
 $$
 
 最後，將$\cos \theta_1 p_{x}+\sin \theta_1 p_{y}=l_1+l_2 \cos \theta_2$等號兩邊同乘$P_x$，$-\sin \theta_1 p_{x} + \cos \theta_1 p_{y} = l_2 \sin \theta_2$等號兩邊同乘$P_y$，得：
 
 $$
+\begin{small}
 \begin{aligned}
 & \cos \theta_1 p_{x}^2 + \sin \theta_1 p_x p_y = p_x \left(l_1 + l_2 \cos \theta_2 \right) \\
 & - \sin \theta_1 p_x p_y + \cos \theta_1 p_{y}^2 = p_y l_2 \sin \theta_2 \\
 & \cos \left(p_{x}^2+p_{y}^2 \right) = p_x \left(l_1+l_2 \cos \theta_2 \right) - p_y l_2 \sin \theta_2
 \end{aligned}
+\end{small}
 $$
 可求出$\theta_1$：
 $$
@@ -269,6 +279,8 @@ $$
     \item 調整$\theta_k$使機械臂末端操作點實際位置接近期望位置，$\theta_{k+1} = \theta_{k}+\alpha J^{+} \Delta \theta_k$。
     \item 重複此過程直到 $|\theta_k|$ 接近 0
 \end{itemize}
+
+實驗中使用了以上兩種方法來求解機械臂的逆向運動問題，幾何求解法用於處理較為單純的路徑問題，相反的，梯度下降法則用於處理較為複雜的路徑問題。
 
 %Hk: Current homogeneous transformation matrix of end effector w.r.t base.
 %Hd: Desired homogeneous transformation matrix of end effector w.e.t base.
