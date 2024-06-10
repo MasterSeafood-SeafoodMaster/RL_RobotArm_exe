@@ -206,11 +206,11 @@ STL（Stereolithography）是一種常用的3D模型文件格式，特別是在3
 \subsection{OpenAI與GPT模型}
 本實驗使用的大型語言模型為OpenAI所推出的GPT（Generative Pre-trained Transformer）模型，GPT模型是一種基於變換器(Transformer)架構的生成式預訓練模型，用於應對自然語言處理相關的任務。自推出以來，此模型已經經歷了多次迭代，從最初的GPT-1到最新的GPT-4o，每一代都在參數量、性能與應用靈活度上取得了顯著的進步。這些模型通過在大規模文本數據上進行預訓練，能夠生成高品質文字、圖片等資訊。
 
-\subsection{模型調用流程}
-呼叫OpenAI chat-GPT API的流程，簡單可以分為以下幾個步驟：\\
+\subsection{模型使用流程}
+呼叫OpenAI chat-GPT API的流程，簡單可以分為以下幾個步驟：
 \begin{enumerate}
     \item 註冊與獲取密鑰：在OpenAI的官方網站上註冊一個帳號，並建立一個API密鑰。
-    \item 安裝必要的函式庫：本實驗使用python作為開發語言，所以需要在開發環境中安裝python版本的函式庫。
+    \item 安裝必要的函式庫：本實驗使用python作為開發語言，所以需要在開發環境中安裝對應版本的函式庫。
     \item 在程式中設置密鑰：在程式碼中設定建立好的密鑰，以供官方伺服器驗證。
     \item 發送請求與處理回應：接下來即可向伺服器發送請求，並處理文本回應。
 \end{enumerate}
@@ -274,7 +274,14 @@ STL（Stereolithography）是一種常用的3D模型文件格式，特別是在3
 \section{系統架構}
 \subsection{系統架構與流程}
 本實驗的系統架構與流程大致如下：
-
+\begin{enumerate}
+    \item GUI上傳使用者輸入至Server：使用者在GUI上輸入文字並上傳至伺服器。
+    \item Server上傳使用者輸入至OpenAI API：伺服器將這些使用者輸入發送至OpenAI API。
+    \item OpenAI API回傳模型輸出至Server：OpenAI API處理輸入並回傳模型生成的輸出至伺服器。
+    \item Server將輸出傳送至指定的機器：伺服器將這些輸出數據傳送至指定的機器，進行控制。
+    \item Server向GUI回傳伺服器與機器狀態：最後，伺服器將機器和自身的狀態訊息回傳至GUI，讓使用者了解系統運行情況。
+\end{enumerate}
+\clearpage
 \begin{figure}[h]
     \centering
     \includegraphics[width=0.6\textwidth]{figures/structure.jpg}
@@ -286,13 +293,7 @@ STL（Stereolithography）是一種常用的3D模型文件格式，特別是在3
     \includegraphics[width=0.6\textwidth]{figures/GUI.png}
     \caption{使用者介面縮圖}
 \end{figure}
-\newpage
-\begin{enumerate}
-    \item GUI上傳使用者輸入至Server：使用者在GUI上輸入文字並上傳至伺服器。
-    \item Server上傳使用者輸入至OpenAI API：伺服器將這些使用者輸入發送至OpenAI API。
-    \item OpenAI API回傳模型輸出至Server：OpenAI API處理輸入並回傳模型生成的輸出至伺服器。
-    \item Server將輸出傳送至指定的機器：伺服器將這些輸出數據傳送至指定的機器，進行控制。
-    \item Server向GUI回傳伺服器與機器狀態：最後，伺服器將機器和自身的狀態訊息回傳至GUI，讓使用者了解系統運行情況。
-\end{enumerate}
+
+
 
 \end{document}
