@@ -27,7 +27,7 @@ STL（Stereolithography）是一種常用的3D模型文件格式，特別是在3
     \item 簡單性：STL格式結構簡單，易於生成和處理。
     \item 廣泛性：幾乎所有的3D建模和3D列印軟體都支援STL檔案格式。
     \item 精度彈性：可以通過調整三角形數量來控制模型的精度和細節，適應不同的列印需求。
-    \item 輕量：STL格式僅描述幾何形狀，不包含顏色、材質或其他屬性資訊，正好符合3D列印只需幾何形狀的需求。
+    \item 空間小：STL格式僅描述幾何形狀，不包含顏色、材質或其他屬性資訊，正好符合3D列印只需幾何形狀的需求。
 \end{itemize}
 
 \begin{figure}[htbp]
@@ -39,10 +39,10 @@ STL（Stereolithography）是一種常用的3D模型文件格式，特別是在3
 \subsection{3D列印機：Creality K1 MAX}
 本實驗選擇使用的3D列印機為Creality K1 MAX，以下為該機型的主要特點：
 \begin{itemize}
-    \item 大尺寸打印：使用CoreXY運動結構，高達300x300x300mm的列印面積，能夠滿足大型模型的列印需求。
-    \item 解析度：具有極高的打印解析度，可以實現細膩的表面細節和精確的尺寸控制。
+    \item 大尺寸列印：使用CoreXY運動結構，高達300x300x300mm的列印面積，能夠滿足大型模型的列印需求。
+    \item 解析度：具有極高的列印解析度，可以實現細膩的表面細節和精確的尺寸控制。
     \item 高速列印：配備了高效的運動系統和強大的驅動機構，最高能達到600mm/s的高速列印、20000mm/s²的加速度與32mm³/s 的超大流量，能夠顯著縮短列印時間。
-    \item 耗材多樣性：支援多種列印耗材，包括PLA、ABS、TPU等，為使用者提供了更多創作自由度。
+    \item 耗材多樣性：支援多種列印耗材，包括聚乳酸(Polylactic Acid, PLA)、丙烯腈-丁二烯-苯乙烯(Acrylonitrile Butadiene Styrene, ABS)、熱塑性聚氨酯(Thermoplastic Polyurethan, TPU)等，為使用者提供了更多創作自由度。
 \end{itemize}
 
 \begin{figure}[htbp]
@@ -186,8 +186,9 @@ STL（Stereolithography）是一種常用的3D模型文件格式，特別是在3
             
             def Geometric_solution(self):...
 
-            def Gradient_policy(self,times=100, points=10, speed=5):...
+            def Gradient_descent(self,times=100, points=10, speed=5):...
 
+            #visualization
             def initPicture(self):...
 
             def updatePicture(self):...
@@ -258,7 +259,7 @@ STL（Stereolithography）是一種常用的3D模型文件格式，特別是在3
     \end{minted}
 \caption{HTTP請求範例} 
 \end{listing}
-
+\clearpage
 以下為主要參數說明：
 \begin{itemize}
     \item model: 指定使用的GPT模型，例如text-davinci-004、GPT-4o、GPT-3.5等。
@@ -284,13 +285,13 @@ STL（Stereolithography）是一種常用的3D模型文件格式，特別是在3
 \clearpage
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.6\textwidth]{figures/structure.jpg}
+    \includegraphics[width=0.7\textwidth]{figures/structure.jpg}
     \caption{系統架構圖}
 \end{figure}
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.6\textwidth]{figures/GUI.png}
+    \includegraphics[width=0.7\textwidth]{figures/GUI.png}
     \caption{使用者介面縮圖}
 \end{figure}
 

@@ -71,19 +71,19 @@ Liang等人~\cite{10160591}的研究提出了名為「程式即為策略」（Co
 
 \subsection{運動學研究與機器人控制}
 
-機器人與問動學的研究早已行之有年，以下使用~\cite{kucuk2006robot}提供的定義對本問題做一個簡單解釋：
+機器人與運動學的研究早已行之有年，以下使用~\cite{kucuk2006robot}提供的定義對本問題做一個簡單解釋：
 \begin{itemize}
-    \item 順向運動學 (Forward Kinematics)： 順向運動學是一個關鍵概念，它使我們能透過關節角度計算出機械臂末端的位置。這對於控制機械手臂非常重要，因為它使我們能透過馬達角度確定機械臂的每個關節點的空間座標。
+    \item 順向運動學 (Forward Kinematics)： 順向運動學的意思即為順著機械臂的每個關節，透過計算每個關節角度來得出機械臂末端的位置。這對於控制機械手臂非常重要，因為它使我們能透過馬達角度確定機械臂的每個關節點的空間座標。
 
     \item 逆向運動學 (Inverse Kinematics)： 逆向運動學是正向運動學的反向問題。它試圖根據機械臂末端的位置，計算出每個關節應該轉動的角度。這是一個更困難的問題，因為它涉及到解方程組或使用數值方法來找到關節角度。逆向運動學在機械手臂的路徑規劃和避障中至關重要。
 \end{itemize}
 
 在順向運動學中，Denavit-Hartenberg為最常用的計算方式。此方法使用四個參數來計算力臂頂點座標： 
 \begin{itemize}
-    \item $a_{i}$：力臂長度(Link length)，指在第$i$個力臂上，從第$i$個關節的旋轉軸到第$i+1$個關節的旋轉軸之間的距離，此參數沿著第$i$個力臂的$Z_{i}$軸測量。
+    \item $a_{i}$：力臂長度(Link Length)，指在第$i$個力臂上，從第$i$個關節的旋轉軸到第$i+1$個關節的旋轉軸之間的距離，此參數沿著第$i$個力臂的$Z_{i}$軸測量。
     \item $\alpha_{i}$：扭轉角(Twist Angle)，兩個力臂的連接處稱為節點，指從第$i$個節點到第$i+1$個節點之間的扭轉角度，此參數沿著第$i$個節點$X_{i}$軸測量。
-    \item $d_{i}$：節點偏移(Link offset)，指從第$i$個節點到第$i+1$個節點之間的距離，此參數通常是變量。
-    \item $\theta_{i}$：節點角度(Joint angle)，指第$i$個旋轉軸的旋轉角度，此參數通常是變量。
+    \item $d_{i}$：節點偏移(Link Offset)，指從第$i$個節點到第$i+1$個節點之間的距離，此參數通常是變量。
+    \item $\theta_{i}$：節點角度(Joint Angle)，指第$i$個旋轉軸的旋轉角度，此參數通常是變量。
 \end{itemize}
 每個關節都使用一個獨立座標系來決定這些參數。
 
@@ -118,7 +118,7 @@ Liang等人~\cite{10160591}的研究提出了名為「程式即為策略」（Co
 \nonumber
 \left[\begin{array}{cccc}
 \cos \theta_{i} & -\sin \theta_{i} & 0 & 0 \\
-\sin \theta_{i} & -\cos \theta_{i} & 0 & 0 \\
+\sin \theta_{i} & \cos \theta_{i} & 0 & 0 \\
 0 & 0 & 1 & 0\\
 0 & 0 & 0 & 1
 \end{array}\right]
@@ -140,6 +140,14 @@ Liang等人~\cite{10160591}的研究提出了名為「程式即為策略」（Co
 &\end{align}
 \end{small}
 
+其中，$R_x$，$R_z$表示旋轉，$D_x$，$Q_i$表示平移。通過將所有的${ }_{\mathrm{i}}^{\mathrm{i}-1} \mathrm{~T}$相乘，即可推算出機械臂末端相對於基座的空間座標。
+
+
+\begin{align}
+{ }_{end}^{base} T={ }_{1}^{0}T { }_{2}^{1}T ... { }_{n}^{n-1}T
+\nonumber
+\end{align}
+
 而逆向運動學問題，實驗中使用了幾何求解(Geometric solution approach)，與梯度下降法方法(Gradient descent solution approach)~\cite{Singh2017DevelopmentOA}來開發機械臂的逆向控制。\\
 
 幾何求解方法的原理是將機械手臂的空間幾何問題分解為多個平面幾何問題，適用於機械結構較為簡單的機器人，如下圖所示：
@@ -160,7 +168,7 @@ $$
 \end{small}
 $$
 由於，$\cos \theta_{12}=\cos \theta_{1} \cos \theta_{2}-\sin \theta_{1} \sin \theta_{2}$，$
-\sin \theta_{12}=\sin \theta_{1} \cos \theta_{2}-\cos \theta_{1} \sin \theta_{2}$，所以可得：
+\sin \theta_{12}=\sin \theta_{1} \cos \theta_{2}+\cos \theta_{1} \sin \theta_{2}$，所以可得：
 
 $$
 \begin{small}
@@ -257,7 +265,7 @@ $$
 $$
 
 以上為使用幾何求解逆向運動學的簡易範例，可以看出使用此方法求解需要繁瑣的計算。
-接下來介紹使用梯度下降法方法求解逆向運動學的計算方式，以下為演算法中使用到的代數符號與演算法：
+接下來介紹使用梯度下降法方法求解逆向運動學的計算方式，先定義演算法中使用到的代數符號：
 
 \begin{itemize}
     \item $H_k$：機械臂末端操作點相對於基座的實際齊次變換矩陣(homogeneous transformation matrix)。
@@ -270,7 +278,7 @@ $$
     \item $\Delta \theta$：關節角的變化。
     \item $J^{+}$：雅可比矩陣(Jacobain matrix)的偽逆矩陣(pseudo-Inverse)。
 \end{itemize}
-
+以下為演算法：
 \begin{itemize}
     \item 從第k步開始，設$H_d$和$H_k$。
     \item 計算$\Delta_x$=$\left[\begin{array}{c} e_p \\ e_o \\ \end{array}\right]$
