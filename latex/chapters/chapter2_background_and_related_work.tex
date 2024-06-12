@@ -71,14 +71,14 @@ Liang等人~\cite{10160591}的研究提出了名為「程式即為策略」（Co
 
 \subsection{運動學研究與機器人控制}
 
-機器人與運動學的研究早已行之有年，以下使用~\cite{kucuk2006robot}提供的定義對本問題做一個簡單解釋：
+機器人與運動學的研究早已行之有年，以下為順向運動學與逆向運動學問題的簡單解釋：
 \begin{itemize}
     \item 順向運動學 (Forward Kinematics)： 順向運動學的意思即為順著機械臂的每個關節，透過計算每個關節角度來得出機械臂末端的位置。這對於控制機械手臂非常重要，因為它使我們能透過馬達角度確定機械臂的每個關節點的空間座標。
 
     \item 逆向運動學 (Inverse Kinematics)： 逆向運動學是正向運動學的反向問題。它試圖根據機械臂末端的位置，計算出每個關節應該轉動的角度。這是一個更困難的問題，因為它涉及到解方程組或使用數值方法來找到關節角度。逆向運動學在機械手臂的路徑規劃和避障中至關重要。
 \end{itemize}
 
-在順向運動學中，Denavit-Hartenberg為最常用的計算方式。此方法使用四個參數來計算力臂頂點座標： 
+在順向運動學中，Denavit-Hartenberg~\cite{kucuk2006robot}為最常用的計算方式。此方法使用四個參數來計算力臂頂點座標： 
 \begin{itemize}
     \item $a_{i}$：力臂長度(Link Length)，指在第$i$個力臂上，從第$i$個關節的旋轉軸到第$i+1$個關節的旋轉軸之間的距離，此參數沿著第$i$個力臂的$Z_{i}$軸測量。
     \item $\alpha_{i}$：扭轉角(Twist Angle)，兩個力臂的連接處稱為節點，指從第$i$個節點到第$i+1$個節點之間的扭轉角度，此參數沿著第$i$個節點$X_{i}$軸測量。
@@ -148,11 +148,11 @@ Liang等人~\cite{10160591}的研究提出了名為「程式即為策略」（Co
 \nonumber
 \end{align}
 
-而逆向運動學問題，實驗中使用了幾何求解(Geometric solution approach)，與梯度下降法方法(Gradient descent solution approach)~\cite{Singh2017DevelopmentOA}來開發機械臂的逆向控制。\\
+而逆向運動學問題，實驗中使用了幾何求解法(Geometric solution approach)~\cite{kucuk2006robot}，與梯度下降法(Gradient descent solution approach)~\cite{Singh2017DevelopmentOA}來開發機械臂的逆向控制。\\
 
 幾何求解方法的原理是將機械手臂的空間幾何問題分解為多個平面幾何問題，適用於機械結構較為簡單的機器人，如下圖所示：
-
-\begin{figure}[htbp]
+\clearpage
+\begin{figure}[h]
     \centering
     \includegraphics[width=0.75\textwidth]{figures/IK.jpg}
 \caption{幾何求解逆向運動學示例圖~\cite{kucuk2006robot}}
@@ -180,7 +180,7 @@ $$
 \end{small}
 $$
 
-由於$\cos^2 \theta_{i}+\sin^2 \theta_{i}=1$，故可將上式化簡為：
+由於$\cos^2 \theta_{i}+\sin^2 \theta_{i}=1$，故可化簡為：
 
 $$
 \begin{small}
@@ -208,6 +208,7 @@ $$
 繼續利用$\theta_2$求解$\theta_1$：
 將$p_{x}=l_1 \cos \theta_1+l_2 \cos \theta_{12}$等號兩邊同乘$\cos \theta_1$
 將$p_{y}=l_1 \sin \theta_1+l_2 \sin \theta_{12}$等號兩邊同乘$\sin \theta_1$得：
+
 $$
 \begin{small}
 \begin{aligned}
@@ -217,7 +218,9 @@ $$
 \end{aligned}
 \end{small}
 $$
-可化簡為：
+
+由於$\cos^2 \theta_{i}+\sin^2 \theta_{i}=1$，故可化簡為：
+
 $$
 \begin{small}
 \cos \theta_1 p_{x}+\sin \theta_1 p_{y}=l_1+l_2 \cos \theta_2
@@ -226,16 +229,19 @@ $$
 
 將$p_{x}=l_1 \cos \theta_1+l_2 \cos \theta_{12}$等號兩邊同乘$-\sin \theta_1$
 將$p_{y}=l_1 \sin \theta_1+l_2 \sin \theta_{12}$等號兩邊同乘$\cos \theta_1$得：
+
 $$
 \begin{small}
 \begin{aligned}
 & -\sin \theta_1 p_{x}=-l_1 \sin \theta_1 \cos \theta_1-l_2 \sin \theta_1 \cos \theta_1 \cos \theta_2+l_1 \sin^2 \theta_1 \sin \theta_2 \\
 & \cos \theta_1 p_{y}=l_1 \sin \theta_1 \cos \theta_1+l_2 \cos \theta_1 \sin \theta_1 \cos \theta_2+l_2 \cos^2 \theta_1 \sin \theta_2 \\
-& -\sin \theta_1 p_{x}+\cos \theta_1 p_{y}=l_2 \sin \theta_2\left(\cos^2 \theta_1+\sin \theta_1\right)
+& -\sin \theta_1 p_{x}+\cos \theta_1 p_{y}=l_2 \sin \theta_2\left(\cos^2 \theta_1+\sin^2 \theta_1\right)
 \end{aligned}
 \end{small}
 $$
+
 可化簡為：
+
 $$
 \begin{small}
 -\sin \theta_1 p_{x} + \cos \theta_1 p_{y} = l_2 \sin \theta_2
@@ -249,11 +255,13 @@ $$
 \begin{aligned}
 & \cos \theta_1 p_{x}^2 + \sin \theta_1 p_x p_y = p_x \left(l_1 + l_2 \cos \theta_2 \right) \\
 & - \sin \theta_1 p_x p_y + \cos \theta_1 p_{y}^2 = p_y l_2 \sin \theta_2 \\
-& \cos \left(p_{x}^2+p_{y}^2 \right) = p_x \left(l_1+l_2 \cos \theta_2 \right) - p_y l_2 \sin \theta_2
+& \cos \theta_1 \left(p_{x}^2+p_{y}^2 \right) = p_x \left(l_1+l_2 \cos \theta_2 \right) + p_y l_2 \sin \theta_2
 \end{aligned}
 \end{small}
 $$
+
 可求出$\theta_1$：
+
 $$
 \begin{small}
 \begin{aligned}
