@@ -8,6 +8,20 @@ path = []
 #path+=[[-91, 0, 0, 0]] explain: Close claw
 #path+=[[91, 0, 0, 0]] explain: Open claw
 
+
+# Move to the ball's position [10.5, 12, 2] in 20 steps
+path += Arm.moveto([10.5, 12, 2], 20)
+
+# Close claw to catch the ball
+path += [[-91, 0, 0, 0]]
+
+
+# Move to the top of the tower [9.5, 0, 14.5] in 20 steps
+path += Arm.moveto([9.5, 0, 14.5], 20)
+
+# Open claw to release the ball
+path += [[91, 0, 0, 0]]
+
 #reset
 end=path[-2].copy()
 while not sum(end)==0:

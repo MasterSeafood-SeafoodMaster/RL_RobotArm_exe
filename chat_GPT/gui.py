@@ -5,7 +5,7 @@ import socket
 
 class GUI:
     def __init__(self, server=""):
-        self.chat_gpt=chatGPT()
+        self.chat_gpt=chatGPT(2)
         window = Tk()
         window.geometry("640x480")
         window.configure(bg = "#FFFFFF")
