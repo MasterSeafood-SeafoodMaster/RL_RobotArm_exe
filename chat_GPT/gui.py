@@ -2,6 +2,7 @@ from pathlib import Path
 from tkinter import *
 from chatGPT_caller import chatGPT
 import socket
+import time
 
 class GUI:
     def __init__(self, server=""):
@@ -105,10 +106,19 @@ class GUI:
         window.mainloop()
     def send(self):
         text=self.entry_1.get("1.0", END)
+        self.Log("Collecting input text...")
+        time.sleep(1)
+        self.Log("Merging with code and pre-given conditions...")
+        time.sleep(1)
         self.Log("Send to chatGPT: "+text)
+        time.sleep(1)
         self.Log("Waiting for response...")
         self.response=self.chat_gpt.ask(text)
+        time.sleep(1)
         self.Log("chatGPT responsed: "+self.response)
+        time.sleep(1)
+        self.Log("Sending command to robot arm")
+        time.sleep(1)
         self.send2server()
     def Log(self, newLog):
         self.entry_2.insert(0, newLog)
