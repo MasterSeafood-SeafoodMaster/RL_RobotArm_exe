@@ -2,7 +2,7 @@ import cv2
 import os
 
 # 設定影片路徑和輸出圖片的目錄
-video_path = './T&B.mp4'  # 替換為你的影片檔案路徑
+video_path = './DRIVE.mp4'  # 替換為你的影片檔案路徑
 output_dir = './img'  # 替換為你想要的輸出目錄
 
 # 如果輸出目錄不存在，則創建它

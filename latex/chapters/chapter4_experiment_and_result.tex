@@ -412,37 +412,42 @@
     \centering
     \includegraphics[width=0.9\textwidth]{figures/Armv3 (1).PNG}
     \caption{實驗三：設計圖紙 第一頁(單位:mm)}
-    %\label{fig:Armv1Drawing_p1}}
+    \label{fig:Armv3Drawing_p1}
 \end{figure}
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.9\textwidth]{figures/Armv3 (2).PNG}
     \caption{實驗三：設計圖紙 第二頁(單位:mm)}
+    \label{fig:Armv3Drawing_p2}
 \end{figure}
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.9\textwidth]{figures/Armv3 (3).PNG}
     \caption{實驗三：設計圖紙 第三頁(單位:mm)}
+    \label{fig:Armv3Drawing_p3}
 \end{figure}
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.9\textwidth]{figures/Armv3 (4).PNG}
     \caption{實驗三：設計圖紙 第四頁(單位:mm)}
+    \label{fig:Armv3Drawing_p4}
 \end{figure}
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.9\textwidth]{figures/Armv3 (5).PNG}
     \caption{實驗三：設計圖紙 第五頁(單位:mm)}
+    \label{fig:Armv3Drawing_p5}
 \end{figure}
 
 \begin{figure}[htbp]
     \centering
     \includegraphics[width=0.9\textwidth]{figures/Armv3 (6).PNG}
     \caption{實驗三：設計圖紙 第六頁(單位:mm)}
+    \label{fig:Armv3Drawing_p6}
 \end{figure}
 
 \subsection{函數設計}
@@ -564,6 +569,148 @@
         \label{fig:fig-dataset-contrast-after-adjustment}}
         {\includegraphics[width=0.4\linewidth]{figures/Exp3 (7)_square.jpg}}   
 \caption{實驗三：實驗過程縮圖}
+\end{figure}
+
+\section{實驗四：機械臂在自動運輸車上的進階應用}
+\subsection{機械結構設計圖}
+本實驗沿用實驗三的硬體，設計圖詳見 圖\ref{fig:Armv3Drawing_p1}～圖\ref{fig:Armv3Drawing_p6}
+
+\subsection{函數設計}
+在前一個實驗的基礎上，我們新增了更多的函數種類與更複雜的任務，
+希望能更充分的利用大型語言模型的邏輯性，來對這些模組化函式進行規劃，
+使機械臂和車輛能夠協同工作，完成更複雜的任務。
+
+\begin{itemize}
+    \item aim(color): 讓機械臂瞄準一個特定顏色的方塊。
+    \item grab(): 讓機械臂抓起方塊。
+    \item putdown(): 讓機械臂放下方塊。
+    \item load(): 將方塊放在車身上。
+    \item unload(): 從車身上夾走方塊，會遮擋鏡頭。
+    \item lookForward(): 讓安裝在機械臂上的攝像頭向前看。
+    \item reset(): 讓安裝在機械臂上的攝像頭向下看。
+
+    \item GoForward(): 驅動輪子向前行駛，遇到方塊時停止。
+    \item Skip(): 驅動輪子跳過前面的方塊。 
+\end{itemize}
+
+\newpage
+\subsection{下達指令的格式範例}
+以下為指令格式：
+\begin{listing}[h]
+    \begin{minted}[frame=single,
+                   framesep=3mm,
+                   linenos=true,
+                   xleftmargin=21pt,
+                   tabsize=4]{js}
+    {     
+        role: "user",
+        content : "\
+            The following functions are available:\
+            aim(color): Let the robot aim at a block of a specific color.\
+            grab(): Make the robot arm grab the block up.\
+            putdown(): Make the robot arm put the block down.\
+            load(): Place the block on the car body.\
+            unload(): Remove the block from the car body, will block the lens.\
+            lookForward(): Make the camera mounted on the robotic arm look forward. \
+            reset(): Make the camera mounted on the robotic arm look downward. \
+            GoForward(): Drive the wheels forward, and stop when encountering a block.\
+            Skip(): Drive the wheels to skip the block ahead. \
+\
+            here is the sample commands to skip the green block and \
+            grab the red block and place it in front of the blue block:\
+            lookForward(), GoForward(), Skip(), GoForward(), reset(), aim(red),\
+            grab(), load(), lookForward(), GoForward(), reset(), unload(), \
+            putdown()\
+\
+            Please help me use the above functions to control the robot arm,\
+            and do not output other text other than the above functions.\
+            (Use "," to separate each step)"
+    },
+    {
+        role: "user", 
+        content: "There are three blocks in front of you.\
+        The colors are red, green, and blue in order.\
+        Please grab the red block and skip the green block\
+        and place it in front of the blue block."
+    }
+    \end{minted}
+\caption{實驗四：指令格式範例} 
+\end{listing}
+
+\begin{listing}[h]
+    \begin{minted}[frame=single,
+                   framesep=3mm,
+                   linenos=true,
+                   xleftmargin=21pt,
+                   tabsize=4]{js}
+
+    {
+        role="assistant",
+        content="lookForward(), GoForward(), reset(), aim(red), grab(), load(), \
+        lookForward(), GoForward(), Skip(), GoForward(), reset(), unload(), \
+        putdown()"
+    }
+
+    \end{minted}
+\caption{實驗四：回傳格式範例} 
+\end{listing}
+\clearpage
+\subsection{實驗結果}
+以下為本實驗的實驗過程縮圖與總結：\\
+
+
+\begin{table}[h]
+    \centering
+    \caption{實驗結果：Please grab the red block and skip the green block and place it in front of the blue block.}
+    \begin{tabular}{ccccc}
+    \hline
+    大型語言模型 & 總次數 & 成功次數 & 失敗次數 & 成功率 \\
+    \hline
+    GPT-4o & 10 & 7 & 3 & 0.7\\
+    \hline
+    GPT-3.5 Turbo & 10 & 2 & 7 & 0.2\\
+    \hline
+    \end{tabular}
+\end{table}
+在本次實驗中，我們加入了更多的函式以完成比實驗三更複雜的任務。目的是充分利用大型語言模型的邏輯性來進行更多的計劃和決策。實驗結果顯示這種方法取得了不錯的成效。通過增加函式和優化計劃機制，大型語言模型能夠更有效的協調各個硬體設備的運作，並且在生成控制指令時能夠考慮更多的變量和情境，從而提高了整體系統的精確度和穩定性。
+
+然而，由於任務的複雜性增加，系統也面臨了一些新的挑戰。例如，函式之間的依賴性增加，可能會導致在某些情況下需要更精細的調整和優化。此外，隨著任務需求的多樣化，如何確保各個函式之間的協同工作更加流暢，仍然是一個需要解決的問題。
+
+總體上，實驗四的結果相當不錯，展示了大型語言模型在複雜任務計劃和控制指令生成方面的潛力。未來，我們將繼續優化函式庫和硬體協調機制，以進一步提升系統的可靠性。
+
+\newpage
+\begin{figure}[h]
+    \centering
+    \subcaptionbox
+        {移動至紅色方塊前
+        \label{fig:fig-dataset-contrast-after-adjustment}}
+        {\includegraphics[width=0.4\linewidth]{figures/DRIVE (1).jpg}}
+    ~    
+    \subcaptionbox
+        {裝載紅色方塊
+        \label{fig:fig-dataset-contrast-after-adjustment}}
+        {\includegraphics[width=0.4\linewidth]{figures/DRIVE (2).jpg}}
+    ~
+    \subcaptionbox
+        {移動至綠色方塊前
+        \label{fig:fig-dataset-contrast-after-adjustment}}
+        {\includegraphics[width=0.4\linewidth]{figures/DRIVE (3).jpg}}
+    ~
+    \subcaptionbox
+        {略過綠色方塊
+        \label{fig:fig-dataset-contrast-after-adjustment}}
+        {\includegraphics[width=0.4\linewidth]{figures/DRIVE (4).jpg}}
+    ~    
+    \subcaptionbox
+        {移動至藍色方塊前
+        \label{fig:fig-dataset-contrast-after-adjustment}}
+        {\includegraphics[width=0.4\linewidth]{figures/DRIVE (5).jpg}}
+    ~
+    \subcaptionbox
+        {卸下紅色方塊
+        \label{fig:fig-dataset-contrast-after-adjustment}}
+        {\includegraphics[width=0.4\linewidth]{figures/DRIVE (6).jpg}}   
+\caption{實驗四：實驗過程縮圖}
 \end{figure}
 
 \end{document}
