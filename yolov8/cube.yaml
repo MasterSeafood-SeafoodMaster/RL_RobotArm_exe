@@ -1,9 +1,0 @@
-
-path: C:\Users\cfouo\Desktop\ArmEnv\yolov8\dataset  # dataset root dir
-train: images  # train images (relative to 'path') 128 images
-val: images
-test:  # test images (optional)
-
-# Classes
-names:
-  0: cube
