@@ -1,0 +1,19 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+        \PYG{k+kn}{from} \PYG{n+nn}{ArmEnv\PYGZus{}3D\PYGZus{}ori} \PYG{k+kn}{import} \PYG{n}{ArmEnv\PYGZus{}3D}
+        \PYG{k+kn}{import} \PYG{n+nn}{math}
+
+        \PYG{n}{Arm} \PYG{o}{=} \PYG{n}{ArmEnv\PYGZus{}3D}\PYG{p}{([}\PYG{l+m+mf}{5.942}\PYG{p}{,} \PYG{l+m+mf}{6.81}\PYG{p}{,} \PYG{l+m+mf}{8.747}\PYG{p}{,} \PYG{l+m+mf}{7.523}\PYG{p}{],} \PYG{k+kc}{False}\PYG{p}{)}
+        \PYG{n}{path} \PYG{o}{=} \PYG{p}{[]}
+        \PYG{c+c1}{\PYGZsh{}Please planning path form hear}
+        \PYG{c+c1}{\PYGZsh{}path+=Arm.moveto([0, 0, 25], 20) explain: Move to [0, 0, 25] in 20 steps}
+        \PYG{c+c1}{\PYGZsh{}path+=[[\PYGZhy{}91, 0, 0, 0]] explain: Close claw}
+        \PYG{c+c1}{\PYGZsh{}path+=[[91, 0, 0, 0]] explain: Open claw}
+
+        \PYG{c+c1}{\PYGZsh{}reset}
+        \PYG{n}{end}\PYG{o}{=}\PYG{n}{path}\PYG{p}{[}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{2}\PYG{p}{]}\PYG{o}{.}\PYG{n}{copy}\PYG{p}{()}
+        \PYG{k}{while} \PYG{o+ow}{not} \PYG{n+nb}{sum}\PYG{p}{(}\PYG{n}{end}\PYG{p}{)}\PYG{o}{==}\PYG{l+m+mi}{0}\PYG{p}{:}
+            \PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{end}\PYG{p}{)):}
+                \PYG{k}{if} \PYG{n}{end}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{\PYGZgt{}}\PYG{l+m+mi}{0}\PYG{p}{:} \PYG{n}{end}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{\PYGZhy{}=}\PYG{l+m+mi}{1}
+                \PYG{k}{elif} \PYG{n}{end}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{\PYGZlt{}}\PYG{l+m+mi}{0}\PYG{p}{:} \PYG{n}{end}\PYG{p}{[}\PYG{n}{i}\PYG{p}{]}\PYG{o}{+=}\PYG{l+m+mi}{1}
+            \PYG{n}{path}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{end}\PYG{o}{.}\PYG{n}{copy}\PYG{p}{())}
+\end{Verbatim}

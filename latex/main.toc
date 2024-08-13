@@ -1,0 +1,61 @@
+~\hfill \textbf {頁次}\par 
+\contentsline {chapter}{摘要}{iv}{chapter*.1}%
+\contentsline {chapter}{Abstract}{vi}{chapter*.2}%
+\contentsline {chapter}{誌謝}{viii}{chapter*.3}%
+\contentsline {chapter}{目錄}{xii}{section*.4}%
+\ttl@change@i {\@ne }{chapter}{\tocNumSpaceC@Before }{\addvspace {1em}}{\tocStyleChapterFont \makebox [\tocNumSpaceC@Total ][l]{\thecontentslabel@chapter }}{\tocStyleChapterFont }{\tocStyleChapterFiller }\relax 
+\ttl@change@v {chapter}{}{}{}\relax 
+\contentsline {chapter}{\numberline {1}緒論}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}研究動機}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}研究目的}{2}{section.1.2}%
+\contentsline {section}{\numberline {1.3}論文架構}{2}{section.1.3}%
+\contentsline {chapter}{\numberline {2}背景知識以及文獻回顧}{4}{chapter.2}%
+\contentsline {section}{\numberline {2.1}背景知識}{4}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}大型語言模型的研究現況}{4}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}智慧機器與人工智慧物聯網的應用場景}{6}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}3D列印技術的發展現況}{7}{subsection.2.1.3}%
+\contentsline {section}{\numberline {2.2}文獻回顧}{8}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}大型語言模型及其在程式碼生成與機器控制上的應用}{8}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}運動學研究與機器人控制}{9}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}3D列印應用於機器人製作的相關文獻}{15}{subsection.2.2.3}%
+\contentsline {chapter}{\numberline {3}研究方法}{17}{chapter.3}%
+\contentsline {section}{\numberline {3.1}硬體設計流程}{17}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}模型設計軟體：Autodesk Fusion 360}{17}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}檔案輸出格式：STL（Stereolithography）}{18}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}3D列印機：Creality K1 MAX}{19}{subsection.3.1.3}%
+\contentsline {subsection}{\numberline {3.1.4}馬達與開發版介紹}{20}{subsection.3.1.4}%
+\contentsline {section}{\numberline {3.2}運動學開發}{23}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}運動模擬環境}{23}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}順向運動學}{24}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}逆向運動學}{24}{subsection.3.2.3}%
+\contentsline {section}{\numberline {3.3}大型語言模型開發}{25}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}OpenAI與GPT模型}{25}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}模型使用流程}{25}{subsection.3.3.2}%
+\contentsline {section}{\numberline {3.4}系統架構}{28}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}系統架構與流程}{28}{subsection.3.4.1}%
+\contentsline {chapter}{\numberline {4}實驗設計與結果}{30}{chapter.4}%
+\contentsline {section}{\numberline {4.1}實驗一：機械臂的基本控制}{30}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}機械結構設計圖}{30}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}函數設計}{33}{subsection.4.1.2}%
+\contentsline {subsection}{\numberline {4.1.3}下達指令的格式範例}{34}{subsection.4.1.3}%
+\contentsline {subsection}{\numberline {4.1.4}實驗結果}{36}{subsection.4.1.4}%
+\contentsline {section}{\numberline {4.2}實驗二：將機械臂用於畫圖}{38}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}機械結構設計圖}{38}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}函數設計}{41}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}下達指令的格式範例}{42}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.2.4}實驗結果}{43}{subsection.4.2.4}%
+\contentsline {section}{\numberline {4.3}實驗三：機械臂在自動運輸車上的應用}{45}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}機械結構設計圖}{45}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}函數設計}{48}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}下達指令的格式範例}{49}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.3.4}實驗結果}{50}{subsection.4.3.4}%
+\contentsline {section}{\numberline {4.4}實驗四：機械臂在自動運輸車上的進階應用}{52}{section.4.4}%
+\contentsline {subsection}{\numberline {4.4.1}機械結構設計圖}{52}{subsection.4.4.1}%
+\contentsline {subsection}{\numberline {4.4.2}函數設計}{52}{subsection.4.4.2}%
+\contentsline {subsection}{\numberline {4.4.3}下達指令的格式範例}{53}{subsection.4.4.3}%
+\contentsline {subsection}{\numberline {4.4.4}實驗結果}{55}{subsection.4.4.4}%
+\contentsline {chapter}{\numberline {5}總結}{57}{chapter.5}%
+\contentsline {section}{\numberline {5.1}結論}{57}{section.5.1}%
+\contentsline {section}{\numberline {5.2}未來展望}{58}{section.5.2}%
+\contentsline {chapter}{參考文獻}{59}{chapter*.54}%
+\contentsfinish 

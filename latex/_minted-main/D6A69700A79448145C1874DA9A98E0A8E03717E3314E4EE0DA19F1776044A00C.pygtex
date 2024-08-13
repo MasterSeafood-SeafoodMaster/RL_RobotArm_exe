@@ -1,0 +1,10 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+
+    \PYG{p}{\PYGZob{}}
+        \PYG{n+nx}{role}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}assistant\PYGZdq{}}\PYG{p}{,}
+        \PYG{n+nx}{content}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}lookForward(), GoForward(), reset(), aim(red), grab(), load(), \PYGZbs{}}
+\PYG{l+s+s2}{        lookForward(), GoForward(), Skip(), GoForward(), reset(), unload(), \PYGZbs{}}
+\PYG{l+s+s2}{        putdown()\PYGZdq{}}
+    \PYG{p}{\PYGZcb{}}
+
+\end{Verbatim}

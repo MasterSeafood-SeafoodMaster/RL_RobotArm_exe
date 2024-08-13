@@ -1,0 +1,23 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+    \PYG{p}{\PYGZob{}}
+        \PYG{n+nx}{role}\PYG{o}{:} \PYG{l+s+s2}{\PYGZdq{}user\PYGZdq{}}\PYG{p}{,}
+        \PYG{n+nx}{content} \PYG{o}{:}
+        \PYG{l+s+s2}{\PYGZdq{}The following functions are available:\PYGZbs{}}
+\PYG{l+s+s2}{        \PYGZbs{}}
+\PYG{l+s+s2}{        find(color): Let the robot look for a block of a specific color.\PYGZbs{}}
+\PYG{l+s+s2}{        color option: red, blue.\PYGZbs{}}
+\PYG{l+s+s2}{        aim(color): Let the robot aim at a block of a specific color.\PYGZbs{}}
+\PYG{l+s+s2}{        color option: red, blue\PYGZbs{}}
+\PYG{l+s+s2}{        grab: Make the robot arm grab the block and put it down.\PYGZbs{}}
+\PYG{l+s+s2}{        reset: Return the robotic arm to its initial position\PYGZbs{}}
+\PYG{l+s+s2}{        (needs to be executed before each aiming).\PYGZbs{}}
+\PYG{l+s+s2}{        \PYGZbs{}}
+\PYG{l+s+s2}{        Please help me use the above functions to control the robot arm,\PYGZbs{}}
+\PYG{l+s+s2}{        and do not output other text other than the above functions.\PYGZbs{}}
+\PYG{l+s+s2}{        (Use \PYGZdq{}}\PYG{p}{,}\PYG{l+s+s2}{\PYGZdq{} to separate each step)\PYGZdq{}}
+    \PYG{p}{\PYGZcb{},}
+    \PYG{p}{\PYGZob{}}
+        \PYG{n+nx}{role}\PYG{o}{:} \PYG{l+s+s2}{\PYGZdq{}user\PYGZdq{}}\PYG{p}{,}
+        \PYG{n+nx}{content}\PYG{o}{:} \PYG{l+s+s2}{\PYGZdq{}Task: Please grab the red block, and then grab the blue block.\PYGZdq{}}
+    \PYG{p}{\PYGZcb{}}
+\end{Verbatim}

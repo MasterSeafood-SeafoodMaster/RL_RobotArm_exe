@@ -1,0 +1,19 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+    \PYG{p}{\PYGZob{}}
+        \PYG{n+nx}{role}\PYG{o}{:} \PYG{l+s+s2}{\PYGZdq{}user\PYGZdq{}}\PYG{p}{,}
+        \PYG{n+nx}{content} \PYG{o}{:}
+        \PYG{l+s+s2}{\PYGZdq{}The following functions are available:\PYGZbs{}}
+\PYG{l+s+s2}{        \PYGZbs{}}
+\PYG{l+s+s2}{        draw(from, to): Let the arm draw a straight line from from to to,\PYGZbs{}}
+\PYG{l+s+s2}{        such as draw([0, 0], [5, 5]).\PYGZbs{}}
+\PYG{l+s+s2}{        the limit is[0, 5]\PYGZbs{}}
+\PYG{l+s+s2}{        \PYGZbs{}}
+\PYG{l+s+s2}{        Please help me use the above functions to control the robot arm,\PYGZbs{}}
+\PYG{l+s+s2}{        and do not output other text other than the above functions.\PYGZbs{}}
+\PYG{l+s+s2}{        (Use \PYGZdq{}}\PYG{p}{,}\PYG{l+s+s2}{\PYGZdq{} to separate each step)\PYGZdq{}}
+    \PYG{p}{\PYGZcb{},}
+    \PYG{p}{\PYGZob{}}
+        \PYG{n+nx}{role}\PYG{o}{:} \PYG{l+s+s2}{\PYGZdq{}user\PYGZdq{}}\PYG{p}{,}
+        \PYG{n+nx}{content}\PYG{o}{:} \PYG{l+s+s2}{\PYGZdq{}Task: Draw a square.\PYGZdq{}}
+    \PYG{p}{\PYGZcb{}}
+\end{Verbatim}

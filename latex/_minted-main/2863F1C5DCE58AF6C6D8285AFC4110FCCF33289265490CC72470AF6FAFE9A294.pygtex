@@ -1,0 +1,23 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+
+        \PYG{k}{class} \PYG{n+nc}{ArmEnv\PYGZus{}3D}\PYG{p}{:}
+            \PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{lList}\PYG{p}{,} \PYG{n}{vision}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{):}
+                \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{Link\PYGZus{}length} \PYG{o}{=} \PYG{n}{lList}
+                \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{Link\PYGZus{}offset}\PYG{o}{=}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{*}\PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{lList}\PYG{p}{)}
+                \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{Twist\PYGZus{}angle}\PYG{o}{=}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{*}\PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{lList}\PYG{p}{)}
+                \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{Joint\PYGZus{}angle} \PYG{o}{=} \PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{*}\PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{lList}\PYG{p}{)}
+                \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{Target\PYGZus{}point}\PYG{o}{=}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{]}
+                \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{Current\PYGZus{}point}\PYG{o}{=}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n+nb}{sum}\PYG{p}{(}\PYG{n}{lList}\PYG{p}{)]}
+
+            \PYG{k}{def} \PYG{n+nf}{Forward\PYGZus{}kinematics}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{joint\PYGZus{}angles}\PYG{p}{):}\PYG{o}{...}
+
+            \PYG{k}{def} \PYG{n+nf}{Geometric\PYGZus{}solution}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{):}\PYG{o}{...}
+
+            \PYG{k}{def} \PYG{n+nf}{Gradient\PYGZus{}descent}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,}\PYG{n}{times}\PYG{o}{=}\PYG{l+m+mi}{100}\PYG{p}{,} \PYG{n}{points}\PYG{o}{=}\PYG{l+m+mi}{10}\PYG{p}{,} \PYG{n}{speed}\PYG{o}{=}\PYG{l+m+mi}{5}\PYG{p}{):}\PYG{o}{...}
+
+            \PYG{c+c1}{\PYGZsh{}visualization}
+            \PYG{k}{def} \PYG{n+nf}{initPicture}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{):}\PYG{o}{...}
+
+            \PYG{k}{def} \PYG{n+nf}{updatePicture}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{):}\PYG{o}{...}
+
+\end{Verbatim}

@@ -1,0 +1,15 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+
+        curl https://api.openai.com/v1/completions \PYG{l+s+se}{\PYGZbs{}}
+          \PYGZhy{}H \PYG{l+s+s2}{\PYGZdq{}Content\PYGZhy{}Type: application/json\PYGZdq{}} \PYG{l+s+se}{\PYGZbs{}}
+          \PYGZhy{}H \PYG{l+s+s2}{\PYGZdq{}Authorization: Bearer API密鑰\PYGZdq{}} \PYG{l+s+se}{\PYGZbs{}}
+          \PYGZhy{}d \PYG{l+s+s1}{\PYGZsq{}\PYGZob{}}
+\PYG{l+s+s1}{            \PYGZdq{}model\PYGZdq{}: \PYGZdq{}model\PYGZus{}type\PYGZdq{},}
+\PYG{l+s+s1}{            \PYGZdq{}prompt\PYGZdq{}: \PYGZdq{}介紹一下OpenAI和GPT模型。\PYGZdq{},}
+\PYG{l+s+s1}{            \PYGZdq{}max\PYGZus{}tokens\PYGZdq{}: 100,}
+\PYG{l+s+s1}{            \PYGZdq{}temperature\PYGZdq{}: 0.7,}
+\PYG{l+s+s1}{            \PYGZdq{}top\PYGZus{}p\PYGZdq{}: 1.0,}
+\PYG{l+s+s1}{            \PYGZdq{}n\PYGZdq{}: 1,}
+\PYG{l+s+s1}{            \PYGZdq{}stop\PYGZdq{}: null}
+\PYG{l+s+s1}{          \PYGZcb{}\PYGZsq{}}
+\end{Verbatim}

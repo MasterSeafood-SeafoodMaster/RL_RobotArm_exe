@@ -1,0 +1,29 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+
+    \PYG{p}{\PYGZob{}}
+        \PYG{n+nx}{role}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}assistant\PYGZdq{}}\PYG{p}{,}
+        \PYG{n+nx}{content}\PYG{o}{=}
+    \PYG{l+s+s2}{\PYGZdq{}\PYGZbs{}}
+\PYG{l+s+s2}{    from ArmEnv\PYGZus{}3D\PYGZus{}ori import ArmEnv\PYGZus{}3D\PYGZbs{}}
+\PYG{l+s+s2}{    import math\PYGZbs{}}
+\PYG{l+s+s2}{    \PYGZbs{}}
+\PYG{l+s+s2}{    Arm = ArmEnv\PYGZus{}3D([5.942, 6.81, 8.747, 7.523], False)\PYGZbs{}}
+\PYG{l+s+s2}{    path = []\PYGZbs{}}
+\PYG{l+s+s2}{    path += Arm.moveto([0, 0, 25], 20)\PYGZbs{}}
+\PYG{l+s+s2}{    path += Arm.moveto([10.5, 12, 2], 20)\PYGZbs{}}
+\PYG{l+s+s2}{    path+=[[\PYGZhy{}91, 0, 0, 0]]\PYGZbs{}}
+\PYG{l+s+s2}{    path += Arm.moveto([10, 13, 15], 20)\PYGZbs{}}
+\PYG{l+s+s2}{    path += Arm.moveto([9.5, 0, 14.5], 20)\PYGZbs{}}
+\PYG{l+s+s2}{    path+=[[91, 0, 0, 0]]\PYGZbs{}}
+\PYG{l+s+s2}{    \PYGZbs{}}
+\PYG{l+s+s2}{    \PYGZsh{}reset\PYGZbs{}}
+\PYG{l+s+s2}{    end=path[\PYGZhy{}2].copy()\PYGZbs{}}
+\PYG{l+s+s2}{    while not sum(end)==0:\PYGZbs{}}
+\PYG{l+s+s2}{        for i in range(len(end)):\PYGZbs{}}
+\PYG{l+s+s2}{            if end[i]\PYGZgt{}0: end[i]\PYGZhy{}=1\PYGZbs{}}
+\PYG{l+s+s2}{            elif end[i]\PYGZlt{}0: end[i]+=1\PYGZbs{}}
+\PYG{l+s+s2}{        path.append(end.copy())\PYGZbs{}}
+\PYG{l+s+s2}{    \PYGZdq{}}
+    \PYG{p}{\PYGZcb{}}
+
+\end{Verbatim}

@@ -1,0 +1,33 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+    \PYG{p}{\PYGZob{}}
+        \PYG{n+nx}{role}\PYG{o}{:} \PYG{l+s+s2}{\PYGZdq{}user\PYGZdq{}}\PYG{p}{,}
+        \PYG{n+nx}{content} \PYG{o}{:} \PYG{l+s+s2}{\PYGZdq{}\PYGZbs{}}
+\PYG{l+s+s2}{            The following functions are available:\PYGZbs{}}
+\PYG{l+s+s2}{            aim(color): Let the robot aim at a block of a specific color.\PYGZbs{}}
+\PYG{l+s+s2}{            grab(): Make the robot arm grab the block up.\PYGZbs{}}
+\PYG{l+s+s2}{            putdown(): Make the robot arm put the block down.\PYGZbs{}}
+\PYG{l+s+s2}{            load(): Place the block on the car body.\PYGZbs{}}
+\PYG{l+s+s2}{            unload(): Remove the block from the car body, will block the lens.\PYGZbs{}}
+\PYG{l+s+s2}{            lookForward(): Make the camera mounted on the robotic arm look forward. \PYGZbs{}}
+\PYG{l+s+s2}{            reset(): Make the camera mounted on the robotic arm look downward. \PYGZbs{}}
+\PYG{l+s+s2}{            GoForward(): Drive the wheels forward, and stop when encountering a block.\PYGZbs{}}
+\PYG{l+s+s2}{            Skip(): Drive the wheels to skip the block ahead. \PYGZbs{}}
+\PYG{l+s+s2}{\PYGZbs{}}
+\PYG{l+s+s2}{            here is the sample commands to skip the green block and \PYGZbs{}}
+\PYG{l+s+s2}{            grab the red block and place it in front of the blue block:\PYGZbs{}}
+\PYG{l+s+s2}{            lookForward(), GoForward(), Skip(), GoForward(), reset(), aim(red),\PYGZbs{}}
+\PYG{l+s+s2}{            grab(), load(), lookForward(), GoForward(), reset(), unload(), \PYGZbs{}}
+\PYG{l+s+s2}{            putdown()\PYGZbs{}}
+\PYG{l+s+s2}{\PYGZbs{}}
+\PYG{l+s+s2}{            Please help me use the above functions to control the robot arm,\PYGZbs{}}
+\PYG{l+s+s2}{            and do not output other text other than the above functions.\PYGZbs{}}
+\PYG{l+s+s2}{            (Use \PYGZdq{}}\PYG{p}{,}\PYG{l+s+s2}{\PYGZdq{} to separate each step)\PYGZdq{}}
+    \PYG{p}{\PYGZcb{},}
+    \PYG{p}{\PYGZob{}}
+        \PYG{n+nx}{role}\PYG{o}{:} \PYG{l+s+s2}{\PYGZdq{}user\PYGZdq{}}\PYG{p}{,}
+        \PYG{n+nx}{content}\PYG{o}{:} \PYG{l+s+s2}{\PYGZdq{}There are three blocks in front of you.\PYGZbs{}}
+\PYG{l+s+s2}{        The colors are red, green, and blue in order.\PYGZbs{}}
+\PYG{l+s+s2}{        Please grab the red block and skip the green block\PYGZbs{}}
+\PYG{l+s+s2}{        and place it in front of the blue block.\PYGZdq{}}
+    \PYG{p}{\PYGZcb{}}
+\end{Verbatim}

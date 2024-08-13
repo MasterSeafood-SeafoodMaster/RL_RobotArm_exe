@@ -1,0 +1,36 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+    \PYG{p}{\PYGZob{}}
+        \PYG{n+nx}{role}\PYG{o}{:} \PYG{l+s+s2}{\PYGZdq{}user\PYGZdq{}}\PYG{p}{,}
+        \PYG{n+nx}{content} \PYG{o}{:}
+    \PYG{l+s+s2}{\PYGZdq{}\PYGZbs{}}
+\PYG{l+s+s2}{    from ArmEnv\PYGZus{}3D\PYGZus{}ori import ArmEnv\PYGZus{}3D\PYGZbs{}}
+\PYG{l+s+s2}{    import math\PYGZbs{}}
+\PYG{l+s+s2}{    \PYGZbs{}}
+\PYG{l+s+s2}{    Arm = ArmEnv\PYGZus{}3D([5.942, 6.81, 8.747, 7.523], False)\PYGZbs{}}
+\PYG{l+s+s2}{    path = []\PYGZbs{}}
+\PYG{l+s+s2}{    \PYGZsh{}Please planning path form hear\PYGZbs{}}
+\PYG{l+s+s2}{    \PYGZsh{}path+=Arm.moveto([0, 0, 25], 20) explain: Move to [0, 0, 25] in 20 steps\PYGZbs{}}
+\PYG{l+s+s2}{    \PYGZsh{}path+=[[\PYGZhy{}91, 0, 0, 0]] explain: Close claw\PYGZbs{}}
+\PYG{l+s+s2}{    \PYGZsh{}path+=[[91, 0, 0, 0]] explain: Open claw\PYGZbs{}}
+\PYG{l+s+s2}{    \PYGZbs{}}
+\PYG{l+s+s2}{    \PYGZsh{}reset\PYGZbs{}}
+\PYG{l+s+s2}{    end=path[\PYGZhy{}2].copy()\PYGZbs{}}
+\PYG{l+s+s2}{    while not sum(end)==0:\PYGZbs{}}
+\PYG{l+s+s2}{        for i in range(len(end)):\PYGZbs{}}
+\PYG{l+s+s2}{            if end[i]\PYGZgt{}0: end[i]\PYGZhy{}=1\PYGZbs{}}
+\PYG{l+s+s2}{            elif end[i]\PYGZlt{}0: end[i]+=1\PYGZbs{}}
+\PYG{l+s+s2}{        path.append(end.copy())\PYGZbs{}}
+\PYG{l+s+s2}{    \PYGZdq{}}
+    \PYG{p}{\PYGZcb{},}
+    \PYG{p}{\PYGZob{}}
+        \PYG{n+nx}{role}\PYG{o}{:} \PYG{l+s+s2}{\PYGZdq{}user\PYGZdq{}}\PYG{p}{,}
+        \PYG{n+nx}{content}\PYG{o}{:} \PYG{l+s+s2}{\PYGZdq{}This is a sample program for controlling a robotic arm.\PYGZbs{}}
+\PYG{l+s+s2}{                  Please modify it to help me complete the following requirements: \PYGZbs{}}
+\PYG{l+s+s2}{                  the ball is at [10.5, 12, 2], and the top of the tower is at [9.5, 0, 14.5]. \PYGZbs{}}
+\PYG{l+s+s2}{                  Please help me catch the ball to the top of the tower. \PYGZbs{}}
+\PYG{l+s+s2}{                  During the process, please do not get too close to the side of the tower \PYGZbs{}}
+\PYG{l+s+s2}{                  (keep outside the radius 7).\PYGZbs{}}
+\PYG{l+s+s2}{                  return only code.\PYGZbs{}}
+\PYG{l+s+s2}{                  \PYGZdq{}}
+    \PYG{p}{\PYGZcb{}}
+\end{Verbatim}

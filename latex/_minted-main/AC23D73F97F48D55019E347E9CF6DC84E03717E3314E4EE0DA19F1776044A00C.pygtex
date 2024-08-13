@@ -1,0 +1,11 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+
+    \PYG{p}{\PYGZob{}}
+        \PYG{n+nx}{role}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}assistant\PYGZdq{}}\PYG{p}{,}
+        \PYG{n+nx}{content}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}draw([1, 1], [1, 4]),\PYGZbs{}}
+\PYG{l+s+s2}{                 draw([1, 4], [4, 4]),\PYGZbs{}}
+\PYG{l+s+s2}{                 draw([4, 4], [4, 1]),\PYGZbs{}}
+\PYG{l+s+s2}{                 draw([4, 1], [1, 1])\PYGZdq{}}
+    \PYG{p}{\PYGZcb{}}
+
+\end{Verbatim}

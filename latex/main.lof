@@ -1,0 +1,40 @@
+~\hfill \textbf {頁次}\par 
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces 順向運動學示例圖~\blx@tocontentsinit {0}\cite {kucuk2006robot}}}{10}{figure.caption.8}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces 幾何求解逆向運動學示例圖~\blx@tocontentsinit {0}\cite {kucuk2006robot}}}{12}{figure.caption.9}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Autodesk Fusion 360 Logo~\blx@tocontentsinit {0}\cite {autodesk_echo_dot}}}{18}{figure.caption.10}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces 3D Systems Logo~\blx@tocontentsinit {0}\cite {3dsystems_echo_dot}}}{19}{figure.caption.11}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Creality K1 MAX~\blx@tocontentsinit {0}\cite {creality_echo_dot}}}{20}{figure.caption.12}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces 開發板與馬達縮圖，(a)SG90~\blx@tocontentsinit {0}\cite {sg90_servo_motor}(b)MG90S~\blx@tocontentsinit {0}\cite {mg90s_servo_motor}(c)MG996R~\blx@tocontentsinit {0}\cite {mg996r_servo_motor} (d)Raspberry Pi 4~\blx@tocontentsinit {0}\cite {raspberry_pi_4}(e)ESP32-S3-Devkit~\blx@tocontentsinit {0}\cite {esp32_s3_devkit}(f)ESP32 Doit-Devkit~\blx@tocontentsinit {0}\cite {esp32_doit_devkit} (g)L298N~\blx@tocontentsinit {0}\cite {l298n_motor_driver}(h)PCA9685~\blx@tocontentsinit {0}\cite {pca9685_pwm_driver}}}{23}{figure.caption.13}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces 系統架構圖}}{29}{figure.caption.17}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces 使用者介面縮圖}}{29}{figure.caption.18}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces 實驗一：設計圖紙 第一頁(單位:mm)}}{30}{figure.caption.19}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces 實驗一：設計圖紙 第二頁(單位:mm)}}{31}{figure.caption.20}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces 實驗一：設計圖紙 第三頁(單位:mm)}}{31}{figure.caption.21}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces 實驗一：設計圖紙 第四頁(單位:mm)}}{32}{figure.caption.22}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces 實驗一：設計圖紙 第五頁(單位:mm)}}{32}{figure.caption.23}%
+\contentsline {figure}{\numberline {4.6}{\ignorespaces 實驗一：實驗過程縮圖，(a)初始位置(b)移動至黑球位置(c)夾取黑球(d)移動至塔頂位置(e)放開黑球(f)回到初始位置}}{37}{figure.caption.28}%
+\contentsline {figure}{\numberline {4.7}{\ignorespaces 實驗二：設計圖紙 第一頁(單位:mm)}}{38}{figure.caption.29}%
+\contentsline {figure}{\numberline {4.8}{\ignorespaces 實驗二：設計圖紙 第二頁(單位:mm)}}{39}{figure.caption.30}%
+\contentsline {figure}{\numberline {4.9}{\ignorespaces 實驗二：設計圖紙 第三頁(單位:mm)}}{39}{figure.caption.31}%
+\contentsline {figure}{\numberline {4.10}{\ignorespaces 實驗二：設計圖紙 第四頁(單位:mm)}}{40}{figure.caption.32}%
+\contentsline {figure}{\numberline {4.11}{\ignorespaces 實驗二：設計圖紙 第五頁(單位:mm)}}{40}{figure.caption.33}%
+\contentsline {figure}{\numberline {4.12}{\ignorespaces 實驗二：實驗過程縮圖，(a)執行畫方形指令(b)完成畫方形指令(c)執行畫三角形指令(d)完成畫三角形指令(e)執行畫星形指令(f)完成畫星形指令}}{44}{figure.caption.39}%
+\contentsline {figure}{\numberline {4.13}{\ignorespaces 實驗三：設計圖紙 第一頁(單位:mm)}}{45}{figure.caption.40}%
+\contentsline {figure}{\numberline {4.14}{\ignorespaces 實驗三：設計圖紙 第二頁(單位:mm)}}{46}{figure.caption.41}%
+\contentsline {figure}{\numberline {4.15}{\ignorespaces 實驗三：設計圖紙 第三頁(單位:mm)}}{46}{figure.caption.42}%
+\contentsline {figure}{\numberline {4.16}{\ignorespaces 實驗三：設計圖紙 第四頁(單位:mm)}}{47}{figure.caption.43}%
+\contentsline {figure}{\numberline {4.17}{\ignorespaces 實驗三：設計圖紙 第五頁(單位:mm)}}{47}{figure.caption.44}%
+\contentsline {figure}{\numberline {4.18}{\ignorespaces 實驗三：設計圖紙 第六頁(單位:mm)}}{48}{figure.caption.45}%
+\contentsline {figure}{\numberline {4.19}{\ignorespaces 實驗三：實驗過程縮圖，(a)瞄準紅色方塊(b)夾取紅色方塊(c)夾取成功(d)瞄準藍色方塊(e)夾取藍色方塊(f)夾取成功}}{51}{figure.caption.49}%
+\contentsline {figure}{\numberline {4.20}{\ignorespaces 實驗四：實驗過程縮圖，(a)移動至紅色方塊前(b)裝載紅色方塊(c)移動至綠色方塊前(d)略過綠色方塊(e)移動至藍色方塊前(f)卸下紅色方塊}}{56}{figure.caption.53}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsfinish 
+\contentsfinish 
