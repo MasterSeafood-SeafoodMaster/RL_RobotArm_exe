@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.4.23)  6 AUG 2024 23:32
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.4.23)  13 AUG 2024 16:32
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -2013,83 +2013,29 @@ Package newfloat Info: Setting Plan B file extension to `lof'... on input line 4
 
 ]) (./chapters/acknowledgements.tex [7]) [8
 
-]
-File: letters/letter_thesis_simularity.pdf Graphic file (type pdf)
-<use letters/letter_thesis_simularity.pdf>
-File: letters/letter_thesis_simularity.pdf Graphic file (type pdf)
-<use letters/letter_thesis_simularity.pdf>
-File: letters/letter_thesis_simularity.pdf Graphic file (type pdf)
-<use letters/letter_thesis_simularity.pdf, page 1>
-File: letters/letter_thesis_simularity.pdf Graphic file (type pdf)
-<use letters/letter_thesis_simularity.pdf, page 1>
-File: letters/letter_thesis_simularity.pdf Graphic file (type pdf)
-<use letters/letter_thesis_simularity.pdf, page 1>
-File: letters/letter_thesis_simularity.pdf Graphic file (type pdf)
-<use letters/letter_thesis_simularity.pdf, page 1>
-File: letters/letter_thesis_simularity.pdf Graphic file (type pdf)
-<use letters/letter_thesis_simularity.pdf, page 1>
- [9
+] (./main.toc [9
 
 
-]
-File: letters/letter_caree_certification.pdf Graphic file (type pdf)
-<use letters/letter_caree_certification.pdf>
-File: letters/letter_caree_certification.pdf Graphic file (type pdf)
-<use letters/letter_caree_certification.pdf>
-File: letters/letter_caree_certification.pdf Graphic file (type pdf)
-<use letters/letter_caree_certification.pdf, page 1>
-File: letters/letter_caree_certification.pdf Graphic file (type pdf)
-<use letters/letter_caree_certification.pdf, page 1>
-File: letters/letter_caree_certification.pdf Graphic file (type pdf)
-<use letters/letter_caree_certification.pdf, page 1>
-File: letters/letter_caree_certification.pdf Graphic file (type pdf)
-<use letters/letter_caree_certification.pdf, page 1>
-File: letters/letter_caree_certification.pdf Graphic file (type pdf)
-<use letters/letter_caree_certification.pdf, page 1>
- [10
-
-
-]
-File: letters/letter_remote_exam.pdf Graphic file (type pdf)
-<use letters/letter_remote_exam.pdf>
-File: letters/letter_remote_exam.pdf Graphic file (type pdf)
-<use letters/letter_remote_exam.pdf>
-File: letters/letter_remote_exam.pdf Graphic file (type pdf)
-<use letters/letter_remote_exam.pdf, page 1>
-File: letters/letter_remote_exam.pdf Graphic file (type pdf)
-<use letters/letter_remote_exam.pdf, page 1>
-File: letters/letter_remote_exam.pdf Graphic file (type pdf)
-<use letters/letter_remote_exam.pdf, page 1>
-File: letters/letter_remote_exam.pdf Graphic file (type pdf)
-<use letters/letter_remote_exam.pdf, page 1>
-File: letters/letter_remote_exam.pdf Graphic file (type pdf)
-<use letters/letter_remote_exam.pdf, page 1>
- [11
-
-
-] (./main.toc [12
-
-
-] [13])
+] [10])
 \tf@toc=\write9
 \openout9 = `main.toc'.
 
- [14] (./main.lof
+ [11] (./main.lof
 Overfull \hbox (26.5495pt too wide) in paragraph at lines 13--13
  [][] [][]\TU/DFKai-SB(0)/m/n/14.4 開 發 板 與 馬 達 縮 圖，| \TU/TimesNewRoman(0)/m/n/14.4 (a)SG90 [39](b)MG90S [40](c)MG996R [41] 
  []
 
-[15
+[12
 
 ])
 \tf@lof=\write10
 \openout10 = `main.lof'.
 
- [16] (./main.lot)
+ [13] (./main.lot)
 \tf@lot=\write11
 \openout11 = `main.lot'.
 
- [17
+ [14
 
 ] (./chapters/chapter1_introduction.tex
 章 1.
@@ -2644,18 +2590,6 @@ letters/letter_verification.pdf
 chapters/abstract_zh.tex
 chapters/abstract_en.tex
 chapters/acknowledgements.tex
-letters/letter_thesis_simularity.pdf
-letters/letter_thesis_simularity.pdf
-letters/letter_thesis_simularity.pdf
-letters/letter_thesis_simularity.pdf
-letters/letter_caree_certification.pdf
-letters/letter_caree_certification.pdf
-letters/letter_caree_certification.pdf
-letters/letter_caree_certification.pdf
-letters/letter_remote_exam.pdf
-letters/letter_remote_exam.pdf
-letters/letter_remote_exam.pdf
-letters/letter_remote_exam.pdf
 chapters/chapter1_introduction.tex
 chapters/chapter2_background_and_related_work.tex
 figures/Coordinate frame assignment for a general manipulator.jpg
@@ -2748,12 +2682,12 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 50224 strings out of 474759
- 1118603 string characters out of 5761036
- 2307620 words of memory out of 5000000
- 71496 multiletter control sequences out of 15000+600000
+ 50182 strings out of 474759
+ 1116919 string characters out of 5761036
+ 2306457 words of memory out of 5000000
+ 71460 multiletter control sequences out of 15000+600000
  566487 words of font info for 120 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  131i,17n,135p,1226b,5508s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.xdv (80 pages, 816040 bytes).
+Output written on main.xdv (77 pages, 813928 bytes).

@@ -512,15 +512,6 @@ INPUT chapters/abstract_en.tex
 INPUT ./chapters/acknowledgements.tex
 INPUT ./chapters/acknowledgements.tex
 INPUT chapters/acknowledgements.tex
-INPUT ./letters/letter_thesis_simularity.pdf
-INPUT ./letters/letter_thesis_simularity.pdf
-INPUT letters/letter_thesis_simularity.pdf
-INPUT ./letters/letter_caree_certification.pdf
-INPUT ./letters/letter_caree_certification.pdf
-INPUT letters/letter_caree_certification.pdf
-INPUT ./letters/letter_remote_exam.pdf
-INPUT ./letters/letter_remote_exam.pdf
-INPUT letters/letter_remote_exam.pdf
 INPUT ./main.toc
 INPUT ./main.toc
 INPUT main.toc

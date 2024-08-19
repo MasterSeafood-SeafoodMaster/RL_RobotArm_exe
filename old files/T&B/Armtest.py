@@ -43,7 +43,7 @@ while True:
         Arm.angList=ap
         Arm.forward_kinematics(Arm.angList)
         Arm.updatePicture()
-"""
+
 
 path = []
 path += Arm.moveto([0, 0, 25], 20)
@@ -53,3 +53,4 @@ path += Arm.moveto([10, 13, 15], 20)
 path += Arm.moveto([9.5, 0, 14.5], 20)
 path+=[[91, 0, 0, 0]]
 print(path)
+"""
